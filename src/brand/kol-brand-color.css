@@ -1,0 +1,111 @@
+/**
+ * kol-brand-color.css — Another Creation brand color layer.
+ *
+ * Layers ON TOP of kol-theme/src/kol-color.css. The DS theme ships brand-neutral
+ * (accent defaults to ink-on-surface). This file declares the AC brand
+ * primitives (burgundy ramp + cream + grey) and rebinds --kol-accent-* to point
+ * at the brand role. Import AFTER kol-theme.css.
+ *
+ * Out of scope for `init-scaffold`. Pulled by `init-client` (or a manual import
+ * for branded surfaces). Each client gets their own kol-brand swap; the DS
+ * package itself stays client-agnostic.
+ *
+ * Anchors: ★ marks the canonical stop matching the source design references.
+ */
+
+/* =============================================================================
+ * BRAND RAMPS — primitive layer
+ *
+ * Burgundy is the AC brand identity hue. Cream is the project-flavored utility
+ * neutral, anchored at Champagne (300) and Sand Gold (400). Grey is the legacy
+ * 10-stop UI neutral; consumers that need brand-agnostic greys use the surface
+ * tier in kol-theme instead.
+ * ============================================================================= */
+
+:root {
+  /* Burgundy — AC brand primary. ★ anchor at 200.
+     Named identities used in /styleguide chapter 4:
+       200 = Burgundy · 300 = Dark Maroon · 400 = Deep Wine. */
+  --brand-burgundy-100: #943143;
+  --brand-burgundy-200: #750E20; /* anchor */
+  --brand-burgundy-300: #5A0816;
+  --brand-burgundy-400: #3A0008;
+  --brand-burgundy-500: #290006;
+
+  /* Cream — utility neutral, project-flavored. ★ Champagne (300), Sand Gold (400). */
+  --cream-100: #FBF7EE;
+  --cream-200: #F8F1E0;
+  --cream-300: #F2E5CB; /* Champagne Beige */
+  --cream-400: #F2D9A9; /* Sand Gold */
+  --cream-500: #D9B97A;
+
+  /* Grey — legacy 10-stop neutral. */
+  --grey-50:  #FCFBFB;
+  --grey-100: #EBEBEB;
+  --grey-200: #DBDBDB;
+  --grey-300: #A3A3A4;
+  --grey-400: #5B5B5D;
+  --grey-500: #363639;
+  --grey-600: #2E2E30;
+  --grey-700: #242427;
+  --grey-800: #1B1B1E;
+  --grey-900: #131316;
+}
+
+/* =============================================================================
+ * BRAND ROLES — semantic identity (theme pairs)
+ *
+ * What "the brand" is, today. Edit these four lines to rebrand without touching
+ * any consumer. Pairs ensure ink-on-fill contrast holds across the system.
+ * ============================================================================= */
+
+:root {
+  --brand-primary:       var(--brand-burgundy-200); /* dominant brand color */
+  --brand-on-primary:    var(--cream-100);          /* ink on brand-primary */
+  --brand-secondary:     var(--cream-300);          /* secondary brand color */
+  --brand-on-secondary:  var(--brand-burgundy-300); /* ink on brand-secondary */
+}
+
+/* =============================================================================
+ * ACCENT REBIND — brand layer takes over the DS accent role.
+ *
+ * kol-theme defaults --kol-accent-* to ink-on-surface (brand-neutral). When
+ * kol-brand-color.css loads, accent points at the burgundy brand identity.
+ * Buttons, focus rings, sidenav active dots all switch from ink to brand.
+ * ============================================================================= */
+
+:root {
+  --kol-accent-primary:        var(--brand-burgundy-100);
+  --kol-accent-on-primary:     var(--cream-100);
+  --kol-accent-primary-strong: var(--brand-burgundy-300);
+}
+
+/* =============================================================================
+ * TAILWIND CONTRACT — brand color exposures
+ *
+ * Generates `bg-brand-primary`, `bg-brand-burgundy-300`, etc. Tailwind v4 reads
+ * @theme blocks from any imported CSS, so registering here works the same as
+ * if it were in the entry point.
+ * ============================================================================= */
+
+@theme {
+  /* Role layer — what the brand is, today. */
+  --color-brand-primary:        var(--brand-primary);
+  --color-brand-on-primary:     var(--brand-on-primary);
+  --color-brand-secondary:      var(--brand-secondary);
+  --color-brand-on-secondary:   var(--brand-on-secondary);
+
+  /* Burgundy ramp access — direct stops for one-off / chart needs. */
+  --color-brand-burgundy-100:   var(--brand-burgundy-100);
+  --color-brand-burgundy-200:   var(--brand-burgundy-200);
+  --color-brand-burgundy-300:   var(--brand-burgundy-300);
+  --color-brand-burgundy-400:   var(--brand-burgundy-400);
+  --color-brand-burgundy-500:   var(--brand-burgundy-500);
+
+  /* Neutrals — utility ramps, not part of brand identity. */
+  --color-cream-100:            var(--cream-100);
+  --color-cream-200:            var(--cream-200);
+  --color-cream-300:            var(--cream-300);
+  --color-cream-400:            var(--cream-400);
+  --color-cream-500:            var(--cream-500);
+}

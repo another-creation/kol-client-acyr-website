@@ -1,0 +1,1020 @@
+/**
+ * kol-site.css — marketing-site (/site) specific styles.
+ *
+ * .site-* family — section chrome for the marketing surfaces (intro / feature /
+ * marquee / anchor / sig / gallery / testimonial / faq). Consumes brand + ui
+ * token aliases from kol-color.css and the mono token from kol-typography.
+ */
+
+/* ═════════════════════════════════════════════════════════════════
+   FULLBLEED — width: 100vw + negative margin. Shared across every
+   landing section that spans viewport edge-to-edge.
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-intro,
+.site-feature,
+.site-marquee,
+.site-anchor,
+.site-sig,
+.site-gallery,
+.site-testimonial,
+.site-faq {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   INTRO — kinetic brand reveal
+
+   .site-intro / -stage / -mark wrappers inlined in Landing.jsx. CSS
+   retains everything the GSAP timeline animates (-bg opacity, -mark-halo
+   gradient + blur + opacity, -mark-wipe mask custom property contract,
+   -word/-word-char typography + will-change, -pullline*, -scroll-cue +
+   bob keyframes), plus the -veil radial+linear gradient and the
+   descendant svg sizing for the mark's BrandLogo.
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-intro-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-intro-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 50% 50%, color-mix(in srgb, var(--kol-surface-primary) 60%, transparent) 0%, color-mix(in srgb, var(--kol-surface-primary) 20%, transparent) 60%, transparent 100%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--kol-surface-primary) 48%, transparent) 0%,
+      color-mix(in srgb, var(--kol-surface-primary) 20%, transparent) 40%,
+      color-mix(in srgb, var(--kol-surface-primary) 64%, transparent) 100%);
+  pointer-events: none;
+}
+
+.site-mark-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(280px, 32vw, 480px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand-primary) 44%, transparent) 0%, transparent 65%);
+  filter: blur(24px);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.site-intro-mark .kol-brand-logo,
+.site-intro-mark svg { width: 100%; height: auto; display: block; }
+
+.site-mark-wipe {
+  --mask-x: -100%;
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  -webkit-mask-size: 200% 100%;
+  mask-size: 200% 100%;
+  -webkit-mask-position: var(--mask-x) 0%;
+  mask-position: var(--mask-x) 0%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.site-intro-word {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: "Right Grotesk Wide", "Right Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: clamp(56px, 12vw, 160px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--kol-surface-on-primary);
+  display: inline-flex;
+  gap: 0.02em;
+}
+
+.site-word-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.site-pullline {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  font-family: "Right Grotesk Compact", "Right Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 72%, transparent);
+}
+
+.site-pullline-item {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.site-pullline-serif {
+  font-family: 'Right Grotesk', sans-serif;
+  font-feature-settings: "liga", "dlig";
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.25em;
+  letter-spacing: 0;
+  color: var(--brand-primary);
+}
+
+.site-pullline-sep {
+  opacity: 0.4;
+  font-size: 0.8em;
+}
+
+.site-scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.site-scroll-cue span:first-child { animation: site-bob 1.6s ease-in-out infinite; }
+
+@keyframes site-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   FEATURE — text + image, editorial pull
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-feature {
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  padding: var(--kol-pad-page-y) var(--kol-pad-page-x);
+}
+
+.site-feature-kicker {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.site-feature-pull {
+  margin: 0;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 5.5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-feature-pull em {
+  font-family: 'Right Grotesk', sans-serif;
+  font-feature-settings: "liga", "dlig";
+  font-weight: 700;
+  font-style: italic;
+  color: var(--brand-primary);
+}
+
+.site-feature-body {
+  margin: 0;
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 72%, transparent);
+}
+
+.site-feature-meta {
+  border-top: 1px solid color-mix(in srgb, var(--kol-surface-on-primary) 8%, transparent);
+}
+
+.site-feature-meta-num {
+  font-family: "Right Grotesk Wide", "Right Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-feature-meta-label {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+}
+
+.site-feature-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.site-feature-visual-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 60%,
+    color-mix(in srgb, var(--kol-surface-primary) 48%, transparent) 100%
+  );
+  pointer-events: none;
+}
+
+.site-feature-visual-caption {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 80%, transparent);
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   MARQUEE — customers in the house (rotating lockup strip)
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-marquee {
+  background: var(--kol-color-absolute-black);
+  color: var(--kol-surface-on-primary);
+  height: 192px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.site-marquee-kicker {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+}
+
+.site-marquee-head-note {
+  font-family: "Right Grotesk", sans-serif;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 56%, transparent);
+}
+
+.site-marquee-track-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.site-marquee-track {
+  display: flex;
+  gap: 80px;
+  width: max-content;
+  animation: site-marquee-scroll 60s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .site-marquee-track { gap: 40px; }
+}
+
+.site-marquee-track-wrap:hover .site-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes site-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.site-marquee-item {
+  color: var(--kol-surface-on-primary);
+  transition: color 200ms ease;
+}
+
+.site-marquee-track:hover .site-marquee-item {
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 60%, transparent);
+}
+
+.site-marquee-track .site-marquee-item:hover {
+  color: var(--kol-surface-on-primary);
+}
+
+.site-marquee-item-mark {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.site-marquee-item-mark .kol-brand-logo,
+.site-marquee-item-mark svg { width: 100%; height: 100%; display: block; }
+
+.site-marquee-item-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.site-marquee-item-parent {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+.site-marquee-item-descriptor {
+  font-size: 0.64em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   PORTAL INDEX — editorial anchor + card grid
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-anchor {
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  padding: var(--kol-pad-page-y) var(--kol-pad-page-x);
+}
+
+.site-anchor-pull {
+  margin: 24px 0 0;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-anchor-pull-italic {
+  font-family: 'Right Grotesk', sans-serif;
+  font-feature-settings: "liga", "dlig";
+  font-weight: 700;
+  font-style: italic;
+  color: var(--brand-primary);
+  margin-left: 0.2em;
+  letter-spacing: -0.01em;
+}
+
+.site-anchor-body {
+  margin: 32px 0 64px;
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 78%, transparent);
+  max-width: 640px;
+}
+
+.site-anchor-nav {
+  background: color-mix(in srgb, var(--kol-surface-on-primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--kol-surface-on-primary) 8%, transparent);
+}
+
+.site-anchor-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 28px;
+  text-decoration: none;
+  color: var(--kol-surface-on-primary);
+  background: var(--kol-surface-primary);
+  transition: background 250ms ease;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.site-anchor-link:hover {
+  background: var(--kol-surface-secondary);
+}
+
+.site-anchor-link-num {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+  margin-bottom: auto;
+}
+
+.site-anchor-link-label {
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: color 200ms ease;
+}
+
+.site-anchor-link-sub {
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 56%, transparent);
+}
+
+.site-anchor-link:hover .site-anchor-link-label {
+  color: var(--brand-primary);
+}
+
+.site-anchor-link-mark {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  width: clamp(120px, 16vw, 180px);
+  transform: translateY(-50%) rotate(-8deg);
+  opacity: 0.1;
+  transition: opacity 300ms ease, transform 300ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-anchor-link-mark .kol-brand-logo,
+.site-anchor-link-mark svg { width: 100%; height: auto; display: block; }
+
+.site-anchor-link--client { color: var(--kol-surface-on-primary); }
+.site-anchor-link--client .site-anchor-link-mark { color: var(--brand-primary); }
+.site-anchor-link--client:hover .site-anchor-link-mark {
+  opacity: 0.26;
+  transform: translateY(-50%) rotate(0deg) scale(1.06);
+}
+.site-anchor-link--client:hover .site-anchor-link-label { color: var(--brand-primary); }
+
+.site-anchor-link--client .site-anchor-link-mark { color: var(--brand-primary); }
+.site-anchor-link--client:hover .site-anchor-link-mark {
+  opacity: 0.28;
+  transform: translateY(-50%) rotate(0deg) scale(1.06);
+}
+.site-anchor-link--client:hover .site-anchor-link-label { color: var(--brand-primary); }
+
+.site-anchor-link-num,
+.site-anchor-link-label,
+.site-anchor-link-sub { position: relative; z-index: 1; }
+
+/* ═════════════════════════════════════════════════════════════════
+   SIGNATURE TICKER
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-sig {
+  background: var(--kol-surface-primary);
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 56%, transparent);
+  padding: var(--kol-pad-page-y) var(--kol-pad-page-x);
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-sig-sep { opacity: 0.3; }
+
+.site-sig-hex { font-family: var(--kol-font-family-mono, monospace); }
+
+/* ═════════════════════════════════════════════════════════════════
+   GALLERY — work highlights carousel (horizontal scroll-snap)
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-gallery {
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  padding: var(--kol-pad-page-y) 0;
+}
+
+.site-gallery-title {
+  margin: 0;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-gallery-title em {
+  font-family: 'Right Grotesk', sans-serif;
+  font-feature-settings: "liga", "dlig";
+  font-weight: 700;
+  font-style: italic;
+  color: var(--brand-primary);
+  letter-spacing: -0.01em;
+}
+
+.site-gallery-note {
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 56%, transparent);
+  max-width: 384px;
+}
+
+.site-gallery-viewport {
+  overflow: hidden;
+  padding: 0 var(--kol-pad-page-x) 24px;
+  cursor: grab;
+}
+
+.site-gallery-viewport:active { cursor: grabbing; }
+
+.site-gallery-card {
+  flex: 0 0 clamp(280px, 32vw, 440px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-decoration: none;
+  color: var(--kol-surface-on-primary);
+  transition: transform 300ms ease;
+}
+
+.site-gallery-card:hover {
+  transform: translateY(-4px);
+}
+
+.site-gallery-card-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--brand-surface-deep);
+}
+
+.site-gallery-card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+
+.site-gallery-card:hover .site-gallery-card-visual img {
+  transform: scale(1.04);
+}
+
+.site-gallery-card-kicker {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+}
+
+.site-gallery-card-title {
+  margin: 0;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: color 200ms ease;
+}
+
+.site-gallery-card:hover .site-gallery-card-title {
+  color: var(--brand-primary);
+}
+
+.site-gallery-card-desc {
+  margin: 0;
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 64%, transparent);
+}
+
+.site-gallery-card-mark-overlay .kol-brand-logo { width: 44%; }
+
+.site-gallery-card-letter {
+  font-size: clamp(80px, 14vw, 200px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   TESTIMONIAL — editorial pull quote
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-testimonial {
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  padding: var(--kol-pad-page-y) var(--kol-pad-page-x);
+}
+
+.site-testimonial--inverse {
+  background: var(--kol-surface-inverse);
+  color: var(--kol-surface-on-inverse);
+}
+
+.site-testimonial-kicker {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+}
+
+.site-testimonial-quote {
+  margin: 0;
+  font-family: 'Right Grotesk', sans-serif;
+  font-feature-settings: "liga", "dlig";
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-testimonial-quote::before,
+.site-testimonial-quote::after {
+  content: '"';
+  color: var(--brand-primary);
+  opacity: 0.7;
+}
+
+.site-testimonial-cite {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 64%, transparent);
+}
+
+.site-testimonial-cite::before {
+  content: "— ";
+  opacity: 0.6;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   FAQ — collapsible Q/A
+   ═════════════════════════════════════════════════════════════════ */
+
+.site-faq {
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  padding: var(--kol-pad-page-y) var(--kol-pad-page-x);
+}
+
+.site-faq-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--kol-pad-page-x);
+}
+
+@media (max-width: 768px) {
+  .site-faq-inner { grid-template-columns: 1fr; }
+}
+
+.site-faq-kicker {
+  font-family: var(--kol-font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+}
+
+.site-faq-title {
+  margin: 0;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--kol-surface-on-primary);
+}
+
+.site-faq-item + .site-faq-item {
+  border-top: 1px solid color-mix(in srgb, var(--kol-surface-on-primary) 8%, transparent);
+}
+
+.site-faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: "Right Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--kol-surface-on-primary);
+  transition: color 200ms ease;
+}
+
+.site-faq-item > summary::-webkit-details-marker { display: none; }
+
+.site-faq-item > summary:hover { color: var(--brand-primary); }
+
+.site-faq-item-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid color-mix(in srgb, var(--kol-surface-on-primary) 24%, transparent);
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 240ms ease, border-color 200ms ease;
+}
+
+.site-faq-item[open] .site-faq-item-toggle {
+  transform: rotate(45deg);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.site-faq-item-body {
+  padding: 0 0 28px;
+  font-family: "Right Grotesk Text", "Right Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 72%, transparent);
+  max-width: 600px;
+}
+
+.site-faq-item-body a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   SITE NAV — top bar + mobile drawer.
+   Layout lives in CSS (was inline) so it can respond to media queries.
+   ═════════════════════════════════════════════════════════════════ */
+
+.kol-site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 0 32px;
+  height: 48px;
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  transform: translateY(0);
+  transition: transform 250ms ease;
+}
+
+.kol-site-nav.is-center { grid-template-columns: 1fr auto 1fr; }
+.kol-site-nav.is-hidden { transform: translateY(-100%); }
+
+.kol-site-nav-hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--kol-surface-on-primary);
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px;
+}
+
+.kol-site-nav-link { transition: opacity 150ms ease; }
+.kol-site-nav-link:hover,
+.kol-site-nav-link:focus-visible { opacity: 0.55; }
+
+.kol-site-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+.kol-site-nav-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.kol-site-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(80vw, 320px);
+  z-index: 45;
+  background: var(--kol-surface-primary);
+  color: var(--kol-surface-on-primary);
+  border-left: 1px solid var(--kol-fg-08);
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  display: none;
+}
+.kol-site-nav-drawer.is-open { transform: translateX(0); }
+
+.kol-site-nav-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 64px 28px 28px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+  .kol-site-nav { grid-template-columns: 1fr auto !important; padding: 0 16px; }
+  .kol-site-nav .kol-site-nav-cluster { display: none; }
+  .kol-site-nav-hamburger { display: inline-flex; }
+  .kol-site-nav-drawer { display: block; }
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   SITE FOOTER — three columns desktop, single column mobile.
+   Layout in CSS so media queries can override (was inline before).
+   ═════════════════════════════════════════════════════════════════ */
+
+/* ───── SITE FOOTER ─────
+   Visual register matches the top nav: same horizontal padding,
+   same Right Grotesk Narrow uppercase link typography, same hover.
+   Three columns desktop (Studio · Browse · Connect), single column mobile. */
+
+.kol-site-footer {
+  background: var(--kol-color-absolute-black);
+  color: var(--kol-surface-on-primary);
+}
+
+.kol-site-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1.2fr 1fr 1fr 1fr;
+  padding: 64px 32px 48px;
+  gap: 48px;
+}
+
+.kol-site-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kol-site-footer-mark {
+  margin-bottom: 24px;
+  color: var(--kol-surface-on-primary);
+}
+
+.kol-site-footer-mark .kol-logo { width: 140px; height: auto; display: block; }
+
+.kol-site-footer-label {
+  font-family: 'Right Grotesk Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 48%, transparent);
+  margin: 0;
+}
+
+.kol-site-footer-label--legal { margin-top: 24px; }
+
+.kol-site-footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kol-site-footer-list li {
+  font-family: 'Right Grotesk Narrow', 'Right Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 80%, transparent);
+}
+
+.kol-site-footer-meta {
+  font-family: 'Right Grotesk Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 56%, transparent);
+}
+
+.kol-site-footer-link {
+  font-family: 'Right Grotesk Narrow', 'Right Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--kol-surface-on-primary) 80%, transparent);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 150ms ease;
+}
+.kol-site-footer-link:hover,
+.kol-site-footer-link:focus-visible { opacity: 0.55; }
+
+.kol-site-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .kol-site-footer-grid {
+    grid-template-columns: 1fr;
+    padding: 48px 20px 32px;
+    gap: 36px;
+  }
+  .kol-site-footer-bottom {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .kol-site-footer-mark .kol-logo { width: 120px; }
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   SITE COLLECTION — product grid: 4 cols desktop, 2 cols mobile.
+   ═════════════════════════════════════════════════════════════════ */
+
+.kol-site-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 767px) {
+  .kol-site-collection-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Product card overlay: hover-reveal on pointer devices, always-visible on
+   touch (hover: none) so the CTAs are reachable on phones. */
+.kol-product-card:hover [data-overlay],
+.kol-product-card:focus-within [data-overlay] { opacity: 1; }
+
+@media (hover: none) {
+  .kol-product-card [data-overlay] { opacity: 1; }
+}
+
+/* Newsletter row: input + button side-by-side desktop, stacked column <480px. */
+.kol-site-newsletter-row { display: flex; gap: 12px; }
+.kol-site-newsletter-submit { flex-shrink: 0; min-height: 44px; }
+
+@media (max-width: 479px) {
+  .kol-site-newsletter-row { flex-direction: column; gap: 16px; }
+  .kol-site-newsletter-submit { width: 100%; }
+}
+
+/* Support CTA buttons: two-up desktop, stacked <480px. */
+.kol-site-support-cta-actions { display: flex; gap: 12px; }
+
+@media (max-width: 479px) {
+  .kol-site-support-cta-actions { flex-direction: column; width: 100%; max-width: 320px; }
+  .kol-site-support-cta-actions > * { width: 100%; }
+}
+

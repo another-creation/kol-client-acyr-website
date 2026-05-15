@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "./styles/kol-theme.css";
+
+/* Brand layer — Kolkrabbi identity (hue ramps, brand-primary/secondary, accent rebind).
+   Layers ON TOP of kol-color.css; the DS ships brand-neutral, this binds the brand.
+   Loaded BEFORE framework so framework can override at equal specificity. */
+@import "./brand/kol-brand-color.css";
+
+/* Framework layer — page chrome, brand layout, structural rules. */
+@import "./components/framework/kol-framework.css";
+
+/* Marketing-site (.kol-site-*) chrome. */
+@import "./styles/kol-site.css";
+
+/* Tailwind token registration — lets JSX use bg-brand-primary, text-ui-ink, etc.
+   instead of bg-[var(--brand-primary)] arbitrary values. */
+@theme {
+  --color-brand-primary:        var(--brand-primary);
+  --color-brand-primary-on:     var(--brand-primary-on);
+  --color-brand-secondary:      var(--brand-secondary);
+  --color-brand-secondary-on:   var(--brand-secondary-on);
+  --color-brand-accent:         var(--kol-accent);
+  --color-brand-accent-primary: var(--kol-accent-primary);
+}
+
+/* Reserve scrollbar gutter regardless of overflow state, so 100vw fullbleed
+   patterns and w-screen carousels don't horizontal-scroll when a vertical
+   scrollbar appears. */
+:root { scrollbar-gutter: stable; }

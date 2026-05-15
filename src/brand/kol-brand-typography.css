@@ -1,0 +1,90 @@
+/**
+ * kol-brand-typography.css — AC brand typography for the marketing site.
+ *
+ * Loaded ONLY by `src/components/site/SiteLayout.jsx` — applies once a
+ * site route mounts and stays loaded for the rest of the session.
+ * Adds:
+ *   - Right Grotesk Mono @font-face blocks (brand mono)
+ *   - --kol-text-helper-{xs,xxs,s} tokens
+ *   - --kol-font-family-mono override pointing at Right Grotesk Mono
+ *   - .kol-helper-{xs,xxs,s} and .kol-mono-text classes consumed by site code
+ *
+ * DS typography (kol-typography.css + kol-typography-mono.css) covers the
+ * portal; this file layers the site-specific font + scale on top.
+ */
+
+/* =============================================================================
+ * @font-face — Right Grotesk Mono
+ * ============================================================================= */
+
+@font-face {
+  font-family: "Right Grotesk Mono";
+  src: url("/fonts/Right-Grotesk-Mono/PPRightGroteskMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Right Grotesk Mono";
+  src: url("/fonts/Right-Grotesk-Mono/PPRightGroteskMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Right Grotesk Mono";
+  src: url("/fonts/Right-Grotesk-Mono/PPRightGroteskMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================================================
+ * Tokens — t-shirt-scale helper sizes + mono family override
+ * ============================================================================= */
+
+:root {
+  --kol-text-helper-s:   14px;
+  --kol-text-helper-xs:  12px;
+  --kol-text-helper-xxs: 10px;
+
+  /* Brand mono (overrides DS jetbrains-mono on site routes only — but Vite
+     bundles this globally once SiteLayout mounts; cross-portal carryover
+     accepted as a side-effect of the JS-import-CSS pattern). */
+  --kol-font-family-mono: 'Right Grotesk Mono', monospace;
+}
+
+/* =============================================================================
+ * Helper classes — t-shirt scale, mono, label-flavored.
+ * ============================================================================= */
+
+.kol-helper-s {
+  font-family: var(--kol-font-family-mono);
+  font-size: var(--kol-text-helper-s);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.kol-helper-xs {
+  font-family: var(--kol-font-family-mono);
+  font-size: var(--kol-text-helper-xs);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.kol-helper-xxs {
+  font-family: var(--kol-font-family-mono);
+  font-size: var(--kol-text-helper-xxs);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+}
+
+.kol-mono-text {
+  font-family: var(--kol-font-family-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
