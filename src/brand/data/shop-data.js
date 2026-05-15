@@ -199,6 +199,10 @@ const PRINTFUL_OVERRIDES = {
     type:    'bag',
     excerpt: 'Recycled all-over-print gym bag — one main compartment, front pocket.',
   },
+  'snapback-hat': {
+    type:    'hat',
+    excerpt: 'Six-panel snapback with structured front, flat brim, adjustable strap.',
+  },
 }
 
 const fromPrintful = (p) => pod({

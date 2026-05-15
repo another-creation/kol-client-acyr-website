@@ -1,6 +1,38 @@
 [
   {
     "source": "printful",
+    "printfulProductId": 432978243,
+    "slug": "snapback-hat",
+    "name": "Snapback Hat",
+    "price": 13,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/snapback-hat.png",
+    "sizes": [
+      "One size"
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5310604233,
+        "catalogVariantId": 4798,
+        "size": "One size",
+        "color": "Dark Navy",
+        "retailPrice": 13,
+        "currency": "EUR",
+        "sku": "6A077A0CD2930_Dark-Navy"
+      },
+      {
+        "syncVariantId": 5310604234,
+        "catalogVariantId": 22453,
+        "size": "One size",
+        "color": "White",
+        "retailPrice": 22.5,
+        "currency": "EUR",
+        "sku": "6A077A0CD2930_White"
+      }
+    ]
+  },
+  {
+    "source": "printful",
     "printfulProductId": 432793032,
     "slug": "all-over-print-gym-bag",
     "name": "All-over print gym bag",

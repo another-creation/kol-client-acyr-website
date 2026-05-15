@@ -1,16 +1,14 @@
 /**
  * Server-side cart validation. The client posts a cart; we recompute every
- * total against `printful-products.json` (the committed source of truth) and
+ * line against `printful-products.json` (the committed source of truth) and
  * reject anything that doesn't line up. Client-submitted prices are never
  * trusted.
+ *
+ * Shipping is computed separately via `./shipping.mjs` (Printful real-time
+ * rates) so it's not in this file's return shape.
  */
 
 import productsData from '../../src/brand/data/printful-products.json' with { type: 'json' }
-
-// MVP: flat shipping. Phase 2 swaps for a Printful shipping API call keyed on
-// the delivery country / postcode. Keep this value matched with the client-side
-// constant in Checkout.jsx so the UI summary matches the server's PayPal order.
-export const FLAT_SHIPPING_EUR = 10
 
 export function lookupVariant(slug, size) {
   const product = productsData.find((p) => p.slug === slug)
@@ -26,9 +24,9 @@ export function validateAndPrice(items) {
     throw new Error('Cart is empty')
   }
 
-  const lines    = []
-  let itemTotal  = 0
-  let currency   = 'EUR'
+  const lines   = []
+  let itemTotal = 0
+  let currency  = 'EUR'
 
   for (const it of items) {
     const found = lookupVariant(it.slug, it.size)
@@ -57,8 +55,5 @@ export function validateAndPrice(items) {
     })
   }
 
-  const shipping = FLAT_SHIPPING_EUR
-  const total    = itemTotal + shipping
-
-  return { lines, itemTotal, shipping, total, currency }
+  return { lines, itemTotal, currency }
 }

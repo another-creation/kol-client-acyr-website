@@ -1,14 +1,16 @@
 /**
  * POST /api/paypal/create-order
  *
- * Body: { items: [{ slug, size, qty }], delivery? }
+ * Body: { items: [{ slug, size, qty }], delivery: { country, ... } }
  *
- * Validates the cart against printful-products.json, creates a PayPal order
- * (intent=CAPTURE), returns { orderID } for the Smart Buttons SDK to approve.
+ * Validates the cart, fetches real Printful shipping for the destination,
+ * creates a PayPal order (intent=CAPTURE) with the combined total. Returns
+ * { orderID } for the Smart Buttons SDK to approve.
  */
 
 import { paypalFetch } from '../_lib/paypal.mjs'
 import { validateAndPrice } from '../_lib/products.mjs'
+import { getShippingRate } from '../_lib/shipping.mjs'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -17,10 +19,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body  = req.body ?? {}
-    const items = body.items ?? []
+    const body     = req.body ?? {}
+    const items    = body.items    ?? []
+    const delivery = body.delivery ?? {}
 
-    const priced = validateAndPrice(items)
+    const priced   = validateAndPrice(items)
+    const shipping = await getShippingRate({ items, delivery })
+    const total    = priced.itemTotal + shipping.rate
 
     const order = await paypalFetch('/v2/checkout/orders', {
       method: 'POST',
@@ -29,10 +34,10 @@ export default async function handler(req, res) {
         purchase_units: [{
           amount: {
             currency_code: priced.currency,
-            value:         priced.total.toFixed(2),
+            value:         total.toFixed(2),
             breakdown: {
               item_total: { currency_code: priced.currency, value: priced.itemTotal.toFixed(2) },
-              shipping:   { currency_code: priced.currency, value: priced.shipping.toFixed(2) },
+              shipping:   { currency_code: priced.currency, value: shipping.rate.toFixed(2) },
             },
           },
           items: priced.lines.map((l) => ({

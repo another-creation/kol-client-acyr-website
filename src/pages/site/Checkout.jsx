@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import usePageTitle from '../../components/hooks/usePageTitle'
@@ -25,10 +25,6 @@ const COUNTRIES = [
   { value: 'US', label: 'United States' },
   { value: 'CA', label: 'Canada' },
 ]
-
-// Must match `FLAT_SHIPPING_EUR` in api/_lib/products.mjs — the server uses its
-// own value for PayPal's order total; this is just for the UI summary.
-const FLAT_SHIPPING_EUR = 10
 
 const PAYPAL_OPTS = {
   'client-id': import.meta.env.VITE_PAYPAL_CLIENT_ID,
@@ -73,12 +69,38 @@ export default function Checkout() {
   const [delivery, setDelivery] = useState({
     firstName: '', lastName: '', street: '', city: '', postcode: '', country: 'IS', phone: '',
   })
-  const [payError, setPayError] = useState(null)
-  const [paying, setPaying]     = useState(false)
+  const [payError, setPayError]         = useState(null)
+  const [paying, setPaying]             = useState(false)
+  const [shipping, setShipping]         = useState(null)
+  const [shippingError, setShippingError] = useState(null)
 
-  const shipping = useMemo(() => (subtotal > 0 ? FLAT_SHIPPING_EUR : 0), [subtotal])
-  const tax      = 0
-  const total    = subtotal + shipping
+  const tax       = 0
+  const shipRate  = shipping?.rate ?? 0
+  const total     = subtotal + shipRate
+
+  // Fetch real Printful shipping when entering the pay step. Refetches on
+  // re-entry (user edits delivery, comes back).
+  useEffect(() => {
+    if (step !== 'pay' || items.length === 0) return
+    let cancelled = false
+    fetch('/api/printful/shipping-rates', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        items: items.map((it) => ({ slug: it.slug, size: it.size, qty: it.qty })),
+        delivery,
+      }),
+    })
+      .then(async (r) => {
+        const body = await r.json().catch(() => ({}))
+        if (!r.ok) throw new Error(body.error ?? 'Could not calculate shipping')
+        return body
+      })
+      .then((rate) => { if (!cancelled) setShipping(rate) })
+      .catch((err)  => { if (!cancelled) setShippingError(err.message) })
+    return () => { cancelled = true }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step])
 
   if (items.length === 0) {
     return (
@@ -154,7 +176,7 @@ export default function Checkout() {
           email,
           newsletter,
           subtotal,
-          shipping,
+          shipping:        shipRate,
           tax,
           total,
           currency,
@@ -209,7 +231,12 @@ export default function Checkout() {
                 <StepHeader index={2} label="Delivery" status={states.delivery} onEdit={() => setStep('delivery')} />
                 {states.delivery === 'open' ? (
                   <form
-                    onSubmit={(e) => { e.preventDefault(); setStep('pay') }}
+                    onSubmit={(e) => {
+                      e.preventDefault()
+                      setShipping(null)
+                      setShippingError(null)
+                      setStep('pay')
+                    }}
                     className="flex flex-col gap-4"
                   >
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -239,13 +266,17 @@ export default function Checkout() {
                   <div className="flex flex-col gap-4">
                     <div className="kol-prose">
                       <p style={{ margin: 0 }}>
-                        Total {formatPrice(total, currency)} — paid securely through PayPal. Pay with a PayPal account or any major card.
+                        {shipping
+                          ? <>Total {formatPrice(total, currency)} — paid securely through PayPal. Pay with a PayPal account or any major card.</>
+                          : shippingError
+                            ? <>We couldn't calculate shipping for this address. Edit your delivery details and try again.</>
+                            : <>Calculating shipping…</>}
                       </p>
                     </div>
 
-                    {payError && (
+                    {(payError || shippingError) && (
                       <div className="p-3 rounded bg-fg-04">
-                        <p className="kol-helper-xs text-emphasis" style={{ margin: 0 }}>{payError}</p>
+                        <p className="kol-helper-xs text-emphasis" style={{ margin: 0 }}>{payError ?? shippingError}</p>
                       </div>
                     )}
 
@@ -254,7 +285,7 @@ export default function Checkout() {
                     ) : (
                       <PayPalButtons
                         style={{ layout: 'vertical', color: 'black', shape: 'rect', label: 'pay', height: 48 }}
-                        disabled={!deliveryReady}
+                        disabled={!deliveryReady || !shipping}
                         createOrder={createOrder}
                         onApprove={onApprove}
                         onError={(err) => {
@@ -295,7 +326,14 @@ export default function Checkout() {
                   <span>Subtotal</span><span>{formatPrice(subtotal, currency)}</span>
                 </p>
                 <p style={{ display: 'flex', justifyContent: 'space-between', margin: '0 0 8px' }}>
-                  <span>Shipping</span><span>{formatPrice(shipping, currency)}</span>
+                  <span>Shipping</span>
+                  <span>
+                    {shipping
+                      ? formatPrice(shipping.rate, currency)
+                      : step === 'pay'
+                        ? (shippingError ? '—' : 'Calculating…')
+                        : 'At checkout'}
+                  </span>
                 </p>
                 <Divider />
                 <p style={{ display: 'flex', justifyContent: 'space-between', margin: '12px 0 0' }}>

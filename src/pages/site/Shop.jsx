@@ -9,7 +9,7 @@ import ProductCard from '../../components/site/ProductCard'
 
 const FILTER_GROUPS = [
   { label: 'Print', key: 'print', values: ['earth', 'metal', 'art-deco'] },
-  { label: 'Type',  key: 'type',  values: ['jacket', 'pants', 'top', 'sweatshirt', 'swim', 'active', 'bag'] },
+  { label: 'Type',  key: 'type',  values: ['jacket', 'pants', 'top', 'sweatshirt', 'swim', 'active', 'bag', 'hat'] },
 ]
 
 function ShopGrid({ items }) {
