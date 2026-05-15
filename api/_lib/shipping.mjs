@@ -18,9 +18,10 @@ export async function getShippingRate({ items, delivery }) {
   const printfulItems = items.map((it) => {
     const found = lookupVariant(it.slug, it.size)
     if (!found) throw new Error(`Unknown product: ${it.slug}`)
+    // /shipping/rates uses catalog variant_id (NOT sync_variant_id like /orders).
     return {
-      sync_variant_id: found.variant.syncVariantId,
-      quantity:        Number(it.qty) || 1,
+      variant_id: found.variant.catalogVariantId,
+      quantity:   Number(it.qty) || 1,
     }
   })
 
