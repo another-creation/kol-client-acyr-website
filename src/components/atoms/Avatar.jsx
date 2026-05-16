@@ -5,13 +5,15 @@ const SIZE_MAP = {
   xl: 'w-24 h-24 text-3xl',
 }
 
-export default function Avatar({ initial, size = 'sm', className = '' }) {
+export default function Avatar({ initial, src, alt, size = 'sm', className = '' }) {
   const sizeCls = SIZE_MAP[size] ?? SIZE_MAP.sm
-  return (
-    <span
-      className={`kol-avatar inline-flex items-center justify-center rounded-full bg-surface-secondary text-emphasis font-narrow font-semibold shrink-0 ${sizeCls} ${className}`}
-    >
-      {initial}
-    </span>
-  )
+  const base = `kol-avatar inline-flex items-center justify-center rounded-full bg-surface-secondary text-emphasis font-narrow font-semibold shrink-0 overflow-hidden ${sizeCls} ${className}`
+  if (src) {
+    return (
+      <span className={base}>
+        <img src={src} alt={alt ?? ''} className="w-full h-full object-cover" />
+      </span>
+    )
+  }
+  return <span className={base}>{initial}</span>
 }

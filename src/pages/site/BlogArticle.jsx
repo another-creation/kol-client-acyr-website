@@ -73,7 +73,12 @@ export default function BlogArticle() {
           <div className="kol-prose-label flex items-center gap-3 flex-wrap pt-4" style={{ marginBottom: 0 }}>
             {author && (
               <Link to={`/blog/author/${author.slug}`} className="inline-flex items-center gap-2.5 no-underline text-meta hover:text-emphasis">
-                <Avatar initial={author.avatarInitial} size="sm" />
+                <Avatar
+                  initial={author.avatarInitial}
+                  src={author.avatar ? urlFor(author.avatar).width(64).height(64).url() : null}
+                  alt={author.name}
+                  size="sm"
+                />
                 <span>{author.name}</span>
               </Link>
             )}
@@ -89,7 +94,12 @@ export default function BlogArticle() {
         {author && (
           <aside className="mt-20 p-8 rounded border border-fg-08 bg-surface-secondary">
             <Link to={`/blog/author/${author.slug}`} className="flex gap-5 no-underline hover:opacity-80 transition-opacity">
-              <Avatar initial={author.avatarInitial} size="lg" />
+              <Avatar
+                initial={author.avatarInitial}
+                src={author.avatar ? urlFor(author.avatar).width(112).height(112).url() : null}
+                alt={author.name}
+                size="lg"
+              />
               <div className="min-w-0 flex-1">
                 <p className="kol-prose-label" style={{ marginBottom: '8px' }}>{author.role}</p>
                 <div className="kol-prose">

@@ -48,7 +48,12 @@ export default function BlogAuthor() {
         </Link>
 
         <header className="flex gap-8 items-start flex-wrap">
-          <Avatar initial={author.avatarInitial} size="xl" />
+          <Avatar
+            initial={author.avatarInitial}
+            src={author.avatar ? urlFor(author.avatar).width(192).height(192).url() : null}
+            alt={author.name}
+            size="xl"
+          />
           <div className="flex-1 min-w-0">
             <p className="kol-prose-label">{author.role}</p>
             <h1 className="kol-prose-display-md">{author.name}</h1>
