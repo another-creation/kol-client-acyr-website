@@ -11,7 +11,9 @@ let cachedTemplate = null
 
 async function getTemplate() {
   if (cachedTemplate) return cachedTemplate
-  const filePath = path.join(process.cwd(), 'dist', 'index.html')
+  // Reads dist/app.html (renamed from index.html post-build so Vercel's
+  // filesystem routing can't shortcut bare `/` past our rewrite).
+  const filePath = path.join(process.cwd(), 'dist', 'app.html')
   cachedTemplate = await readFile(filePath, 'utf8')
   return cachedTemplate
 }
@@ -34,7 +36,7 @@ export default async function handler(req, res) {
     template = await getTemplate()
   } catch {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-    res.status(500).send('Metadata proxy: dist/index.html not built. Run `pnpm build` first.')
+    res.status(500).send('Metadata proxy: dist/app.html not built. Run `pnpm build` first.')
     return
   }
 
