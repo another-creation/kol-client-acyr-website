@@ -9,7 +9,7 @@
   ],
   "functions": {
     "api/metadata-proxy.mjs": {
-      "includeFiles": "dist/**"
+      "includeFiles": "dist/app.html"
     }
   }
 }
