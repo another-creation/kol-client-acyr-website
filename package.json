@@ -18,7 +18,6 @@
     "styleguide:dev": "pnpm --filter styleguide dev",
     "styleguide:build": "pnpm --filter styleguide build",
     "sync-printful": "node --env-file=.env.local scripts/sync-printful.mjs",
-    "migrate-sanity": "node --env-file=.env.local scripts/migrate-to-sanity.mjs",
-    "verify-versions": "node scripts/verify-versions.mjs"
+    "migrate-sanity": "node --env-file=.env.local scripts/migrate-to-sanity.mjs"
   }
 }
