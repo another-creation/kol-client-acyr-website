@@ -10,6 +10,7 @@
     "dev:website": "pnpm --filter website dev",
     "dev:studio": "pnpm --filter studio dev",
     "dev:styleguide": "pnpm --filter styleguide dev",
+    "dev-server": "pnpm --parallel --filter website --filter studio --filter styleguide dev",
     "build:website": "pnpm --filter website build",
     "build:studio": "pnpm --filter studio build",
     "build:styleguide": "pnpm --filter styleguide build",

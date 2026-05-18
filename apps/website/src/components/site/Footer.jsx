@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import KolLogo from '@ac/brand-data/logos/KolLogo'
 import { BRAND_INFO } from '@ac/brand-data/info'
+import FooterNewsletter from './FooterNewsletter'
 
 const BROWSE = [
   { label: 'Shop',         to: '/shop' },
@@ -44,6 +45,7 @@ export default function Footer() {
 
   return (
     <footer className="ac-site-footer">
+      <FooterNewsletter />
       <div className="ac-site-footer-grid">
 
         <div className="ac-site-footer-col">
