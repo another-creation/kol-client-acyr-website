@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ACImages } from '@ac/brand-data/images'
+import CarouselArrow from '../molecules/CarouselArrow'
 
 const SLIDES = [
   ACImages.hero,
@@ -49,10 +50,10 @@ export default function LookbookCarousel() {
     return () => window.removeEventListener('keydown', onKey)
   }, [scrollPrev, scrollNext])
 
-  const arrowBase = 'absolute top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center rounded-full text-[#F5F3EF] cursor-pointer transition-opacity duration-300 z-[2] bg-black/20 hover:bg-black/40 text-2xl leading-none opacity-0 group-hover:opacity-100'
+  const arrowBase = 'absolute top-1/2 -translate-y-1/2 z-[2] opacity-0 group-hover:opacity-100'
 
   return (
-    <section className="group relative w-screen ml-[calc(50%-50vw)] overflow-hidden" style={{ height: '70vh' }}>
+    <section className="group relative w-screen ml-[calc(50%-50vw)] overflow-hidden pt-20 pb-10" style={{ height: '80vh' }}>
       <div ref={emblaRef} className="overflow-hidden h-full cursor-grab active:cursor-grabbing">
         <div className="flex h-full touch-pan-y">
           {SLIDES.map((src, i) => (
@@ -71,22 +72,18 @@ export default function LookbookCarousel() {
         </div>
       </div>
 
-      <button
-        aria-label="Previous"
+      <CarouselArrow
+        direction="left"
         onClick={scrollPrev}
         disabled={!canPrev}
-        className={`${arrowBase} left-6 disabled:opacity-30`}
-      >
-        ‹
-      </button>
-      <button
-        aria-label="Next"
+        className={`${arrowBase} left-6`}
+      />
+      <CarouselArrow
+        direction="right"
         onClick={scrollNext}
         disabled={!canNext}
-        className={`${arrowBase} right-6 disabled:opacity-30`}
-      >
-        ›
-      </button>
+        className={`${arrowBase} right-6`}
+      />
     </section>
   )
 }

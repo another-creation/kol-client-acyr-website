@@ -4,9 +4,11 @@ import SideNav from '../framework/SideNav'
 import Icon from '@components/loaders/icons/Icon'
 import { GeneratorLibraryProvider } from '../../editor/library/LibraryProvider'
 import { ModalProvider } from '@components/molecules/Modal'
+import StyleguideSearch from './StyleguideSearch'
 
 export default function BrandLayout() {
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerOpen, setDrawerOpen]   = useState(false)
+  const [searchOpen, setSearchOpen]   = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => { setDrawerOpen(false) }, [pathname])
@@ -42,6 +44,7 @@ export default function BrandLayout() {
         <main className="min-w-0">
           <Outlet />
         </main>
+        <StyleguideSearch open={searchOpen} setOpen={setSearchOpen} />
       </div>
       </ModalProvider>
     </GeneratorLibraryProvider>

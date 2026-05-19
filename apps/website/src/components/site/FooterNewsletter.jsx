@@ -1,7 +1,5 @@
 import { useState } from 'react'
-
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
-const MONO   = "'Right Grotesk Mono', monospace"
+import Button from '../atoms/Button'
 
 export default function FooterNewsletter() {
   const [email, setEmail]   = useState('')
@@ -34,47 +32,11 @@ export default function FooterNewsletter() {
   }
 
   return (
-    <div
-      className="ac-site-footer-newsletter"
-      style={{
-        padding: '40px 32px',
-        borderBottom: '1px solid color-mix(in srgb, var(--ac-surface-on-primary) 12%, transparent)',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '24px',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '420px' }}>
-          <p
-            style={{
-              fontFamily: MONO,
-              fontSize: '12px',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent)',
-              margin: 0,
-            }}
-          >
-            Newsletter
-          </p>
-          <p
-            style={{
-              fontFamily: NARROW,
-              fontSize: '14px',
-              fontWeight: 400,
-              lineHeight: 1.4,
-              letterSpacing: '0.04em',
-              color: 'color-mix(in srgb, var(--ac-surface-on-primary) 80%, transparent)',
-              margin: 0,
-            }}
-          >
+    <div className="ac-site-footer-newsletter px-8 py-10 border-b border-fg-12">
+      <div className="flex flex-wrap items-center justify-between gap-6">
+        <div className="flex flex-col gap-1.5 max-w-[420px]">
+          <p className="ac-prose-label">Newsletter</p>
+          <p className="ac-sans-nav text-body normal-case tracking-[0.04em]" style={{ fontSize: 14, lineHeight: 1.4 }}>
             {status === 'success'
               ? 'Thank you. Please check your inbox to confirm your subscription.'
               : 'Early access to new releases and atelier notes.'}
@@ -84,8 +46,7 @@ export default function FooterNewsletter() {
         {status !== 'success' && (
           <form
             onSubmit={onSubmit}
-            className="ac-site-footer-newsletter-row"
-            style={{ display: 'flex', gap: '12px', flex: '1 1 320px', maxWidth: '440px', minWidth: '260px' }}
+            className="ac-site-footer-newsletter-row flex gap-3 flex-1 min-w-[260px] max-w-[440px]"
             noValidate
           >
             <input
@@ -96,50 +57,23 @@ export default function FooterNewsletter() {
               required
               disabled={status === 'sending'}
               aria-invalid={status === 'error' ? 'true' : undefined}
-              style={{
-                fontFamily: NARROW,
-                fontSize: '13px',
-                letterSpacing: '0.04em',
-                background: 'transparent',
-                border: 'none',
-                borderBottom: '1px solid color-mix(in srgb, var(--ac-surface-on-primary) 30%, transparent)',
-                color: 'var(--ac-surface-on-primary)',
-                padding: '10px 0',
-                flex: 1,
-                outline: 'none',
-              }}
+              className="ac-sans-nav text-emphasis flex-1 bg-transparent border-0 border-b border-fg-24 px-0 py-2.5 outline-none"
+              style={{ fontSize: 13 }}
             />
-            <button
+            <Button
               type="submit"
+              variant="ghost"
+              size="sm"
               disabled={status === 'sending'}
-              className="ac-btn ac-btn-ghost ac-btn-sm"
-              style={{
-                fontFamily: MONO,
-                fontSize: '11px',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: 'var(--ac-surface-on-primary)',
-                borderColor: 'color-mix(in srgb, var(--ac-surface-on-primary) 30%, transparent)',
-                whiteSpace: 'nowrap',
-              }}
             >
               {status === 'sending' ? 'Signing up…' : 'Sign Up'}
-            </button>
+            </Button>
           </form>
         )}
       </div>
 
       {status === 'error' && (
-        <p
-          role="alert"
-          style={{
-            fontFamily: NARROW,
-            fontSize: '12px',
-            letterSpacing: '0.04em',
-            marginTop: '12px',
-            color: 'color-mix(in srgb, var(--ac-surface-on-primary) 70%, transparent)',
-          }}
-        >
+        <p role="alert" className="ac-sans-nav text-meta normal-case tracking-[0.04em] mt-3" style={{ fontSize: 12 }}>
           {errMsg}
         </p>
       )}

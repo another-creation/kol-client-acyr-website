@@ -50,6 +50,15 @@
   --grey-700: #242427;
   --grey-800: #1B1B1E;
   --grey-900: #131316;
+
+  /* Magenta — AC accent pop. ★ anchor at 200.
+     Distinct from burgundy (primary) — vivid pink-red used for accents,
+     focus rings, quote marks, call-out moments. */
+  --brand-magenta-100: #E04565;
+  --brand-magenta-200: #CE1842; /* anchor */
+  --brand-magenta-300: #A11335;
+  --brand-magenta-400: #730D26;
+  --brand-magenta-500: #480818;
 }
 
 /* =============================================================================
@@ -75,9 +84,9 @@
  * ============================================================================= */
 
 :root {
-  --ac-accent-primary:        var(--brand-burgundy-100);
+  --ac-accent-primary:        var(--brand-magenta-200);
   --ac-accent-on-primary:     var(--cream-100);
-  --ac-accent-primary-strong: var(--brand-burgundy-300);
+  --ac-accent-primary-strong: var(--brand-magenta-300);
 }
 
 /* =============================================================================
@@ -95,6 +104,12 @@
   --color-brand-secondary:      var(--brand-secondary);
   --color-brand-on-secondary:   var(--brand-on-secondary);
 
+  /* Accent — same indirection so text-accent-primary / bg-accent-primary work
+   * and auto-flip with theme via the dark-mode override above. */
+  --color-accent-primary:         var(--ac-accent-primary);
+  --color-accent-on-primary:      var(--ac-accent-on-primary);
+  --color-accent-primary-strong:  var(--ac-accent-primary-strong);
+
   /* Burgundy ramp access — direct stops for one-off / chart needs. */
   --color-brand-burgundy-100:   var(--brand-burgundy-100);
   --color-brand-burgundy-200:   var(--brand-burgundy-200);
@@ -102,10 +117,101 @@
   --color-brand-burgundy-400:   var(--brand-burgundy-400);
   --color-brand-burgundy-500:   var(--brand-burgundy-500);
 
+  /* Magenta ramp access — accent pop, focus rings, quote marks. */
+  --color-brand-magenta-100:    var(--brand-magenta-100);
+  --color-brand-magenta-200:    var(--brand-magenta-200);
+  --color-brand-magenta-300:    var(--brand-magenta-300);
+  --color-brand-magenta-400:    var(--brand-magenta-400);
+  --color-brand-magenta-500:    var(--brand-magenta-500);
+
   /* Neutrals — utility ramps, not part of brand identity. */
   --color-cream-100:            var(--cream-100);
   --color-cream-200:            var(--cream-200);
   --color-cream-300:            var(--cream-300);
   --color-cream-400:            var(--cream-400);
   --color-cream-500:            var(--cream-500);
+
+  --color-grey-50:              var(--grey-50);
+  --color-grey-100:             var(--grey-100);
+  --color-grey-200:             var(--grey-200);
+  --color-grey-300:             var(--grey-300);
+  --color-grey-400:             var(--grey-400);
+  --color-grey-500:             var(--grey-500);
+  --color-grey-600:             var(--grey-600);
+  --color-grey-700:             var(--grey-700);
+  --color-grey-800:             var(--grey-800);
+  --color-grey-900:             var(--grey-900);
 }
+
+/* =============================================================================
+ * EXPLICIT GREY UTILITY CLASSES — bg + text.
+ *
+ * Tailwind v4 auto-generates `bg-grey-NN` / `text-grey-NN` from the @theme
+ * tokens above, but only via JIT scan of consumer source. Explicit classes
+ * here guarantee they exist regardless of Tailwind context (e.g., when
+ * referenced from CSS rules in atoms.css or component CSS).
+ * ============================================================================= */
+
+.bg-grey-50  { background-color: var(--grey-50);  }
+.bg-grey-100 { background-color: var(--grey-100); }
+.bg-grey-200 { background-color: var(--grey-200); }
+.bg-grey-300 { background-color: var(--grey-300); }
+.bg-grey-400 { background-color: var(--grey-400); }
+.bg-grey-500 { background-color: var(--grey-500); }
+.bg-grey-600 { background-color: var(--grey-600); }
+.bg-grey-700 { background-color: var(--grey-700); }
+.bg-grey-800 { background-color: var(--grey-800); }
+.bg-grey-900 { background-color: var(--grey-900); }
+
+.text-grey-50  { color: var(--grey-50);  }
+.text-grey-100 { color: var(--grey-100); }
+.text-grey-200 { color: var(--grey-200); }
+.text-grey-300 { color: var(--grey-300); }
+.text-grey-400 { color: var(--grey-400); }
+.text-grey-500 { color: var(--grey-500); }
+.text-grey-600 { color: var(--grey-600); }
+.text-grey-700 { color: var(--grey-700); }
+.text-grey-800 { color: var(--grey-800); }
+.text-grey-900 { color: var(--grey-900); }
+
+.bg-cream-100 { background-color: var(--cream-100); }
+.bg-cream-200 { background-color: var(--cream-200); }
+.bg-cream-300 { background-color: var(--cream-300); }
+.bg-cream-400 { background-color: var(--cream-400); }
+.bg-cream-500 { background-color: var(--cream-500); }
+
+.text-cream-100 { color: var(--cream-100); }
+.text-cream-200 { color: var(--cream-200); }
+.text-cream-300 { color: var(--cream-300); }
+.text-cream-400 { color: var(--cream-400); }
+.text-cream-500 { color: var(--cream-500); }
+
+.bg-brand-burgundy-100 { background-color: var(--brand-burgundy-100); }
+.bg-brand-burgundy-200 { background-color: var(--brand-burgundy-200); }
+.bg-brand-burgundy-300 { background-color: var(--brand-burgundy-300); }
+.bg-brand-burgundy-400 { background-color: var(--brand-burgundy-400); }
+.bg-brand-burgundy-500 { background-color: var(--brand-burgundy-500); }
+
+.text-brand-burgundy-100 { color: var(--brand-burgundy-100); }
+.text-brand-burgundy-200 { color: var(--brand-burgundy-200); }
+.text-brand-burgundy-300 { color: var(--brand-burgundy-300); }
+.text-brand-burgundy-400 { color: var(--brand-burgundy-400); }
+.text-brand-burgundy-500 { color: var(--brand-burgundy-500); }
+
+.bg-brand-magenta-100 { background-color: var(--brand-magenta-100); }
+.bg-brand-magenta-200 { background-color: var(--brand-magenta-200); }
+.bg-brand-magenta-300 { background-color: var(--brand-magenta-300); }
+.bg-brand-magenta-400 { background-color: var(--brand-magenta-400); }
+.bg-brand-magenta-500 { background-color: var(--brand-magenta-500); }
+
+.text-brand-magenta-100 { color: var(--brand-magenta-100); }
+.text-brand-magenta-200 { color: var(--brand-magenta-200); }
+.text-brand-magenta-300 { color: var(--brand-magenta-300); }
+.text-brand-magenta-400 { color: var(--brand-magenta-400); }
+.text-brand-magenta-500 { color: var(--brand-magenta-500); }
+
+/* Surface-pair ink shortcuts. text-on-inverse renders dark-on-cream
+ * (the on-ink of the inverse surface), bypassing the .text-emphasis
+ * descriptor which doesn't flip inside .bg-surface-inverse. */
+.text-on-inverse { color: var(--ac-surface-on-inverse); }
+.text-on-primary { color: var(--ac-surface-on-primary); }

@@ -6,6 +6,7 @@ import Styleguide from './pages/Styleguide'
 import Reference from './pages/Reference'
 import Acyr from './pages/Acyr'
 import Gallery from './pages/Gallery'
+import Demo from './pages/Demo'
 import NotFound from './pages/NotFound'
 import Editor from './editor/Editor'
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/reference"  element={<Reference />} />
           <Route path="/acyr"       element={<Acyr />} />
           <Route path="/gallery"    element={<Gallery />} />
+          <Route path="/demo"       element={<Demo />} />
 
           <Route path="/editor/:mode" element={<Editor />} />
           <Route path="/editor"       element={<Navigate to="/editor/compose" replace />} />

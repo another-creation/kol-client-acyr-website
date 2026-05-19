@@ -1,84 +1,40 @@
 import { Link } from 'react-router-dom'
+import Button from '../atoms/Button'
 
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
-
-export default function ProductCard({ src, label, name, price, sizes = [], color, to }) {
+export default function ProductCard({ src, label, name, price, sizes = [], color, to, overlay = true, fill = false }) {
   const Wrapper = to ? Link : 'div'
-  const wrapperProps = to ? { to, className: 'block no-underline' } : {}
+  const wrapperProps = to ? { to, className: `${fill ? 'flex flex-col h-full ' : ''}block no-underline`.trim() } : { className: fill ? 'flex flex-col h-full' : undefined }
+
   return (
     <Wrapper {...wrapperProps}>
       <div
-        className="ac-product-card bg-surface-secondary group"
-        style={{ position: 'relative', aspectRatio: '3 / 4', overflow: 'hidden' }}
+        className={`ac-product-card bg-surface-secondary group relative overflow-hidden rounded-[4px]${fill ? ' flex-1 min-h-0' : ''}`}
+        style={fill ? undefined : { aspectRatio: '3 / 4' }}
       >
         <img
           src={src}
           alt={label}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+          className="w-full h-full object-cover object-top block transition-transform duration-500 ease-out group-hover:scale-[1.04]"
         />
-        <div
-          data-overlay
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: '#000',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '16px 14px',
-          }}
-        >
-          <p style={{ fontFamily: NARROW, fontWeight: 700, fontSize: '13px', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#fff', marginBottom: '2px' }}>
-            {name}
-          </p>
-          <p style={{ fontFamily: NARROW, fontSize: '13px', fontWeight: 400, color: 'rgba(255,255,255,0.72)', marginBottom: '10px' }}>
-            {price}
-          </p>
-          {color && (
-            <p style={{ fontFamily: NARROW, fontSize: '9px', fontWeight: 400, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '6px' }}>
-              Color: {color}
-            </p>
-          )}
-          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '14px' }}>
-            {sizes.map(s => (
-              <span
-                key={s}
-                style={{
-                  fontFamily: NARROW,
-                  fontSize: '9px',
-                  letterSpacing: '0.06em',
-                  padding: '2px 6px',
-                  border: '1px solid rgba(255,255,255,0.24)',
-                  color: 'rgba(255,255,255,0.64)',
-                }}
-              >
-                {s}
-              </span>
-            ))}
+        {overlay && (
+          <div
+            data-overlay
+            className="absolute left-0 right-0 bottom-0 flex flex-col p-4 bg-surface-tertiary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <p className="ac-sans-nav text-emphasis mb-1">{name}</p>
+            <p className="ac-sans-nav text-meta mb-4">{price}</p>
+            <Button variant="primary" size="md" className="w-full">
+              Add to Bag
+            </Button>
           </div>
-          <button className="ac-btn ac-btn-primary ac-btn-sm" style={{ fontFamily: NARROW, letterSpacing: '0.08em', width: '100%', marginBottom: '6px' }}>
-            Add to Bag
-          </button>
-          <button className="ac-btn ac-btn-outline ac-btn-sm" style={{ fontFamily: NARROW, letterSpacing: '0.08em', width: '100%', borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
-            Wishlist
-          </button>
-        </div>
+        )}
       </div>
-      <p
-        style={{
-          fontFamily: NARROW,
-          fontSize: '11px',
-          fontWeight: 400,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          color: 'color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent)',
-          marginTop: '8px',
-        }}
-      >
-        {label}
-      </p>
+      {!overlay && (
+        <div className="mt-3 flex items-baseline justify-between gap-4">
+          <p className="ac-sans-nav text-emphasis truncate">{name}</p>
+          {price && <p className="ac-sans-nav text-meta flex-shrink-0">{price}</p>}
+        </div>
+      )}
     </Wrapper>
   )
 }

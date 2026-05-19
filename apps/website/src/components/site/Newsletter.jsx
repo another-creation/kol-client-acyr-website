@@ -1,6 +1,6 @@
 import { useState } from 'react'
-
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
+import Button from '../atoms/Button'
+import Input from '../atoms/Input'
 
 export default function Newsletter() {
   const [email, setEmail]   = useState('')
@@ -33,99 +33,48 @@ export default function Newsletter() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div
-        style={{
-          background: 'color-mix(in srgb, var(--ac-surface-on-primary) 88%, transparent)',
-          padding: 'clamp(32px, 8vw, 64px) clamp(20px, 5vw, 48px)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '24px',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: NARROW,
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-            color: 'color-mix(in srgb, var(--ac-surface-primary) 40%, transparent)',
-          }}
+    <section className="bg-surface-inverse flex flex-col items-center gap-6 px-8 py-20">
+      <p className="ac-prose-label text-center">Newsletter</p>
+      <h2 className="ac-sans-heading-02 text-emphasis text-on-inverse text-center max-w-[640px]">
+        {status === 'success'
+          ? 'Thank you. Check your inbox to confirm.'
+          : 'Early access on new releases, plus 10% off your first order.'}
+      </h2>
+
+      {status !== 'success' && (
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mt-4"
+          noValidate
         >
-          Newsletter
-        </p>
-        <p
-          style={{
-            fontFamily: NARROW,
-            fontSize: '24px',
-            fontWeight: 400,
-            lineHeight: 1.3,
-            textAlign: 'center',
-            color: 'var(--ac-surface-primary)',
-            maxWidth: '400px',
-          }}
-        >
-          {status === 'success' ? (
-            <>Thank you. Please check your inbox<br />to confirm your subscription.</>
-          ) : (
-            <>Sign up for early access on new releases<br />and save 10% on your first order</>
-          )}
-        </p>
-        {status !== 'success' && (
-          <form onSubmit={onSubmit} className="ac-site-newsletter-row" style={{ maxWidth: '480px', width: '100%' }} noValidate>
-            <input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-              disabled={status === 'sending'}
-              aria-invalid={status === 'error' ? 'true' : undefined}
-              style={{
-                fontFamily: NARROW,
-                fontSize: '13px',
-                letterSpacing: '0.04em',
-                background: 'transparent',
-                border: 'none',
-                borderBottom: '1px solid color-mix(in srgb, var(--ac-surface-primary) 40%, transparent)',
-                color: 'var(--ac-surface-primary)',
-                padding: '10px 0',
-                flex: 1,
-                outline: 'none',
-              }}
-            />
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="ac-btn ac-btn-primary ac-btn-sm ac-site-newsletter-submit"
-              style={{
-                fontFamily: NARROW,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-              }}
-            >
-              {status === 'sending' ? 'Signing up…' : 'Sign Up'}
-            </button>
-          </form>
-        )}
-        {status === 'error' && (
-          <p
-            role="alert"
-            style={{
-              fontFamily: NARROW,
-              fontSize: '12px',
-              letterSpacing: '0.04em',
-              color: 'color-mix(in srgb, var(--ac-surface-primary) 70%, transparent)',
-              textAlign: 'center',
-            }}
+          <Input
+            type="email"
+            placeholder="Your email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+            disabled={status === 'sending'}
+            aria-invalid={status === 'error' ? 'true' : undefined}
+            size="lg"
+            variant="outline"
+            className="flex-1"
+          />
+          <Button
+            type="submit"
+            variant="secondary"
+            size="lg"
+            disabled={status === 'sending'}
           >
-            {errMsg}
-          </p>
-        )}
-      </div>
-    </div>
+            {status === 'sending' ? 'Signing up…' : 'Sign Up'}
+          </Button>
+        </form>
+      )}
+
+      {status === 'error' && (
+        <p role="alert" className="ac-helper-xs text-meta text-center">
+          {errMsg}
+        </p>
+      )}
+    </section>
   )
 }

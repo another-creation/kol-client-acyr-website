@@ -2,14 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Icon from '../loaders/icons/Icon'
 
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
-
 const linkStyle = {
-  fontFamily: NARROW,
-  fontSize: '11px',
-  fontWeight: 400,
-  letterSpacing: '0.08em',
-  textTransform: 'uppercase',
   color: 'var(--ac-surface-on-primary)',
   cursor: 'pointer',
   whiteSpace: 'nowrap',
@@ -17,24 +10,16 @@ const linkStyle = {
 }
 
 function NavLink({ label, to, onClick, drawer = false }) {
+  const className = `ac-site-nav-link ac-sans-nav${drawer ? ' text-[14px]' : ''}`
   if (to) {
     return (
-      <Link
-        to={to}
-        onClick={onClick}
-        className="ac-site-nav-link"
-        style={drawer ? { ...linkStyle, fontSize: '14px' } : linkStyle}
-      >
+      <Link to={to} onClick={onClick} className={className} style={linkStyle}>
         {label}
       </Link>
     )
   }
   return (
-    <span
-      onClick={onClick}
-      className="ac-site-nav-link"
-      style={drawer ? { ...linkStyle, fontSize: '14px' } : linkStyle}
-    >
+    <span onClick={onClick} className={className} style={linkStyle}>
       {label}
     </span>
   )
@@ -84,7 +69,7 @@ export default function Nav({
   )
 
   const logoNode = logo && (
-    <Link to={logoTo} style={{ ...linkStyle, fontSize: '16px', fontWeight: 700, letterSpacing: '0.14em', userSelect: 'none', display: 'inline-flex', alignItems: 'center' }}>
+    <Link to={logoTo} style={{ ...linkStyle, userSelect: 'none', display: 'inline-flex', alignItems: 'center' }}>
       {logo}
     </Link>
   )

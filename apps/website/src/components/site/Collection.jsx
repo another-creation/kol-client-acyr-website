@@ -1,48 +1,27 @@
-import { ACImages } from '@ac/brand-data/images'
 import ProductCard from './ProductCard'
-
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
+import { PRODUCTS, formatPrice } from '../../data/shop-data'
 
 export default function Collection() {
+  const featured = PRODUCTS.filter((p) => p.featured).slice(0, 8)
+
   return (
-    <section className="bg-surface-primary" style={{ padding: '80px 32px' }}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'baseline',
-          justifyContent: 'space-between',
-          marginBottom: '40px',
-        }}
-      >
-        <h2
-          style={{
-            fontFamily: NARROW,
-            fontWeight: 700,
-            fontSize: '13px',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: 'var(--ac-surface-on-primary)',
-          }}
-        >
-          Collection
-        </h2>
-        <span
-          style={{
-            fontFamily: NARROW,
-            fontSize: '11px',
-            fontWeight: 400,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: 'color-mix(in srgb, var(--ac-surface-on-primary) 32%, transparent)',
-          }}
-        >
-          SS 2024
-        </span>
+    <section className="bg-surface-primary px-8 py-12">
+      <div className="flex items-baseline justify-between mb-10">
+        <h2 className="ac-sans-heading-06 uppercase text-emphasis">Collection</h2>
+        <span className="ac-sans-heading-06 uppercase text-meta">SS 2026</span>
       </div>
 
-      <div className="ac-site-collection-grid">
-        {ACImages.looks.map(look => (
-          <ProductCard key={look.label} {...look} />
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[110vh]">
+        {featured.map((p) => (
+          <ProductCard
+            key={p.slug}
+            to={p.kind === 'pod' ? `/shop/${p.slug}` : `/handmade/${p.slug}`}
+            src={p.image}
+            name={p.name}
+            price={formatPrice(p.price, p.currency)}
+            overlay={false}
+            fill
+          />
         ))}
       </div>
     </section>

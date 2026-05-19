@@ -354,7 +354,7 @@
 }
 
 .ac-sans-heading-02 {
-  font-family: var(--ac-font-family-sans-compact);
+  font-family: var(--ac-font-family-sans-narrow);
   font-size: var(--ac-text-heading-02);
   line-height: 110%;
   font-weight: 500;
@@ -377,6 +377,13 @@
 .ac-sans-heading-05 {
   font-family: var(--ac-font-family-sans-compact);
   font-size: var(--ac-text-heading-05);
+  line-height: 125%;
+  font-weight: 500;
+}
+
+.ac-sans-heading-06 {
+  font-family: var(--ac-font-family-sans-compact);
+  font-size: var(--ac-text-heading-06);
   line-height: 125%;
   font-weight: 500;
 }
@@ -405,6 +412,21 @@
   font-size: var(--ac-text-body-03);
   line-height: 150%;
   font-weight: 400;
+}
+
+/* =============================================================================
+ * NAV — sans Narrow, uppercase. Topnav links, footer link grid, nav-style chrome.
+ * 12/12 weight 500 (medium), letter-spacing 0.08em. Override size via Tailwind
+ * `text-[Npx]` for drawer variants (e.g. 14–16px).
+ * ============================================================================= */
+
+.ac-sans-nav {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* `.ac-mono-text` retired — consumers use Tailwind `font-mono` (single-class

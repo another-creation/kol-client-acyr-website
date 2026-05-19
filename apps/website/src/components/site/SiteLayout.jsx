@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import Nav from './Nav'
 import ThemeToggle from '../framework/ThemeToggle'
@@ -5,7 +6,10 @@ import Footer from './Footer'
 import Icon from '../loaders/icons/Icon'
 import { CartProvider, useCart } from './CartContext'
 import CartDrawer from './CartDrawer'
+import WebsiteSearch from './WebsiteSearch'
+import SignupOverlay from './SignupOverlay'
 import { BRAND } from '@ac/brand-data/config'
+import { KolLogo } from '@ac/brand-data/logos'
 
 const NAV_LEFT = [
   { label: 'Shop',        to: '/shop' },
@@ -60,32 +64,22 @@ function CartIcon() {
   )
 }
 
-function SearchIcon() {
-  return (
-    <button type="button" aria-label="Search" style={iconBtnStyle} className="ac-site-nav-link">
-      <Icon name="search" size={16} />
-    </button>
-  )
-}
-
 function SiteShell() {
   const { pathname } = useLocation()
   const isCheckout = pathname.startsWith('/checkout')
+  const [searchOpen, setSearchOpen] = useState(false)
   return (
     <div className="font-display bg-surface-primary text-emphasis min-h-dvh flex flex-col">
       <Nav
         variant="center"
         leftLinks={NAV_LEFT}
-        logo="Another Creation"
+        logo={<KolLogo variant="lockup-hori" height={24} aria-label={BRAND.name} />}
         logoTo="/"
         rightActions={
-          <>
-            <span style={{ color: 'var(--ac-surface-on-primary)', display: 'flex', alignItems: 'center' }}>
-              <ThemeToggle />
-            </span>
-            <SearchIcon />
+          <span className="flex items-center gap-3" style={{ color: 'var(--ac-surface-on-primary)' }}>
+            <ThemeToggle />
             <CartIcon />
-          </>
+          </span>
         }
       />
       <div className="flex-1">
@@ -93,6 +87,8 @@ function SiteShell() {
       </div>
       {!isCheckout && <Footer />}
       {!isCheckout && <CartDrawer />}
+      <WebsiteSearch open={searchOpen} setOpen={setSearchOpen} />
+      {!isCheckout && <SignupOverlay />}
     </div>
   )
 }

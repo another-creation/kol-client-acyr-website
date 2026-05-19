@@ -171,14 +171,14 @@
 }
 
 .ac-btn-secondary {
-  background: var(--ac-surface-on-primary);
-  color: var(--ac-surface-primary);
+  background: var(--grey-100);
+  color: var(--grey-900);
   border: 1px solid transparent;
   font-weight: 500;
 }
 .ac-btn-secondary:not(.ac-btn-animate):hover {
-  background-color: color-mix(in srgb, var(--ac-surface-on-primary) 20%, transparent);
-  color: var(--ac-surface-on-primary);
+  background-color: var(--grey-200);
+  color: var(--grey-900);
   border-color: transparent;
 }
 

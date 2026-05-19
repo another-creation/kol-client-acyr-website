@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Tailwind v4 doesn't auto-scan files imported via cross-app aliases.
+ * Styleguide imports JSX from the website (via @components alias) and
+ * shared brand-data JSX — declare both as content sources so utilities
+ * referenced in those files get generated.
+ */
+@source "../../website/src/components/**/*.{jsx,js}";
+@source "../../../packages/brand-data/**/*.{jsx,js}";
+
 /* AC Design System — single cascade entry. */
 @import "@ac/ds/index.css";
 

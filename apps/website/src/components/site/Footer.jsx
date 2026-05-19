@@ -56,7 +56,7 @@ export default function Footer() {
 
         <div className="ac-site-footer-col">
           <p className="ac-site-footer-label">Studio</p>
-          <ul className="ac-site-footer-list">
+          <ul className="ac-site-footer-list ac-sans-nav">
             <li>{BRAND_INFO.studio.street}</li>
             <li>{BRAND_INFO.studio.postcode}</li>
             <li>Mon–Fri 13:00–18:00</li>
@@ -68,7 +68,7 @@ export default function Footer() {
 
         <div className="ac-site-footer-col">
           <p className="ac-site-footer-label">Browse</p>
-          <ul className="ac-site-footer-list">
+          <ul className="ac-site-footer-list ac-sans-nav">
             {BROWSE.map((l) => (
               <li key={l.label}><FooterLink {...l} /></li>
             ))}
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="ac-site-footer-col">
           <p className="ac-site-footer-label">Connect</p>
-          <ul className="ac-site-footer-list">
+          <ul className="ac-site-footer-list ac-sans-nav">
             {SOCIAL.map((l) => (
               <li key={l.label}><FooterLink {...l} /></li>
             ))}
@@ -86,7 +86,7 @@ export default function Footer() {
 
         <div className="ac-site-footer-col">
           <p className="ac-site-footer-label">More</p>
-          <ul className="ac-site-footer-list">
+          <ul className="ac-site-footer-list ac-sans-nav">
             {MORE.map((l) => (
               <li key={l.label}><FooterLink {...l} /></li>
             ))}

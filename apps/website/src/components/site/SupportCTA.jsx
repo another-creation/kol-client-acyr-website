@@ -1,60 +1,20 @@
 import Button from '../atoms/Button'
 
-const NARROW = "'Right Grotesk Narrow', 'Right Grotesk', sans-serif"
-
 export default function SupportCTA() {
   return (
     <section
-      className="bg-surface-inverse"
-      style={{
-        padding: '96px 32px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        gap: '20px',
-      }}
+      className="bg-surface-inverse px-8 py-24 flex flex-col items-center text-center gap-6"
     >
-      <p
-        style={{
-          fontFamily: NARROW,
-          fontSize: '11px',
-          fontWeight: 400,
-          letterSpacing: '0.14em',
-          textTransform: 'uppercase',
-          opacity: 0.38,
-        }}
-      >
-        Independent Studio
-      </p>
-      <h2
-        style={{
-          fontFamily: NARROW,
-          fontWeight: 700,
-          fontSize: 'clamp(36px, 5vw, 64px)',
-          lineHeight: 1.05,
-          textTransform: 'uppercase',
-          letterSpacing: '0.02em',
-          maxWidth: '540px',
-        }}
-      >
+      <p className="ac-prose-label text-on-inverse">Independent Studio</p>
+      <h2 className="ac-prose-display-md max-w-[720px] text-on-inverse" style={{ marginBottom: 0 }}>
         Support my Journey
       </h2>
-      <p
-        style={{
-          fontFamily: NARROW,
-          fontSize: '15px',
-          fontWeight: 400,
-          lineHeight: 1.75,
-          maxWidth: '400px',
-          opacity: 0.6,
-        }}
-      >
+      <p className="text-on-inverse opacity-40 max-w-[600px] text-[20px] leading-7">
         When you buy from Another Creation you support an independent atelier,
         not a factory floor. Made to order. Made to last.
       </p>
-      <div className="ac-site-support-cta-actions" style={{ marginTop: '16px' }}>
-        <Button size="lg">Shop Collection</Button>
+      <div className="flex flex-wrap gap-3 justify-center mt-4">
+        <Button size="lg" variant="secondary">Shop Collection</Button>
         <Button size="lg" variant="outline">Learn More</Button>
       </div>
     </section>

@@ -4,6 +4,7 @@ import PageSection from '../components/framework/PageSection'
 import ContentFilters from '@components/molecules/ContentFilters'
 import Badge from '@components/molecules/Badge'
 import Icon from '@components/loaders/icons/Icon'
+import CarouselArrow from '@components/molecules/CarouselArrow'
 import usePageTitle from '../components/hooks/usePageTitle'
 import { MEDIA_METADATA } from '../data/media-metadata'
 
@@ -308,23 +309,16 @@ function Lightbox({ list, startIndex, onClose }) {
       style={{ background: 'rgba(0, 0, 0, 0.9)' }}
       onClick={onClose}
     >
-      <button
-        type="button"
-        aria-label="Previous"
+      <CarouselArrow
+        direction="left"
         onClick={(e) => { e.stopPropagation(); prev() }}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-fg-12 hover:bg-fg-24 text-emphasis"
-      >
-        <Icon name="arrow-left" size={20} />
-      </button>
-
-      <button
-        type="button"
-        aria-label="Next"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-10"
+      />
+      <CarouselArrow
+        direction="right"
         onClick={(e) => { e.stopPropagation(); next() }}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-fg-12 hover:bg-fg-24 text-emphasis"
-      >
-        <Icon name="arrow-right" size={20} />
-      </button>
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-10"
+      />
 
       <div
         onClick={(e) => e.stopPropagation()}
