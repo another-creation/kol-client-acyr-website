@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import usePageTitle from '../../components/hooks/usePageTitle'
 import { BRAND } from '@ac/brand-data/config'
-import { BRAND_INFO } from '@ac/brand-data/info'
 import { ACImages } from '@ac/brand-data/images'
 import ContentFilters from '../../components/molecules/ContentFilters'
 import { podProducts, formatPrice } from '../../data/shop-data'
 import ProductCard from '../../components/site/ProductCard'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 
 const FILTER_GROUPS = [
   { label: 'Print', key: 'print', values: ['earth', 'metal', 'art-deco'] },
@@ -14,7 +15,7 @@ const FILTER_GROUPS = [
 
 function ShopGrid({ items }) {
   return (
-    <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
       {items.map((p) => (
         <li key={p.slug}>
           <ProductCard
@@ -38,7 +39,7 @@ export default function Shop() {
 
   return (
     <main className="bg-surface-primary pb-24">
-      <section className="relative w-full h-[60dvh] overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <img
           src={ACImages.hero}
           alt=""
@@ -48,18 +49,20 @@ export default function Shop() {
         <div
           aria-hidden="true"
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
+          style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-8">
-            <p className="ac-prose-label">All-over print</p>
-            <h1 className="ac-prose-display">Shop</h1>
-            <p className="ac-prose-tagline" style={{ marginTop: '8px' }}>{BRAND_INFO.labels.manifesto}</p>
-          </div>
-        </div>
+        <SiteSection as="div" className="relative px-5 py-24 text-center">
+          <PageHero
+            variant="marketing"
+            eyebrow="All-over print"
+            title="Shop."
+            subline="Print-on-demand pieces drawn from earth, metal, and art-deco motifs. Made-to-order, shipped from our print partner, returnable if it doesn't sit right."
+            className="items-center"
+          />
+        </SiteSection>
       </section>
 
-      <section className="max-w-6xl mx-auto px-8 pt-16">
+      <SiteSection width="full" className="px-8 py-32">
         <ContentFilters
           items={products}
           title="Shop"
@@ -68,7 +71,7 @@ export default function Shop() {
           searchKeys={['name', 'type', 'print']}
           renderItem={(filteredItems) => <ShopGrid items={filteredItems} />}
         />
-      </section>
+      </SiteSection>
     </main>
   )
 }

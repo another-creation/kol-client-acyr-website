@@ -21,8 +21,8 @@ export default function ProductCard({ src, label, name, price, sizes = [], color
             data-overlay
             className="absolute left-0 right-0 bottom-0 flex flex-col p-4 bg-surface-tertiary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            <p className="ac-sans-nav text-emphasis mb-1">{name}</p>
-            <p className="ac-sans-nav text-meta mb-4">{price}</p>
+            <p className="site-name-card mb-1">{name}</p>
+            <p className="site-meta-card mb-4">{price}</p>
             <Button variant="primary" size="md" className="w-full">
               Add to Bag
             </Button>
@@ -31,8 +31,8 @@ export default function ProductCard({ src, label, name, price, sizes = [], color
       </div>
       {!overlay && (
         <div className="mt-3 flex items-baseline justify-between gap-4">
-          <p className="ac-sans-nav text-emphasis truncate">{name}</p>
-          {price && <p className="ac-sans-nav text-meta flex-shrink-0">{price}</p>}
+          <p className="site-name-card truncate">{name}</p>
+          {price && <p className="site-meta-card flex-shrink-0">{price}</p>}
         </div>
       )}
     </Wrapper>

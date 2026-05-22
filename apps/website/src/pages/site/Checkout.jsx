@@ -10,6 +10,9 @@ import Dropdown from '../../components/molecules/Dropdown'
 import Icon from '../../components/loaders/icons/Icon'
 import { useCart } from '../../components/site/CartContext'
 import { formatPrice } from '../../data/shop-data'
+import BackLink from '../../components/site/BackLink'
+import { CartPanel, CartTotalsRow, QtyControl } from '../../components/site/CartSummary'
+import SiteSection from '../../components/site/SiteSection'
 
 const COUNTRIES = [
   { value: 'IS', label: 'Iceland' },
@@ -35,14 +38,14 @@ const PAYPAL_OPTS = {
 
 function SectionHeading({ children }) {
   return (
-    <h2 className="ac-helper-xxs uppercase text-emphasis mb-4">{children}</h2>
+    <h2 className="site-label-form mb-4">{children}</h2>
   )
 }
 
 export default function Checkout() {
   usePageTitle(`Checkout · ${BRAND.name}`)
   const navigate              = useNavigate()
-  const { items, subtotal, currency, clear } = useCart()
+  const { items, subtotal, currency, clear, updateQty, removeItem } = useCart()
 
   const [email, setEmail]       = useState('')
   const [newsletter, setNewsletter] = useState(true)
@@ -98,11 +101,11 @@ export default function Checkout() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-surface-primary min-h-dvh max-w-3xl mx-auto px-8 py-24 text-center">
-        <p className="ac-helper-xxs uppercase text-meta">Checkout</p>
-        <h1 className="ac-prose-display-md">Your bag is empty.</h1>
-        <Link to="/shop" className="ac-helper-xxs uppercase text-emphasis underline underline-offset-4 hover:no-underline">← Back to shop</Link>
-      </main>
+      <SiteSection as="main" className="bg-surface-primary min-h-dvh px-8 py-24 text-center">
+        <p className="site-meta-status">Checkout</p>
+        <h1 className="site-title-page">Your bag is empty.</h1>
+        <BackLink to="/shop">← Back to shop</BackLink>
+      </SiteSection>
     )
   }
 
@@ -188,20 +191,20 @@ export default function Checkout() {
           {/* LEFT — single-page form (constrained reading width, makes room for fixed aside on lg) */}
           <div className="px-8 lg:pl-16 lg:pr-12 pt-12 pb-4 lg:pt-16 lg:min-h-dvh flex flex-col justify-center">
             <div className="w-[680px] max-w-full mx-auto flex flex-col gap-8">
-              <h1 className="ac-sans-heading-02 m-0">Checkout</h1>
+              <h1 className="site-title-page m-0">Checkout</h1>
               {/* Contact */}
               <section>
                 <div className="flex flex-col gap-3">
                   <PropertyInput
                     size="lg"
                     label="Contact"
-                    labelClassName="text-fg-48 ac-helper-xxs uppercase text-emphasis mb-2"
+                    labelClassName="site-label-form mb-2"
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <label className="ac-helper-xxs text-meta inline-flex items-center gap-2 cursor-pointer">
+                  <label className="site-meta-system inline-flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={newsletter}
@@ -216,7 +219,7 @@ export default function Checkout() {
               {/* Delivery (country) + Shipping (auto-rate) */}
               <section>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <PropertyInput label="Delivery" labelClassName="ac-helper-xxs uppercase text-emphasis mb-2">
+                  <PropertyInput label="Delivery" labelClassName="site-label-form mb-2">
                     <Dropdown
                       variant="subtle"
                       className="w-full"
@@ -225,7 +228,7 @@ export default function Checkout() {
                       onChange={(v) => setDelivery({ ...delivery, country: v })}
                     />
                   </PropertyInput>
-                  <PropertyInput label="Shipping" labelClassName="ac-helper-xxs uppercase text-emphasis mb-2">
+                  <PropertyInput label="Shipping" labelClassName="site-label-form mb-2">
                     <Input
                       variant="outline"
                       size="lg"
@@ -267,12 +270,12 @@ export default function Checkout() {
 
                 {payError && (
                   <div className="p-3 rounded-[4px] bg-fg-04 mb-3">
-                    <p className="ac-helper-xs text-emphasis m-0">{payError}</p>
+                    <p className="site-meta-system text-emphasis">{payError}</p>
                   </div>
                 )}
 
                 {paying ? (
-                  <div className="ac-helper-xs text-meta">Processing your order…</div>
+                  <div className="site-meta-system">Processing your order…</div>
                 ) : (
                   <div className={paymentReady ? '' : 'opacity-50 pointer-events-none'}>
                     <PayPalButtons
@@ -293,63 +296,45 @@ export default function Checkout() {
             </div>
           </div>
 
-          {/* RIGHT — drawer-as-permanent-sidebar, fixed to viewport so it covers the nav */}
-          <aside className="lg:fixed lg:right-0 lg:top-0 lg:h-dvh lg:w-[480px] lg:z-[60] bg-surface-secondary flex flex-col pb-4">
-            <header className="flex items-center px-8 h-14 flex-shrink-0">
-              <p className="ac-helper-xs uppercase text-emphasis">
+          {/* RIGHT — cart panel as a permanent sidebar, fixed to viewport so it covers the nav */}
+          <CartPanel
+            className="lg:fixed lg:right-0 lg:top-0 lg:h-dvh lg:w-[480px] lg:z-[60]"
+            header={
+              <p className="site-meta-status text-emphasis">
                 Your bag {items.length > 0 && <span className="text-meta">· {items.reduce((n, it) => n + it.qty, 0)}</span>}
               </p>
-            </header>
-            <div className="px-8"><Divider /></div>
-
-            <ul className="flex-1 overflow-y-auto flex flex-col">
-              {items.map((it) => (
-                <li key={it.id} className="px-8">
-                  <div className="grid gap-5 grid-cols-[64px_1fr_auto] items-start py-5">
-                    <div className="w-16 h-16 aspect-square rounded-[4px] overflow-hidden bg-surface-primary">
-                      <img src={it.image} alt={it.name} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="min-w-0 pt-1">
-                      <p className="ac-helper-xs uppercase text-emphasis m-0">{it.name}</p>
-                      <p className="ac-helper-xs text-meta mt-2 mb-0">
-                        {[it.size, it.color].filter(Boolean).join(' · ')}
-                        {(it.size || it.color) && ' · '}Qty: {it.qty}
-                      </p>
-                    </div>
-                    <p className="ac-helper-xs text-emphasis m-0 pt-1">{formatPrice(it.price * it.qty, it.currency)}</p>
-                  </div>
-                  <Divider />
-                </li>
-              ))}
-            </ul>
-
-            <footer className="flex-shrink-0 flex flex-col gap-3 px-8 py-5">
-              <div className="flex items-center justify-between ac-helper-xs">
-                <span className="text-meta uppercase">Subtotal</span>
-                <span className="text-emphasis">{formatPrice(subtotal, currency)}</span>
-              </div>
-              <div className="flex items-center justify-between ac-helper-xs">
-                <span className="text-meta uppercase">Shipping</span>
-                <span className="text-emphasis">
-                  {shipping
-                    ? formatPrice(shipping.rate, currency)
-                    : shippingLoading
-                      ? 'Calculating…'
-                      : shippingError
-                        ? '—'
-                        : 'Enter address'}
-                </span>
-              </div>
-              <Divider />
-              <div className="flex items-center justify-between">
-                <span className="ac-helper-xs uppercase text-emphasis">Total</span>
-                <span className="ac-helper-xs text-emphasis"><strong>{formatPrice(total, currency)}</strong></span>
-              </div>
-              <p className="ac-helper-xs text-meta inline-flex items-center gap-2 m-0 pt-2">
-                <Icon name="lock" size={12} /> Secure checkout via PayPal
-              </p>
-            </footer>
-          </aside>
+            }
+            items={items}
+            qtyControlFor={(it) => (
+              <QtyControl
+                qty={it.qty}
+                onChange={(q) => updateQty(it.id, q)}
+                onDelete={() => removeItem(it.id)}
+              />
+            )}
+            footer={
+              <>
+                <CartTotalsRow label="Subtotal" value={formatPrice(subtotal, currency)} />
+                <CartTotalsRow
+                  label="Shipping"
+                  value={
+                    shipping
+                      ? formatPrice(shipping.rate, currency)
+                      : shippingLoading
+                        ? 'Calculating…'
+                        : shippingError
+                          ? '—'
+                          : 'Enter address'
+                  }
+                />
+                <Divider />
+                <CartTotalsRow label="Total" value={<strong>{formatPrice(total, currency)}</strong>} emphasis />
+                <p className="site-meta-system inline-flex items-center gap-2 pt-2">
+                  <Icon name="lock" size={12} /> Secure checkout via PayPal
+                </p>
+              </>
+            }
+          />
         </section>
       </main>
     </PayPalScriptProvider>

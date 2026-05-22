@@ -3,6 +3,8 @@ import { BRAND } from '@ac/brand-data/config'
 import { BRAND_INFO } from '@ac/brand-data/info'
 import Divider from '../../components/atoms/Divider'
 import Carousel from '../../components/primitives/Carousel'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 
 const HERO   = '/brand/yr/acyr-01.jpg'
 const SECOND = '/brand/yr/acyr-06.jpg'
@@ -36,16 +38,18 @@ export default function About() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
         />
-        <div className="relative max-w-3xl mx-auto px-5 py-24 text-center flex flex-col items-center">
-          <p className="ac-prose-label">About</p>
-          <h1 className="ac-prose-display">{BRAND.name}.</h1>
-          <p className="ac-prose-lede max-w-xl">
-            Founded in Reykjavík in 2013 by {BRAND_INFO.identity.founder} — clothing made by hand, in small numbers, for the independent woman.
-          </p>
-        </div>
+        <SiteSection as="div" className="relative px-5 py-24 text-center">
+          <PageHero
+            variant="marketing"
+            eyebrow="About"
+            title={`${BRAND.name}.`}
+            subline={`Founded in Reykjavík in 2013 by ${BRAND_INFO.identity.founder} — clothing made by hand, in small numbers, for the independent woman.`}
+            className="items-center"
+          />
+        </SiteSection>
       </section>
 
-      <section className="max-w-3xl mx-auto px-8 pt-12 pb-12">
+      <SiteSection className="px-8 pt-12 pb-12">
         <Divider />
 
         <div className="ac-prose pt-8">
@@ -57,9 +61,9 @@ export default function About() {
             Drawing inspiration from nature's resilience and beauty, Ýr seeks to create garments that not only reflect cutting-edge design techniques but also prioritize sustainability at every step of the production process.
           </p>
         </div>
-      </section>
+      </SiteSection>
 
-      <section className="max-w-3xl mx-auto px-8">
+      <SiteSection className="px-8">
         <figure className="m-0 mb-12">
           <img
             src={SECOND}
@@ -67,7 +71,7 @@ export default function About() {
             className="block w-full h-auto rounded-sm"
             loading="lazy"
           />
-          <figcaption className="ac-helper-12 uppercase tracking-widest text-meta mt-3">
+          <figcaption className="site-meta-editorial mt-3">
             {BRAND_INFO.identity.founder} · {BRAND_INFO.identity.role}
           </figcaption>
         </figure>
@@ -90,12 +94,12 @@ export default function About() {
             In 2013 she founded Another Creation. The company was selected from 200 applicants to participate in StartupReykjavík, a mentor-driven seed stage investment program. Following the startup, Another Creation was chosen to participate in the Creative Business Cup in autumn 2013 and received special awards for outstanding combination of creative power and commercial know-how.
           </p>
         </div>
-      </section>
+      </SiteSection>
 
       <section className="pt-16">
-        <div className="max-w-3xl mx-auto px-8 mb-12">
+        <SiteSection as="div" className="px-8 mb-12">
           <Divider />
-        </div>
+        </SiteSection>
         <Carousel
           className="[&_.ac-embla-container]:!gap-0 [&_.ac-embla-slide]:!w-[clamp(200px,70vw,300px)] [&_.ac-embla-slide]:!h-[clamp(280px,90vw,400px)]"
           options={{ align: 'start', loop: false, dragFree: true, containScroll: 'trimSnaps' }}

@@ -5,6 +5,38 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Pre-paint theme — reads persisted choice before external CSS evaluates,
+         so no dark→light flip on reload if user previously chose light. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('ac-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.dataset.theme = t;
+          }
+        } catch (e) { /* storage blocked */ }
+      })();
+    </script>
+
+    <!-- Anti-flash: paint surface bg + on-primary text immediately, before the
+         Tailwind/DS bundle resolves. Values match tokens/color.css. Body is
+         cloaked at opacity 0 until main.jsx adds `is-ready` (after React mount
+         + fonts loaded) — kills FOUT and CSS-injection flash in one move. -->
+    <style>
+      html { background: #FAFAFA; color: #121215; }
+      html[data-theme="dark"] { background: #121215; color: #FAFAFA; }
+      body { margin: 0; background: inherit; color: inherit; opacity: 0; transition: opacity 180ms ease; }
+      body.is-ready { opacity: 1; }
+    </style>
+
+    <!-- Preload the fonts actually used above the fold on every route:
+         NarrowMedium powers nav links + page hero titles + product card names;
+         MonoMedium powers eyebrows + status chrome + cart row meta. The earlier
+         preloads (Light + base Medium) targeted .ac-prose body content which
+         isn't above the fold on Home / Shop / Catalog — browser warned. -->
+    <link rel="preload" href="/fonts/Right-Grotesk/PPRightGrotesk-NarrowMedium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Right-Grotesk-Mono/PPRightGroteskMono-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
     <title>__TITLE__</title>
     <meta name="description" content="__DESCRIPTION__" />
     <meta name="robots" content="__ROBOTS__" />

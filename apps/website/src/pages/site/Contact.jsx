@@ -1,12 +1,10 @@
-import { useMemo, useState } from 'react'
 import usePageTitle from '../../components/hooks/usePageTitle'
 import { BRAND } from '@ac/brand-data/config'
 import { BRAND_INFO } from '@ac/brand-data/info'
 import Divider from '../../components/atoms/Divider'
-import Button from '../../components/atoms/Button'
-import Input from '../../components/atoms/Input'
-import Textarea from '../../components/atoms/Textarea'
-import Dropdown from '../../components/molecules/Dropdown'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
+import EnquiryForm from '../../components/site/EnquiryForm'
 
 const SUBJECTS = [
   { value: 'general',       label: 'General enquiry' },
@@ -18,33 +16,23 @@ const SUBJECTS = [
 
 export default function Contact() {
   usePageTitle(`Contact · ${BRAND.name}`)
-  const [name, setName]       = useState('')
-  const [email, setEmail]     = useState('')
-  const [subject, setSubject] = useState('general')
-  const [message, setMessage] = useState('')
-
-  const mailtoHref = useMemo(() => {
-    const label = SUBJECTS.find((s) => s.value === subject)?.label ?? 'General enquiry'
-    const subj  = `[${label}] ${name || 'New enquiry'}`
-    const body  = [`Name: ${name || '—'}`, `Email: ${email || '—'}`, `Subject: ${label}`, '', message || '—'].join('\n')
-    return `mailto:${BRAND_INFO.contact.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`
-  }, [name, email, subject, message])
 
   return (
     <main className="bg-surface-primary pb-24">
-      <section className="max-w-3xl mx-auto px-8 pt-20">
-        <p className="ac-prose-label">Contact</p>
-        <h1 className="ac-prose-display-md">Studio &amp; enquiries.</h1>
-        <p className="ac-prose-lede">
-          For appointments, made-to-order fittings, press, or general enquiries — write directly. We answer within two business days.
-        </p>
-      </section>
+      <SiteSection className="px-8 pt-20">
+        <PageHero
+          eyebrow="Contact"
+          title={<>Studio &amp; enquiries.</>}
+          subline="For appointments, made-to-order fittings, press, or general enquiries — write directly. We answer within two business days."
+          sublineKind="lede"
+        />
+      </SiteSection>
 
-      <section className="max-w-3xl mx-auto px-8 pt-12 pb-12">
+      <SiteSection className="px-8 pt-12 pb-12">
         <Divider />
         <div className="grid gap-8 sm:grid-cols-2 pt-8">
           <div>
-            <p className="ac-prose-label">Studio</p>
+            <p className="site-eyebrow-section">Studio</p>
             <div className="ac-prose">
               <p style={{ margin: '0 0 4px' }}><strong>{BRAND_INFO.studio.street}</strong></p>
               <p style={{ margin: '0 0 4px' }}>{BRAND_INFO.studio.postcode}</p>
@@ -52,14 +40,14 @@ export default function Contact() {
             </div>
           </div>
           <div>
-            <p className="ac-prose-label">Hours</p>
+            <p className="site-eyebrow-section">Hours</p>
             <div className="ac-prose">
               <p style={{ margin: '0 0 4px' }}>Mon–Fri 13:00–18:00</p>
               <p style={{ margin: 0 }}>Sat 13:00–16:00</p>
             </div>
           </div>
           <div>
-            <p className="ac-prose-label">Direct</p>
+            <p className="site-eyebrow-section">Direct</p>
             <div className="ac-prose">
               <p style={{ margin: '0 0 4px' }}>
                 <a href={`mailto:${BRAND_INFO.contact.email}`}>{BRAND_INFO.contact.email}</a>
@@ -68,43 +56,30 @@ export default function Contact() {
             </div>
           </div>
           <div>
-            <p className="ac-prose-label">Press</p>
+            <p className="site-eyebrow-section">Press</p>
             <div className="ac-prose">
               <p style={{ margin: 0 }}>
-                <a href={`mailto:${BRAND_INFO.contact.email}?subject=${encodeURIComponent('[Press] Enquiry')}`}>{BRAND_INFO.contact.email}</a>
+                <a href={`mailto:${BRAND_INFO.contact.press}?subject=${encodeURIComponent('[Press] Enquiry')}`}>{BRAND_INFO.contact.press}</a>
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </SiteSection>
 
-      <section className="max-w-3xl mx-auto px-8 pb-24">
+      <SiteSection className="px-8 pb-24">
         <Divider />
-        <p className="ac-prose-label" style={{ marginTop: '32px' }}>Write to us</p>
-        <p className="ac-prose-tagline" style={{ marginTop: '4px' }}>
+        <p className="site-eyebrow-section" style={{ marginTop: '32px' }}>Write to us</p>
+        <p className="site-tagline" style={{ marginTop: '4px' }}>
           The form opens your mail client with the message pre-filled.
         </p>
 
-        <form
-          className="flex flex-col gap-4 mt-8"
-          onSubmit={(e) => { e.preventDefault(); window.location.href = mailtoHref }}
-        >
-          <Input placeholder="Name"  required value={name}  onChange={(e) => setName(e.target.value)} />
-          <Input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Dropdown variant="subtle" options={SUBJECTS} value={subject} onChange={setSubject} className="w-full" />
-          <Textarea
-            rows={5}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Message"
-            required
-            className="!p-4 [&>textarea]:!p-0"
+        <div className="mt-8">
+          <EnquiryForm
+            categories={SUBJECTS}
+            defaultCategory="general"
           />
-          <div style={{ marginTop: '8px' }}>
-            <Button type="submit" variant="primary" size="lg">Send</Button>
-          </div>
-        </form>
-      </section>
+        </div>
+      </SiteSection>
     </main>
   )
 }

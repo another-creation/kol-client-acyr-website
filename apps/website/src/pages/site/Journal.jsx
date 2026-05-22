@@ -4,6 +4,8 @@ import usePageTitle from '../../components/hooks/usePageTitle'
 import { BRAND } from '@ac/brand-data/config'
 import Badge from '../../components/molecules/Badge'
 import Divider from '../../components/atoms/Divider'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 import { sortedArticles, formatDate } from '../../lib/queries'
 import { urlFor } from '../../lib/sanity'
 
@@ -29,17 +31,18 @@ export default function Journal() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
         />
-        <div className="relative max-w-3xl mx-auto px-5 py-24 text-center flex flex-col items-center">
-          <p className="ac-prose-label">Journal</p>
-          <h1 className="ac-prose-display">Notes from the atelier.</h1>
-          <p className="ac-prose-lede max-w-xl">
-            Collection updates, runway notes, pop-up dates, and how a small Reykjavík atelier
-            actually runs day to day.
-          </p>
-        </div>
+        <SiteSection as="div" className="relative px-5 py-24 text-center">
+          <PageHero
+            variant="marketing"
+            eyebrow="Journal"
+            title="Notes from the atelier."
+            subline="Collection updates, runway notes, pop-up dates, and how a small Reykjavík atelier actually runs day to day."
+            className="items-center"
+          />
+        </SiteSection>
       </section>
 
-      <section className="max-w-4xl mx-auto px-8 pb-24">
+      <SiteSection width="reading" className="px-8 pb-24">
         {articles && (
           <ul className="flex flex-col">
             {articles.map((article, i) => (
@@ -61,7 +64,7 @@ export default function Journal() {
                       </div>
                     )}
                     <div className="flex flex-col justify-center">
-                      <div className="ac-prose-label flex items-center gap-3" style={{ marginBottom: '12px' }}>
+                      <div className="site-meta-editorial flex items-center gap-3" style={{ marginBottom: '12px' }}>
                         {article.tag && <Badge variant="outline" size="sm">{article.tag}</Badge>}
                         <span>{formatDate(article.publishedAt)}</span>
                       </div>
@@ -69,7 +72,7 @@ export default function Journal() {
                         <h3>{article.title}</h3>
                         <p>{article.excerpt}</p>
                       </div>
-                      <div className="ac-prose-label flex gap-3" style={{ marginBottom: 0, marginTop: '4px' }}>
+                      <div className="site-meta-editorial flex gap-3" style={{ marginTop: '4px' }}>
                         {article.author && <span>{article.author.name}</span>}
                         <span aria-hidden="true">·</span>
                         <span>{article.readingMinutes} min read</span>
@@ -81,7 +84,7 @@ export default function Journal() {
             ))}
           </ul>
         )}
-      </section>
+      </SiteSection>
     </main>
   )
 }

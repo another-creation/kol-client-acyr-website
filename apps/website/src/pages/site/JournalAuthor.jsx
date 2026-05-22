@@ -7,6 +7,9 @@ import Divider from '../../components/atoms/Divider'
 import Badge from '../../components/molecules/Badge'
 import { findAuthor, articlesByAuthor, formatDate } from '../../lib/queries'
 import { urlFor } from '../../lib/sanity'
+import BackLink from '../../components/site/BackLink'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 
 export default function JournalAuthor() {
   const { slug } = useParams()
@@ -28,24 +31,18 @@ export default function JournalAuthor() {
 
   if (status === 'not-found') {
     return (
-      <main className="bg-surface-primary max-w-3xl mx-auto px-8 py-24 text-center">
-        <p className="ac-prose-label">404</p>
-        <h1 className="ac-prose-display-md">Author not found.</h1>
-        <Link to="/journal" className="ac-prose-label" style={{ marginBottom: 0 }}>← Back to journal</Link>
-      </main>
+      <SiteSection as="main" className="bg-surface-primary px-8 py-24 text-center">
+        <p className="site-meta-status">404</p>
+        <h1 className="site-title-page">Author not found.</h1>
+        <BackLink to="/journal">← Back to journal</BackLink>
+      </SiteSection>
     )
   }
 
   return (
     <main className="bg-surface-primary">
-      <section className="max-w-4xl mx-auto px-8 py-20">
-        <Link
-          to="/journal"
-          className="ac-back-link ac-helper-xs uppercase tracking-widest text-body hover:text-emphasis no-underline inline-flex items-center gap-1.5"
-          style={{ marginBottom: '32px' }}
-        >
-          ← Back to journal
-        </Link>
+      <SiteSection width="reading" className="px-8 py-20">
+        <BackLink to="/journal" className="mb-8">← Back to journal</BackLink>
 
         <header className="flex gap-8 items-start flex-wrap">
           <Avatar
@@ -55,11 +52,14 @@ export default function JournalAuthor() {
             size="xl"
           />
           <div className="flex-1 min-w-0">
-            <p className="ac-prose-label">{author.role}</p>
-            <h1 className="ac-prose-display-md">{author.name}</h1>
-            <p className="ac-prose-lede">{author.bio}</p>
+            <PageHero
+              eyebrow={author.role}
+              title={author.name}
+              subline={author.bio}
+              sublineKind="lede"
+            />
             {author.links?.length > 0 && (
-              <ul className="flex gap-4 flex-wrap ac-prose-label" style={{ marginBottom: 0 }}>
+              <ul className="flex gap-4 flex-wrap site-meta-editorial">
                 {author.links.map((link) => (
                   <li key={link.href}>
                     <a
@@ -76,10 +76,10 @@ export default function JournalAuthor() {
             )}
           </div>
         </header>
-      </section>
+      </SiteSection>
 
-      <section className="max-w-4xl mx-auto px-8 pb-24">
-        <p className="ac-prose-label">Published by {author.name}</p>
+      <SiteSection width="reading" className="px-8 pb-24">
+        <p className="site-eyebrow-section">Published by {author.name}</p>
         <Divider className="mb-6" />
         <ul className="flex flex-col">
           {articles.map((article, i) => (
@@ -101,7 +101,7 @@ export default function JournalAuthor() {
                     </div>
                   )}
                   <div className="flex flex-col justify-center">
-                    <div className="ac-prose-label flex items-center gap-3" style={{ marginBottom: '12px' }}>
+                    <div className="site-meta-editorial flex items-center gap-3" style={{ marginBottom: '12px' }}>
                       {article.tag && <Badge variant="outline" size="sm">{article.tag}</Badge>}
                       <span>{formatDate(article.publishedAt)}</span>
                     </div>
@@ -115,7 +115,7 @@ export default function JournalAuthor() {
             </Fragment>
           ))}
         </ul>
-      </section>
+      </SiteSection>
     </main>
   )
 }

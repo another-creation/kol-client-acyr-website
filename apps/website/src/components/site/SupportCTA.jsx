@@ -3,13 +3,14 @@ import Button from '../atoms/Button'
 export default function SupportCTA() {
   return (
     <section
+      data-theme="dark"
       className="bg-surface-inverse px-8 py-24 flex flex-col items-center text-center gap-6"
     >
-      <p className="ac-prose-label text-on-inverse">Independent Studio</p>
-      <h2 className="ac-prose-display-md max-w-[720px] text-on-inverse" style={{ marginBottom: 0 }}>
+      <p className="site-eyebrow-section">Independent Studio</p>
+      <h2 className="site-title-section max-w-[720px]" style={{ marginBottom: 0 }}>
         Support my Journey
       </h2>
-      <p className="text-on-inverse opacity-40 max-w-[600px] text-[20px] leading-7">
+      <p className="site-subline-hero opacity-60 max-w-[600px]">
         When you buy from Another Creation you support an independent atelier,
         not a factory floor. Made to order. Made to last.
       </p>

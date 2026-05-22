@@ -1,26 +1,22 @@
-/**
- * Marquee — scrolling band of names. Accepts items as strings or { name } objects.
- * Styled by `.site-marquee*` in ac-site.css.
- */
 export default function Marquee({ kicker, note, items = [] }) {
   const list = items.map((it) => (typeof it === 'string' ? { name: it } : it))
   return (
-    <section className="site-marquee">
+    <section data-theme="dark" className="relative w-screen ml-[calc(50%-50vw)] h-48 bg-black text-white flex flex-col justify-center overflow-hidden">
       {(kicker || note) && (
         <div className="max-w-[1200px] mx-auto mb-10 px-[var(--ac-pad-page-x)] flex items-baseline justify-between gap-4 flex-wrap">
-          {kicker && <span className="site-marquee-kicker">{kicker}</span>}
-          {note && <span className="site-marquee-head-note">{note}</span>}
+          {kicker && <span className="site-eyebrow-section">{kicker}</span>}
+          {note && <span className="site-meta-system">{note}</span>}
         </div>
       )}
-      <div className="site-marquee-track-wrap">
-        <div className="site-marquee-track">
+      <div className="relative w-full overflow-hidden">
+        <div className="marquee-scroll flex w-max">
           {[...list, ...list].map((item, i) => (
-            <span key={i} className="site-marquee-item inline-flex items-center gap-3">
+            <span key={i} className="inline-flex items-center gap-3 pr-16 md:pr-32">
               {item.logo ? (
-                <span className="site-marquee-item-logo inline-flex items-center">{item.logo}</span>
+                <span className="inline-flex items-center">{item.logo}</span>
               ) : (
-                <span className="site-marquee-item-label">
-                  <span>{item.name}</span>
+                <span className="inline-flex items-baseline gap-1.5 whitespace-nowrap text-[22px] font-medium tracking-[-0.005em]">
+                  {item.name}
                 </span>
               )}
             </span>

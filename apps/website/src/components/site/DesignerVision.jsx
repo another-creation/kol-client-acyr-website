@@ -12,19 +12,19 @@ export default function DesignerVision() {
       </div>
 
       <div className="flex flex-col justify-center px-16 py-20 gap-6">
-        <p className="ac-prose-label">The Designer</p>
-        <h2 className="ac-prose-display-md" style={{ marginBottom: 16 }}>Designer's<br />Vision</h2>
+        <p className="site-eyebrow-section">The Designer</p>
+        <h2 className="site-title-section uppercase" style={{ marginBottom: 16 }}>Designer's<br />Vision</h2>
         <div className="flex flex-col gap-4">
-          <p className="text-emphasis max-w-[380px] text-[20px] leading-7">
+          <p className="site-subline-hero max-w-[380px]">
             Every piece begins with a single question: what does a woman truly need?
             Not trend, not noise — but a garment that becomes part of her story.
             Crafted by hand from the finest materials, each design is made to age
             beautifully and last a lifetime.
           </p>
-          <p className="text-meta max-w-[380px] text-[20px] tracking-wider leading-7 font-light font-narrow italic">
-            Based in Central Europe, our small atelier works with local artisans
-            who share our obsession with detail. Slow fashion. No seasons.
-            Just enduring quality.
+          <p className="site-subline-emphasis max-w-[380px]">
+            From a studio in Reykjavík, each piece is cut by hand in small
+            numbers. No seasons, no overproduction — clothing made for the
+            independent woman, built to be kept.
           </p>
         </div>
         <div className="mt-2">

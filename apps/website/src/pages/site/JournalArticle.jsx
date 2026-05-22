@@ -8,6 +8,9 @@ import Badge from '../../components/molecules/Badge'
 import BlogBody from '../../components/site/BlogBody'
 import { findArticle, formatDate } from '../../lib/queries'
 import { urlFor } from '../../lib/sanity'
+import BackLink from '../../components/site/BackLink'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 
 export default function JournalArticle() {
   const { slug } = useParams()
@@ -29,11 +32,11 @@ export default function JournalArticle() {
 
   if (status === 'not-found') {
     return (
-      <main className="bg-surface-primary max-w-3xl mx-auto px-8 py-24 text-center">
-        <p className="ac-prose-label">404</p>
-        <h1 className="ac-prose-display-md">Article not found.</h1>
-        <Link to="/journal" className="ac-prose-label" style={{ marginBottom: 0 }}>← Back to journal</Link>
-      </main>
+      <SiteSection as="main" className="bg-surface-primary px-8 py-24 text-center">
+        <p className="site-meta-status">404</p>
+        <h1 className="site-title-page">Article not found.</h1>
+        <BackLink to="/journal">← Back to journal</BackLink>
+      </SiteSection>
     )
   }
 
@@ -52,14 +55,8 @@ export default function JournalArticle() {
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto px-8">
-        <Link
-          to="/journal"
-          className="ac-back-link ac-helper-xs uppercase tracking-widest text-body hover:text-emphasis no-underline inline-flex items-center gap-1.5"
-          style={{ marginBottom: '32px' }}
-        >
-          ← Back to journal
-        </Link>
+      <SiteSection as="div" className="px-8">
+        <BackLink to="/journal" className="mb-8">← Back to journal</BackLink>
 
         <header style={{ marginBottom: '64px' }}>
           {article.tag && (
@@ -67,10 +64,13 @@ export default function JournalArticle() {
               <Badge variant="outline" size="sm">{article.tag}</Badge>
             </div>
           )}
-          <h1 className="ac-prose-display-md">{article.title}</h1>
-          <p className="ac-prose-lede">{article.excerpt}</p>
+          <PageHero
+            title={article.title}
+            subline={article.excerpt}
+            sublineKind="lede"
+          />
           <Divider className="pt-4" />
-          <div className="ac-prose-label flex items-center gap-3 flex-wrap pt-4" style={{ marginBottom: 0 }}>
+          <div className="site-meta-editorial flex items-center gap-3 flex-wrap pt-4">
             {author && (
               <Link to={`/journal/author/${author.slug}`} className="inline-flex items-center gap-2.5 no-underline text-meta hover:text-emphasis">
                 <Avatar
@@ -101,7 +101,7 @@ export default function JournalArticle() {
                 size="lg"
               />
               <div className="min-w-0 flex-1">
-                <p className="ac-prose-label" style={{ marginBottom: '8px' }}>{author.role}</p>
+                <p className="site-meta-editorial" style={{ marginBottom: '8px' }}>{author.role}</p>
                 <div className="ac-prose">
                   <h3 style={{ margin: '0 0 8px' }}>{author.name}</h3>
                   <p style={{ margin: 0 }}>{author.bio}</p>
@@ -110,7 +110,7 @@ export default function JournalArticle() {
             </Link>
           </aside>
         )}
-      </div>
+      </SiteSection>
     </main>
   )
 }

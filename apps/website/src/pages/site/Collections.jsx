@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import usePageTitle from '../../components/hooks/usePageTitle'
 import { BRAND } from '@ac/brand-data/config'
 import Divider from '../../components/atoms/Divider'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 import { sortedCollections } from '../../lib/queries'
 import { urlFor } from '../../lib/sanity'
 
@@ -28,18 +30,20 @@ export default function Collections() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
         />
-        <div className="relative max-w-3xl mx-auto px-5 py-24 text-center flex flex-col items-center">
-          <p className="ac-prose-label">Collections</p>
-          <h1 className="ac-prose-display">Seasons.</h1>
-          <p className="ac-prose-lede max-w-xl">
-            One collection a year, occasionally two. Materials come first; shapes follow. Each season is built from a small set of cloths and shown once at home in Reykjavík before it goes anywhere else.
-          </p>
-        </div>
+        <SiteSection as="div" className="relative px-5 py-24 text-center">
+          <PageHero
+            variant="marketing"
+            eyebrow="Collections"
+            title="Seasons."
+            subline="One collection a year, occasionally two. Materials come first; shapes follow. Each season is built from a small set of cloths and shown once at home in Reykjavík before it goes anywhere else."
+            className="items-center"
+          />
+        </SiteSection>
       </section>
 
-      <section className="max-w-5xl mx-auto px-8 pb-24">
+      <SiteSection width="full" className="px-8 pb-24">
         {collections && (
-          <ul className="grid gap-12 md:grid-cols-2">
+          <ul className="grid gap-12 md:grid-cols-2 xl:grid-cols-3">
             {collections.map((collection) => (
               <li key={collection.slug}>
                 <Link
@@ -56,7 +60,7 @@ export default function Collections() {
                       />
                     )}
                   </div>
-                  <p className="ac-prose-label" style={{ marginBottom: '12px' }}>
+                  <p className="site-meta-editorial" style={{ marginBottom: '12px' }}>
                     {collection.title} · {collection.year}
                   </p>
                   <div className="ac-prose">
@@ -68,9 +72,9 @@ export default function Collections() {
             ))}
           </ul>
         )}
-      </section>
+      </SiteSection>
 
-      <section className="max-w-3xl mx-auto px-8 pb-24">
+      <SiteSection className="px-8 pb-24">
         <Divider />
         <div className="ac-prose pt-12 text-center">
           <p>
@@ -78,7 +82,7 @@ export default function Collections() {
             <a href="mailto:yr@another-creation.com">yr@another-creation.com</a>.
           </p>
         </div>
-      </section>
+      </SiteSection>
     </main>
   )
 }

@@ -33,9 +33,9 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="bg-surface-inverse flex flex-col items-center gap-6 px-8 py-20">
-      <p className="ac-prose-label text-center">Newsletter</p>
-      <h2 className="ac-sans-heading-02 text-emphasis text-on-inverse text-center max-w-[640px]">
+    <section data-theme="light" className="bg-surface-primary flex flex-col items-center gap-6 px-8 py-20">
+      <p className="site-eyebrow-section text-center">Newsletter</p>
+      <h2 className="site-title-section text-center max-w-[640px]">
         {status === 'success'
           ? 'Thank you. Check your inbox to confirm.'
           : 'Early access on new releases, plus 10% off your first order.'}
@@ -56,7 +56,7 @@ export default function Newsletter() {
             disabled={status === 'sending'}
             aria-invalid={status === 'error' ? 'true' : undefined}
             size="lg"
-            variant="outline"
+            variant="filled"
             className="flex-1"
           />
           <Button
@@ -71,7 +71,7 @@ export default function Newsletter() {
       )}
 
       {status === 'error' && (
-        <p role="alert" className="ac-helper-xs text-meta text-center">
+        <p role="alert" className="site-meta-system text-center">
           {errMsg}
         </p>
       )}

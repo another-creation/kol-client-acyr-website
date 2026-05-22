@@ -1,0 +1,401 @@
+/**
+ * site-typography.css — role-based typography layer for the website.
+ *
+ * Each rule names a slot by WHERE it renders (page-hero kicker, footer link,
+ * cart row, etc.), not by primitive size. Call sites use one role class;
+ * tuning a region means editing one rule in this file.
+ *
+ * Relationship to the AC DS:
+ *   - Font families and color tokens come from the DS (so brand swap cascades).
+ *   - Sizes / weights / tracking / line-height declared in raw values here, so
+ *     the site can iterate independently of the DS.
+ *   - Editorial body (.ac-prose) is NOT covered here — it stays on the DS for
+ *     blog posts, legal page bodies, BlogBody-rendered Sanity content.
+ *
+ * Inversion (dark cards / sections on light surface, and vice versa):
+ *   Use `data-theme="dark"` (or `="light"`) on the section/card wrapper.
+ *   Role classes intentionally reference --ac-surface-on-primary + --ac-fg-NN
+ *   so the theme scope flips them correctly. DO NOT introduce parallel
+ *   *-inverse role variants. Note: .bg-surface-inverse alone does NOT fully
+ *   flip the descriptor aliases (known DS bug, AGENT-CONTEXT) — always pair
+ *   it with data-theme="dark" until that's fixed.
+ *
+ * Five regions, ~18 roles. Groups follow the rendered surface, top-of-page
+ * down, plus the quote pull at the end.
+ *
+ * Margin handling:
+ *   Roles default `margin: 0` via `@layer base { :where(...) }` below. The
+ *   layer + :where combination puts the reset BELOW Tailwind's utilities
+ *   layer in the cascade, so any Tailwind utility (mb-N, mt-N, my-N,
+ *   margin-block, etc.) at the call site wins cleanly. Browser default
+ *   <p>/<h*>/<blockquote> margins stay killed when the consumer doesn't
+ *   override (we still beat the user-agent origin). Do NOT declare
+ *   `margin: 0` inside individual role rules — those are unlayered and
+ *   would beat Tailwind utilities in any layer.
+ */
+
+
+/* Margin reset for every role. Wrapped in `@layer base` + `:where()` so:
+ *   - browser default <p>/<h*>/<blockquote> margins get killed (we beat the
+ *     user-agent origin),
+ *   - Tailwind `mb-N` / `mt-N` / `my-N` at the call site win cleanly
+ *     (utilities layer > base layer in Tailwind v4's cascade order),
+ *   - the role rules themselves stay unlayered so font/size/color etc. keep
+ *     their normal source-order precedence.
+ * Do NOT add `margin: 0` back into individual role rules — it would
+ * re-introduce an unlayered declaration that beats Tailwind utilities. */
+@layer base {
+  :where(.site-link-nav,
+         .site-link-footer,
+         .site-label-footer,
+         .site-display-eyebrow,
+         .site-eyebrow-hero,
+         .site-title-hero,
+         .site-title-page,
+         .site-subline-hero,
+         .site-subline-emphasis,
+         .site-tagline,
+         .site-eyebrow-section,
+         .site-title-section,
+         .site-name-card,
+         .site-meta-card,
+         .site-meta-editorial,
+         .site-label-form,
+         .site-body-footer,
+         .site-back-link,
+         .site-meta-status,
+         .site-meta-system,
+         .site-quote,
+         .site-quote-cite,
+         .site-title-row) {
+    margin: 0;
+  }
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   NAV + FOOTER LINKS — Narrow 12 uppercase, the "browse chrome" register
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Top-bar nav link. */
+.site-link-nav {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Footer column link list items. */
+.site-link-footer {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Footer body copy — small normal-case Narrow paragraph (FooterNewsletter
+ * description, anywhere chrome-adjacent body copy appears in footer). */
+.site-body-footer {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ac-fg-80);
+}
+
+/* Footer column title ("Studio", "Browse", "Connect", "More"). */
+.site-label-footer {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-48);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   PAGE HEROES — top-of-page editorial opening
+   .site-eyebrow-hero + (.site-title-hero | .site-title-page)
+   + (.site-subline-hero | .site-tagline)
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Display-tier hero kicker — louder than .site-eyebrow-hero. Brand-accent
+ * color, bigger, heavier weight. For pages where the kicker is a brand
+ * callout (Home), not subordinate chrome. */
+.site-display-eyebrow {
+  font-family: var(--ac-font-family-mono);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-accent-primary);
+}
+
+/* Hero kicker — small mono eyebrow above the hero title. */
+.site-eyebrow-hero {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-48);
+}
+
+/* Marketing-page hero h1 (Home, About, Journal, Collections, Shop, Handmade).
+ * Big Narrow display, responsive clamp from mobile to desktop. */
+.site-title-hero {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ac-surface-on-primary);
+}
+
+/* Secondary-page h1 (Privacy, Terms, Brand, Press, ShippingReturns,
+ * JournalAuthor, JournalArticle, CollectionDetail, ProductDetail,
+ * OrderConfirmation, Contact, Checkout-empty, 404 states). Medium Narrow. */
+.site-title-page {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 64px;
+  line-height: 68px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ac-surface-on-primary);
+}
+
+/* Hero subline — sentence-case body lede under marketing-page titles. */
+.site-subline-hero {
+  font-family: var(--ac-font-family-sans-compact);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ac-surface-on-primary);
+}
+
+/* Quieter authorial body — same scale as .site-subline-hero, but Light
+ * italic with looser tracking and dimmer color. Used for secondary
+ * paragraphs that read as an aside next to the primary body. */
+.site-subline-emphasis {
+  font-family: var(--ac-font-family-sans-compact);
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--ac-fg-64);
+}
+
+/* Tagline — small uppercase one-liner under secondary-page titles (legal,
+ * detail). Distinct from .site-subline-hero. */
+.site-tagline {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ac-fg-64);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   MID-PAGE SECTIONS — within-page section openers (not hero)
+   .site-eyebrow-section + .site-title-section
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Mid-section eyebrow (DesignerVision, SupportCTA, Newsletter, FAQ, etc).
+ * Same starting spec as .site-eyebrow-hero — separate role so they can be
+ * tuned independently when the design wants to differentiate. */
+.site-eyebrow-section {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-48);
+}
+
+/* Mid-section heading (default). Currently inconsistent across surfaces
+ * (16 / 40 / 64 / 80 / 32-64 clamp). Starting on 64 to align with
+ * .site-title-page; Collection / Newsletter / FAQ will gain weight on
+ * adoption — visual review needed during sweep. */
+.site-title-section {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 64px;
+  line-height: 68px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ac-surface-on-primary);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   CARDS — catalog cards, cart rows, editorial cards
+   .site-name-card + .site-meta-card + .site-meta-editorial
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Card name (product card title, cart row name, checkout-aside row name,
+ * order-confirmation row name). One register across all commerce surfaces. */
+.site-name-card {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ac-surface-on-primary);
+}
+
+/* Card meta (price, size · color line, qty value, line price). Same scale as
+ * .site-name-card, dimmer. */
+.site-meta-card {
+  font-family: var(--ac-font-family-sans-narrow);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ac-fg-64);
+}
+
+/* Editorial card meta (Journal byline + date + reading time, Collection card
+ * label "Title · Year", Look card "Look 01 · Family", adjacent collection
+ * "← Previous"). Mono register — separates editorial-list surfaces from
+ * commerce-list surfaces. */
+.site-meta-editorial {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-48);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   FORMS — field labels + control-row labels
+   .site-label-form
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Form field label (Checkout, Newsletter, Contact, FooterNewsletter, Handmade
+ * enquiry) + PDP control labels ("Color:", "Size:", "Quantity", "Details").
+ * Tight mono — reads as "form chrome". */
+.site-label-form {
+  font-family: var(--ac-font-family-mono);
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-surface-on-primary);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   BACK LINK + STATUS — secondary-page chrome
+   .site-back-link + .site-meta-status
+   ═════════════════════════════════════════════════════════════════ */
+
+/* "← Back" link at the top of secondary pages. One canonical visual —
+ * Mono uppercase, no underline. Hover dims via color transition. */
+.site-back-link {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-64);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 150ms ease;
+}
+.site-back-link:hover,
+.site-back-link:focus-visible {
+  color: var(--ac-surface-on-primary);
+}
+
+/* Chrome status — uppercase mono label register. 404 / "ESC" hint /
+ * breadcrumb / Cmd-K section badge / subtotal label / etc. */
+.site-meta-status {
+  font-family: var(--ac-font-family-mono);
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-48);
+}
+
+/* System body — sentence-case mono register. Footer copyright, error
+ * messages, helper text, "Continue shopping", "Secure via PayPal",
+ * tracking footnotes. Same size + color as .site-meta-status but
+ * proper case + lighter tracking for readability. */
+.site-meta-system {
+  font-family: var(--ac-font-family-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ac-fg-48);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   ROWS — titles inside row-style components (FAQ q, list row title)
+   .site-title-row
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Title text inside a row — FAQ question, accordion question, list-row
+ * title. Smaller than .site-title-section; bigger than body. */
+.site-title-row {
+  font-family: var(--ac-font-family-sans-compact);
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--ac-surface-on-primary);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════
+   QUOTE — testimonial pull. Big italic-bold sans, responsive clamp.
+   .site-quote + .site-quote-cite
+   ═════════════════════════════════════════════════════════════════ */
+
+/* Testimonial-style pull quote. Distinct from .ac-prose blockquote (which is
+ * 24px inside editorial body). This is hero-scale, lives on its own. */
+.site-quote {
+  font-family: var(--ac-font-family-sans);
+  font-size: clamp(32px, 4.5vw, 64px);
+  line-height: 1.2;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.005em;
+  color: var(--ac-surface-on-primary);
+}
+
+/* Testimonial cite. Mono uppercase, dimmer than .site-meta-status. */
+.site-quote-cite {
+  font-family: var(--ac-font-family-mono);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ac-fg-64);
+}

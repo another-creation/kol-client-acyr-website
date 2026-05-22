@@ -442,7 +442,7 @@ body {
   gap: 6px;
   padding: 6px 10px;
   background: color-mix(in srgb, var(--ac-surface-primary) 80%, transparent);
-  border: 1px solid var(--ac-fg-16);
+  border: 1px solid var(--ac-fg-12);
   border-radius: 3px;
   color: var(--ac-fg-64);
   cursor: pointer;

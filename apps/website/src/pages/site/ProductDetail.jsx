@@ -7,6 +7,9 @@ import Button from '../../components/atoms/Button'
 import Icon from '../../components/loaders/icons/Icon'
 import { findProduct, formatPrice } from '../../data/shop-data'
 import { useCart } from '../../components/site/CartContext'
+import BackLink from '../../components/site/BackLink'
+import PageHero from '../../components/site/PageHero'
+import SiteSection from '../../components/site/SiteSection'
 
 const COLOR_HEX = {
   'White':         '#ffffff',
@@ -20,7 +23,7 @@ const COLOR_HEX = {
 
 function SizeRow({ sizes, value, onChange }) {
   return (
-    <div className="flex flex-wrap items-center border-b border-fg-12">
+    <div className="flex flex-wrap items-center border-b border-fg-16">
       {sizes.map((s) => {
         const active = s === value
         return (
@@ -28,7 +31,7 @@ function SizeRow({ sizes, value, onChange }) {
             type="button"
             key={s}
             onClick={() => onChange(s)}
-            className="ac-helper-xs uppercase"
+            className="site-name-card"
             style={{
               padding: '10px 14px',
               border: 'none',
@@ -129,11 +132,11 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <main className="bg-surface-primary min-h-dvh max-w-3xl mx-auto px-8 py-24 text-center">
-        <p className="ac-helper-xxs uppercase text-meta">404</p>
-        <h1 className="ac-prose-display-md">Product not found.</h1>
-        <Link to="/shop" className="ac-helper-xxs uppercase text-emphasis underline underline-offset-4 hover:no-underline">← Back to shop</Link>
-      </main>
+      <SiteSection as="main" className="bg-surface-primary min-h-dvh px-8 py-24 text-center">
+        <p className="site-meta-status">404</p>
+        <h1 className="site-title-page">Product not found.</h1>
+        <BackLink to="/shop">← Back to shop</BackLink>
+      </SiteSection>
     )
   }
 
@@ -205,16 +208,16 @@ export default function ProductDetail() {
         {/* INFO */}
         <div className="px-8 lg:px-16 py-12 lg:py-20">
           <div className="max-w-[560px] flex flex-col">
-            <p className="ac-helper-xxs uppercase text-meta mb-6">
+            <p className="site-meta-status mb-6">
               <Link to={indexHref} className="text-meta hover:text-emphasis no-underline">{indexLabel}</Link>
               <span className="mx-2">/</span>
               <span className="text-emphasis">{product.name}</span>
             </p>
 
-            <h1 className="ac-prose-display-md">{product.name}</h1>
-            <p className="ac-prose-tagline" style={{ marginTop: '8px' }}>
-              {priceLabel}
-            </p>
+            <PageHero
+              title={product.name}
+              subline={priceLabel}
+            />
 
             <Divider className="my-6" />
 
@@ -225,7 +228,7 @@ export default function ProductDetail() {
 
             {isPod && multiColor && (
               <div className="mb-6">
-                <p className="ac-helper-xxs uppercase text-emphasis mb-3">
+                <p className="site-label-form mb-3">
                   Color: <span className="text-meta ml-1">{color ?? '—'}</span>
                 </p>
                 <ColorSwatches
@@ -238,7 +241,7 @@ export default function ProductDetail() {
 
             {isPod && product.sizes && product.sizes.length > 1 && (
               <div className="mb-6">
-                <p className="ac-helper-xxs uppercase text-emphasis mb-3">
+                <p className="site-label-form mb-3">
                   Size: <span className="text-meta ml-1">{size ?? '—'}</span>
                 </p>
                 <SizeRow sizes={product.sizes} value={size} onChange={setSize} />
@@ -246,7 +249,7 @@ export default function ProductDetail() {
             )}
 
             <div className="mb-8">
-              <p className="ac-helper-xxs uppercase text-emphasis mb-3">Quantity</p>
+              <p className="site-label-form mb-3">Quantity</p>
               <div className="inline-flex items-center gap-3">
                 <button
                   type="button"
@@ -255,7 +258,7 @@ export default function ProductDetail() {
                   className="w-9 h-9 inline-flex items-center justify-center bg-fg-04 hover:bg-fg-08 transition-colors rounded-full"
                   style={{ border: 'none', cursor: 'pointer', color: 'inherit' }}
                 ><Icon name="minus" size={14} /></button>
-                <span className="ac-helper-xs" style={{ minWidth: '2em', textAlign: 'center' }}>{qty}</span>
+                <span className="site-name-card" style={{ minWidth: '2em', textAlign: 'center' }}>{qty}</span>
                 <button
                   type="button"
                   aria-label="Increase"
@@ -296,7 +299,7 @@ export default function ProductDetail() {
             {desc?.bullets?.length > 0 && (
               <>
                 <Divider className="my-10" />
-                <p className="ac-helper-xxs uppercase text-emphasis mb-3">Details</p>
+                <p className="site-label-form mb-3">Details</p>
                 <ul className="ac-prose">
                   {desc.bullets.map((b, i) => <li key={i} style={{ margin: '0 0 4px' }}>{b}</li>)}
                 </ul>
@@ -305,7 +308,7 @@ export default function ProductDetail() {
 
             <Divider className="my-10" />
 
-            <p className="ac-helper-xxs uppercase text-emphasis mb-3">About this piece</p>
+            <p className="site-label-form mb-3">About this piece</p>
             <div className="ac-prose">
               {isPod ? (
                 <p style={{ margin: 0 }}>

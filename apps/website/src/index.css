@@ -1,3 +1,4 @@
 @import "tailwindcss";
 @import "@ac/ds/index.css";
 @import "./styles/site.css";
+@import "./styles/site-typography.css";

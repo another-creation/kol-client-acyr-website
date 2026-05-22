@@ -27,7 +27,7 @@
  * Input owns prefix/suffix layout + the inner <input> styling.
  */
 
-const SIZE_TYPE = { sm: 'ac-mono-12', md: 'ac-mono-14', lg: 'ac-mono-14' }
+const SIZE_TYPE = { sm: 'ac-mono-12', md: 'ac-mono-14', lg: 'ac-mono-16' }
 
 export default function Input({
   type = 'text',
@@ -64,7 +64,7 @@ export default function Input({
    * from the font's ascender+descender (font-metric), not strictly from
    * CSS line-height. Result: ac-control-sm ends up 26.5px instead of 26.
    * h-4 / h-[18px] / h-[22px] match the ac-mono-12 / -14 / -16 line-heights. */
-  const heightCls = size === 'sm' ? 'h-4' : 'h-[18px]'
+  const heightCls = size === 'sm' ? 'h-4' : size === 'lg' ? 'h-[22px]' : 'h-[18px]'
 
   const inputCls = [
     'min-w-0 bg-transparent border-none outline-none text-auto',

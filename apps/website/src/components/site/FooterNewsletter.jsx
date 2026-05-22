@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from '../atoms/Button'
+import Input from '../atoms/Input'
 
 export default function FooterNewsletter() {
   const [email, setEmail]   = useState('')
@@ -32,11 +33,11 @@ export default function FooterNewsletter() {
   }
 
   return (
-    <div className="ac-site-footer-newsletter px-8 py-10 border-b border-fg-12">
+    <div className="ac-site-footer-newsletter px-8 py-10">
       <div className="flex flex-wrap items-center justify-between gap-6">
         <div className="flex flex-col gap-1.5 max-w-[420px]">
-          <p className="ac-prose-label">Newsletter</p>
-          <p className="ac-sans-nav text-body normal-case tracking-[0.04em]" style={{ fontSize: 14, lineHeight: 1.4 }}>
+          <p className="site-eyebrow-section">Newsletter</p>
+          <p className="site-body-footer">
             {status === 'success'
               ? 'Thank you. Please check your inbox to confirm your subscription.'
               : 'Early access to new releases and atelier notes.'}
@@ -49,7 +50,7 @@ export default function FooterNewsletter() {
             className="ac-site-footer-newsletter-row flex gap-3 flex-1 min-w-[260px] max-w-[440px]"
             noValidate
           >
-            <input
+            <Input
               type="email"
               placeholder="Your email"
               value={email}
@@ -57,13 +58,14 @@ export default function FooterNewsletter() {
               required
               disabled={status === 'sending'}
               aria-invalid={status === 'error' ? 'true' : undefined}
-              className="ac-sans-nav text-emphasis flex-1 bg-transparent border-0 border-b border-fg-24 px-0 py-2.5 outline-none"
-              style={{ fontSize: 13 }}
+              size="md"
+              variant="outline"
+              className="flex-1"
             />
             <Button
               type="submit"
-              variant="ghost"
-              size="sm"
+              variant="secondary"
+              size="md"
               disabled={status === 'sending'}
             >
               {status === 'sending' ? 'Signing up…' : 'Sign Up'}
@@ -73,7 +75,7 @@ export default function FooterNewsletter() {
       </div>
 
       {status === 'error' && (
-        <p role="alert" className="ac-sans-nav text-meta normal-case tracking-[0.04em] mt-3" style={{ fontSize: 12 }}>
+        <p role="alert" className="site-meta-system mt-3">
           {errMsg}
         </p>
       )}

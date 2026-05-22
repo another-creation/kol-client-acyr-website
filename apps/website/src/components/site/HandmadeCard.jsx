@@ -16,7 +16,7 @@ export default function HandmadeCard() {
         style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)' }}
       />
       <div data-theme="dark" className="relative flex flex-col gap-5 max-w-[480px]">
-        <h2 className="ac-prose-display text-emphasis uppercase">
+        <h2 className="site-title-section uppercase">
           Handmade &amp;<br />tailored<br />to your needs
         </h2>
         <div className="mt-2">

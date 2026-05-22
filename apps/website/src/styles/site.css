@@ -11,13 +11,21 @@
    scrollbar appears. */
 :root { scrollbar-gutter: stable; }
 
+/* Suppress UA focus ring on mouse-focus globally. Keyboard :focus-visible gets
+   a barely-there 1px fg-16 stroke — present for the rare keyboard user, but
+   visually quiet enough not to disrupt the editorial register. */
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible {
+  outline: 1px solid var(--ac-fg-16);
+  outline-offset: 0;
+}
+
 /* ═════════════════════════════════════════════════════════════════
    FULLBLEED — width: 100vw + negative margin. Shared across every
    landing section that spans viewport edge-to-edge.
    ═════════════════════════════════════════════════════════════════ */
 
 .site-intro,
-.site-marquee,
 .site-anchor,
 .site-sig,
 .site-gallery {
@@ -156,104 +164,19 @@
   50%      { transform: translateY(4px); }
 }
 
-/* ═════════════════════════════════════════════════════════════════
-   MARQUEE — customers in the house (rotating lockup strip)
-   ═════════════════════════════════════════════════════════════════ */
-
-.site-marquee {
-  background: var(--ac-color-absolute-black);
-  color: var(--ac-surface-on-primary);
-  height: 192px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.site-marquee-kicker {
-  font-family: var(--ac-font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent);
-}
-
-.site-marquee-head-note {
-  font-family: "Right Grotesk", sans-serif;
-  font-size: 13px;
-  color: color-mix(in srgb, var(--ac-surface-on-primary) 56%, transparent);
-}
-
-.site-marquee-track-wrap {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.site-marquee-track {
-  --marquee-gap: 128px;
-  display: flex;
-  width: max-content;
-  animation: site-marquee-scroll 120s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-@media (max-width: 767px) {
-  .site-marquee-track { --marquee-gap: 64px; }
-}
-
-/* Seamless loop: each item carries the gap as padding-right, so the total
- * track width is exactly 2× one-copy's width — translating -50% lands the
- * second copy's first item at position 0 with no rounding errors. */
+/* Marquee — fully inlined in Marquee.jsx (Tailwind + DS classes). Only the
+   keyframes + animation atom remain here because keyframes can't be a
+   utility. Per-item padding-right (`pr-16 md:pr-32`) is what makes the
+   `translate3d(-50%, ...)` seamless-loop trick line up exactly — 2 copies =
+   2× one-copy width. */
 @keyframes site-marquee-scroll {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-50%, 0, 0); }
 }
-
-.site-marquee-item {
-  color: var(--ac-surface-on-primary);
-  padding-right: var(--marquee-gap);
-}
-
-.site-marquee-item-mark {
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
-  flex-shrink: 0;
-  color: inherit;
-}
-
-.site-marquee-item-mark .ac-brand-logo,
-.site-marquee-item-mark svg { width: 100%; height: 100%; display: block; }
-
-.site-marquee-item-label {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  font-family: "Right Grotesk", sans-serif;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 1;
-  letter-spacing: -0.005em;
-  white-space: nowrap;
-}
-
-.site-marquee-item-parent {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: color-mix(in srgb, currentColor 70%, transparent);
-}
-
-.site-marquee-item-descriptor {
-  font-size: 0.64em;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.5;
+.marquee-scroll {
+  animation: site-marquee-scroll 120s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* ═════════════════════════════════════════════════════════════════
@@ -544,8 +467,6 @@
   align-items: center;
   padding: 0 32px;
   height: 48px;
-  background: var(--ac-surface-primary);
-  color: var(--ac-surface-on-primary);
   transform: translateY(0);
   transition: transform 250ms ease;
 }
@@ -621,11 +542,6 @@
    same Right Grotesk Narrow uppercase link typography, same hover.
    Three columns desktop (Studio · Browse · Connect), single column mobile. */
 
-.ac-site-footer {
-  background: var(--ac-color-absolute-black);
-  color: var(--ac-surface-on-primary);
-}
-
 .ac-site-footer-grid {
   display: grid;
   grid-template-columns: 1.4fr 1.2fr 1fr 1fr 1fr;
@@ -646,19 +562,7 @@
 
 .ac-site-footer-mark .ac-logo { width: 140px; height: auto; display: block; }
 
-.ac-site-footer-label {
-  font-family: 'Right Grotesk Mono', monospace;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent);
-  margin: 0;
-}
-
-.ac-site-footer-label--legal { margin-top: 24px; }
-
+/* .ac-site-footer-list — list layout only (no typography; that's site-link-footer). */
 .ac-site-footer-list {
   list-style: none;
   margin: 0;
@@ -670,14 +574,6 @@
 
 .ac-site-footer-list li {
   color: color-mix(in srgb, var(--ac-surface-on-primary) 80%, transparent);
-}
-
-.ac-site-footer-meta {
-  font-family: 'Right Grotesk Mono', monospace;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: color-mix(in srgb, var(--ac-surface-on-primary) 56%, transparent);
 }
 
 .ac-site-footer-link {

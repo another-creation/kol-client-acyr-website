@@ -120,12 +120,12 @@ export default function CmdKSearch({
             className="flex-1 bg-transparent text-emphasis"
             style={{ border: 'none', outline: 'none', fontSize: 14, padding: 0 }}
           />
-          <span className="ac-helper-xxs text-meta">ESC</span>
+          <span className="site-meta-status">ESC</span>
         </div>
 
         <ul className="flex-1 overflow-y-auto max-h-[60vh] m-0 p-0" style={{ listStyle: 'none' }}>
           {results.length === 0 ? (
-            <li className="px-4 py-3 ac-helper-xxs text-meta">No results.</li>
+            <li className="px-4 py-3 site-meta-system">No results.</li>
           ) : (
             results.map((r, i) => {
               const active = i === idx
@@ -137,8 +137,8 @@ export default function CmdKSearch({
                   className="px-4 py-3 cursor-pointer flex items-center justify-between gap-4"
                   style={{ background: active ? 'var(--ac-fg-04)' : 'transparent' }}
                 >
-                  <span className="ac-sans-nav truncate">{r.label}</span>
-                  <span className="ac-helper-xxs text-meta flex-shrink-0">{r.section}</span>
+                  <span className="site-link-nav truncate">{r.label}</span>
+                  <span className="site-meta-status flex-shrink-0">{r.section}</span>
                 </li>
               )
             })

@@ -5,6 +5,10 @@ const STORAGE_KEY = 'ac-theme'
 
 function getInitialTheme() {
   if (typeof document === 'undefined') return 'dark'
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored === 'light' || stored === 'dark') return stored
+  } catch { /* storage blocked */ }
   return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'
 }
 

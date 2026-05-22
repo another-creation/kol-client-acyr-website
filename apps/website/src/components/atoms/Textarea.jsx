@@ -1,5 +1,3 @@
-import Icon from '../loaders/icons/Icon'
-
 /**
  * Textarea — multi-line text atom built on the .ac-control shell with the
  * `--textarea` modifier (display: block).
@@ -10,9 +8,9 @@ import Icon from '../loaders/icons/Icon'
  *
  *   size="sm" / "md" (default) / "lg" — padding + type class
  *
- * Default rows = 3 (kept short — long content gets scrollbars instead of
- * dominating the panel). No native resize handle — fixed size, scrollable
- * overflow. The kol resize-corner icon in the bottom-right is decorative.
+ * Default rows = 3. Vertical resize enabled — browser draws a native
+ * drag handle at the bottom-right corner so users can grow the field.
+ * Horizontal resize disabled to keep form layout stable.
  *
  * Controlled OR uncontrolled:
  *   - pass `value` + `onChange` for controlled,
@@ -59,12 +57,9 @@ export default function Textarea({
         disabled={disabled}
         spellCheck={false}
         className="block w-full bg-transparent border-none outline-none text-auto"
-        style={{ resize: 'none' }}
+        style={{ resize: 'vertical' }}
         {...props}
       />
-      <span aria-hidden="true" className="ac-textarea-resize-icon text-meta pointer-events-none">
-        <Icon name="resize-corner" size={12} />
-      </span>
     </label>
   )
 }

@@ -6,9 +6,9 @@ export default function NotFound() {
 
   return (
     <section className="ac-page-hero">
-      <p className="ac-helper-12 uppercase tracking-widest text-meta m-0 mb-4">404</p>
-      <h1 className="ac-sans-display-01 text-emphasis m-0 mb-6">Not here.</h1>
-      <p className="ac-sans-body-01 text-body m-0 max-w-[60ch]">
+      <p className="site-meta-status mb-4">404</p>
+      <h1 className="site-title-page mb-6">Not here.</h1>
+      <p className="site-subline-hero max-w-[60ch]">
         That route isn&rsquo;t part of this site.{' '}
         <Link to="/" className="text-emphasis hover:text-strong underline">
           Back home

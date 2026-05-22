@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Icon from '../loaders/icons/Icon'
-import { MenuDropdownItem } from './MenuItem'
 import { PopoverPanel, usePopover } from './Popover'
 
 const SIZE_MAP = {
@@ -9,7 +8,7 @@ const SIZE_MAP = {
   lg: { fontSize: 14, paddingY: 8, paddingX: 16, radius: 24, panelRadius: 24, icon: 14 }
 }
 
-const SIZE_TYPE = { sm: 'ac-mono-12', md: 'ac-mono-12', lg: 'ac-mono-14' }
+const SIZE_TYPE = { sm: 'ac-mono-12', md: 'ac-mono-12', lg: 'ac-mono-16' }
 
 const Dropdown = ({
   options = [],
@@ -205,13 +204,18 @@ const Dropdown = ({
           {options.map((option) => {
             const isActive = option.value === currentOption?.value
             return (
-              <MenuDropdownItem
+              <button
                 key={option.value}
+                type="button"
+                role="option"
+                aria-selected={isActive}
                 onClick={() => handleSelect(option)}
-                shortcut={isActive ? <Icon name="check" size={11} /> : undefined}
+                className={`w-full inline-flex items-center gap-2 text-body hover:text-emphasis text-left transition-colors ${SIZE_TYPE[resolvedSize]}`}
+                style={{ padding: `${metrics.paddingY}px ${metrics.paddingX}px` }}
               >
-                {option.label}
-              </MenuDropdownItem>
+                <span className="flex-1 truncate">{option.label}</span>
+                {isActive && <Icon name="check" size={11} />}
+              </button>
             )
           })}
         </div>

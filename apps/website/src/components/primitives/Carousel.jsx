@@ -32,14 +32,14 @@ export default function Carousel({ children, options = { align: 'start', loop: f
       <div className="ac-embla-controls">
         <button
           type="button"
-          className="ac-embla-btn border border-fg-16 hover:border-fg-32 text-auto"
+          className="ac-embla-btn border border-fg-12 hover:border-fg-32 text-auto"
           aria-label="Previous"
           onClick={() => emblaApi?.scrollPrev()}
           disabled={!canPrev}
         >‹</button>
         <button
           type="button"
-          className="ac-embla-btn border border-fg-16 hover:border-fg-32 text-auto"
+          className="ac-embla-btn border border-fg-12 hover:border-fg-32 text-auto"
           aria-label="Next"
           onClick={() => emblaApi?.scrollNext()}
           disabled={!canNext}

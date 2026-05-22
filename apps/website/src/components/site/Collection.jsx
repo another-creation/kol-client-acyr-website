@@ -7,8 +7,8 @@ export default function Collection() {
   return (
     <section className="bg-surface-primary px-8 py-12">
       <div className="flex items-baseline justify-between mb-10">
-        <h2 className="ac-sans-heading-06 uppercase text-emphasis">Collection</h2>
-        <span className="ac-sans-heading-06 uppercase text-meta">SS 2026</span>
+        <h2 className="site-meta-editorial text-emphasis">Collection</h2>
+        <span className="site-meta-editorial">SS 2026</span>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[110vh]">

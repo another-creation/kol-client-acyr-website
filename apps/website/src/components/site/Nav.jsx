@@ -9,8 +9,8 @@ const linkStyle = {
   textDecoration: 'none',
 }
 
-function NavLink({ label, to, onClick, drawer = false }) {
-  const className = `ac-site-nav-link ac-sans-nav${drawer ? ' text-[14px]' : ''}`
+function NavLink({ label, to, onClick }) {
+  const className = `ac-site-nav-link site-link-nav`
   if (to) {
     return (
       <Link to={to} onClick={onClick} className={className} style={linkStyle}>
@@ -98,7 +98,7 @@ export default function Nav({
   return (
     <>
       <nav
-        className={`ac-site-nav${variant === 'center' ? ' is-center' : ''}${hidden ? ' is-hidden' : ''}`}
+        className={`ac-site-nav bg-surface-tertiary${variant === 'center' ? ' is-center' : ''}${hidden ? ' is-hidden' : ''}`}
       >
         {variant === 'center' ? (
           <>
@@ -125,10 +125,10 @@ export default function Nav({
       <div className={`ac-site-nav-drawer${mobileOpen ? ' is-open' : ''}`} aria-hidden={!mobileOpen}>
         <div className="ac-site-nav-drawer-inner">
           {leftLinks.map(l => (
-            <NavLink key={l.label} label={l.label} to={l.to} drawer onClick={() => { onNavigate?.(l.label.toLowerCase()); setMobileOpen(false) }} />
+            <NavLink key={l.label} label={l.label} to={l.to} onClick={() => { onNavigate?.(l.label.toLowerCase()); setMobileOpen(false) }} />
           ))}
           {rightLinks.map(l => (
-            <NavLink key={l.label} label={l.label} to={l.to} drawer onClick={() => setMobileOpen(false)} />
+            <NavLink key={l.label} label={l.label} to={l.to} onClick={() => setMobileOpen(false)} />
           ))}
           {rightActions && (
             <div className="ac-site-nav-drawer-actions" style={{ display: 'flex', gap: '20px', marginTop: '16px' }}>

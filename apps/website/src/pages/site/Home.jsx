@@ -10,6 +10,7 @@ import DesignerVision from '../../components/site/DesignerVision'
 import SupportCTA from '../../components/site/SupportCTA'
 import HandmadeCard from '../../components/site/HandmadeCard'
 import Newsletter from '../../components/site/Newsletter'
+import PageHero from '../../components/site/PageHero'
 
 const FAQ_ITEMS = [
   { q: 'What is the difference between shop and atelier?', a: 'Shop pieces are print-on-demand — produced and shipped per order through our print partner. Atelier pieces are handmade by Ýr in Reykjavík, one at a time, by enquiry.' },
@@ -20,7 +21,7 @@ const FAQ_ITEMS = [
 ]
 
 export default function ClientHome() {
-  usePageTitle(`${BRAND.name} — the federation bridge platform`)
+  usePageTitle(BRAND.name)
 
   return (
     <main>
@@ -28,13 +29,14 @@ export default function ClientHome() {
         className="relative w-full min-h-[70vh] sm:min-h-screen flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: 'url(/brand/photoshoot/33a4402.jpg)' }}
       >
-        <div className="text-center px-8 flex flex-col items-center gap-6">
-          <span className="ac-helper-20 uppercase text-accent-primary" style={{ fontSize: 24, fontWeight: 600 }}>
-            Another Creation
-          </span>
-          <h1 className="font-narrow uppercase font-medium text-[clamp(56px,8vw,96px)] leading-[1.05]">
-            Timeless Quality Design
-          </h1>
+        <div className="text-center px-8 items-center">
+          <PageHero
+            eyebrow="Another Creation"
+            title={<span className="uppercase">Timeless Quality Design</span>}
+            variant="marketing"
+            eyebrowVariant="display"
+            className="items-center gap-6"
+          />
         </div>
       </section>
 
@@ -56,7 +58,7 @@ export default function ClientHome() {
       <LookbookCarousel />
 
       <Testimonial
-        kicker={`${BRAND.name} positioning · Kolkrabbi · Stardate 2026`}
+        kicker={`${BRAND.name} positioning · Kolkrabbi · 2026`}
         quote="Strong, trustworthy, elegant — yet flexible enough to counter the rigid nature of sovereign institutions."
         cite="Brand positioning, Kolkrabbi"
       />

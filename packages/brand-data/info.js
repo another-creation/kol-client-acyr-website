@@ -18,6 +18,7 @@ export const BRAND_INFO = {
   },
   contact: {
     email: 'yr@another-creation.xyz',
+    press: 'press@another-creation.xyz',
     phone: '+354-698-5802',
     web:   'another-creation.xyz',
   },

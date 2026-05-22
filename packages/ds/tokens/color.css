@@ -97,6 +97,68 @@
 
   --ac-surface-inverse: #FCFBF8;
   --ac-surface-on-inverse: #0E0E11;
+
+  /* Re-declare fg-ramp against the inverted on-primary so opacity tokens
+   * flip with the surface scope. CSS substitutes inner var() at the
+   * declaration site of fg-NN — the :root declarations bake on-primary
+   * at root-scope and don't re-resolve here unless redeclared. */
+  --ac-fg-01: color-mix(in srgb, var(--ac-surface-on-primary) 1%, transparent);
+  --ac-fg-02: color-mix(in srgb, var(--ac-surface-on-primary) 2%, transparent);
+  --ac-fg-04: color-mix(in srgb, var(--ac-surface-on-primary) 4%, transparent);
+  --ac-fg-08: color-mix(in srgb, var(--ac-surface-on-primary) 8%, transparent);
+  --ac-fg-12: color-mix(in srgb, var(--ac-surface-on-primary) 12%, transparent);
+  --ac-fg-16: color-mix(in srgb, var(--ac-surface-on-primary) 16%, transparent);
+  --ac-fg-24: color-mix(in srgb, var(--ac-surface-on-primary) 24%, transparent);
+  --ac-fg-32: color-mix(in srgb, var(--ac-surface-on-primary) 32%, transparent);
+  --ac-fg-40: color-mix(in srgb, var(--ac-surface-on-primary) 40%, transparent);
+  --ac-fg-48: color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent);
+  --ac-fg-64: color-mix(in srgb, var(--ac-surface-on-primary) 64%, transparent);
+  --ac-fg-80: color-mix(in srgb, var(--ac-surface-on-primary) 80%, transparent);
+  --ac-fg-88: color-mix(in srgb, var(--ac-surface-on-primary) 88%, transparent);
+  --ac-fg-96: color-mix(in srgb, var(--ac-surface-on-primary) 96%, transparent);
+
+  --ac-border-default: color-mix(in srgb, var(--ac-surface-on-primary) 8%, transparent);
+}
+
+/* =============================================================================
+ * LIGHT MODE — scoped override (forces light inside any wrapper)
+ *
+ * Parallel to [data-theme="dark"]. Lets a section/card force the light
+ * palette regardless of the page's current theme, the same way
+ * data-theme="dark" lets a section force the dark palette in a light page.
+ * Without this rule, data-theme="light" on a nested element does nothing
+ * when the page is in dark mode.
+ * ============================================================================= */
+
+[data-theme="light"] {
+  --ac-surface-primary: #FAFAFA;
+  --ac-surface-on-primary: #121215;
+
+  --ac-surface-secondary: #F2F2F2;
+  --ac-surface-on-secondary: #19191D;
+
+  --ac-surface-tertiary: #FFFFFF;
+  --ac-surface-on-tertiary: #0E0E11;
+
+  --ac-surface-inverse: #0E0E11;
+  --ac-surface-on-inverse: #FCFBF8;
+
+  --ac-fg-01: color-mix(in srgb, var(--ac-surface-on-primary) 1%, transparent);
+  --ac-fg-02: color-mix(in srgb, var(--ac-surface-on-primary) 2%, transparent);
+  --ac-fg-04: color-mix(in srgb, var(--ac-surface-on-primary) 4%, transparent);
+  --ac-fg-08: color-mix(in srgb, var(--ac-surface-on-primary) 8%, transparent);
+  --ac-fg-12: color-mix(in srgb, var(--ac-surface-on-primary) 12%, transparent);
+  --ac-fg-16: color-mix(in srgb, var(--ac-surface-on-primary) 16%, transparent);
+  --ac-fg-24: color-mix(in srgb, var(--ac-surface-on-primary) 24%, transparent);
+  --ac-fg-32: color-mix(in srgb, var(--ac-surface-on-primary) 32%, transparent);
+  --ac-fg-40: color-mix(in srgb, var(--ac-surface-on-primary) 40%, transparent);
+  --ac-fg-48: color-mix(in srgb, var(--ac-surface-on-primary) 48%, transparent);
+  --ac-fg-64: color-mix(in srgb, var(--ac-surface-on-primary) 64%, transparent);
+  --ac-fg-80: color-mix(in srgb, var(--ac-surface-on-primary) 80%, transparent);
+  --ac-fg-88: color-mix(in srgb, var(--ac-surface-on-primary) 88%, transparent);
+  --ac-fg-96: color-mix(in srgb, var(--ac-surface-on-primary) 96%, transparent);
+
+  --ac-border-default: color-mix(in srgb, var(--ac-surface-on-primary) 8%, transparent);
 }
 
 /* =============================================================================
