@@ -114,7 +114,7 @@ export default function CollectionDetail() {
         show={collection.show}
       />
 
-      <SiteSection className="px-8 pt-20 pb-12">
+      <SiteSection width="full" className="px-8 pt-20 pb-12">
         <BackLink to="/collections" className="mb-8">← Back to collections</BackLink>
 
         <p className="site-subline-hero">{collection.excerpt}</p>
@@ -122,7 +122,7 @@ export default function CollectionDetail() {
         <BlogBody blocks={collection.notes} />
       </SiteSection>
 
-      <SiteSection width="grid" className="px-8 py-12">
+      <SiteSection width="full" className="px-8 py-12">
         <SectionOpener eyebrow="The looks" divider>
           <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {looks.map((look) => (

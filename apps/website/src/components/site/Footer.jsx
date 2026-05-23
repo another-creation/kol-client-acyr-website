@@ -22,8 +22,8 @@ const SOCIAL = [
 ]
 
 const MORE = [
-  { label: 'Brand',              to: '/brand' },
   { label: 'Press',              to: '/press' },
+  { label: 'Brand',              to: '/brand' },
   { label: 'Shipping',           to: '/shipping-returns' },
   { label: 'Terms',              to: '/terms' },
   { label: 'Privacy',            to: '/privacy' },

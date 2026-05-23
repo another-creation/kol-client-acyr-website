@@ -1,0 +1,52 @@
+
+  <div id="smooth-wrapper" style="inset: 0px; width: 100%; height: 100%; position: fixed; overflow: hidden;">
+  <div id="smooth-content" style="translate: none; rotate: none; scale: none; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); box-sizing: border-box; width: 100%; overflow: visible;">
+    <header class="header">
+      <h1 class="heading-l heading-scroll">ScrollSmoother</h1>
+      <button class="button">Jump to shape</button>
+    </header>
+    <div class="box box-a gradient-pink" data-speed="clamp(0.5)" data-lag="0" style="translate: none; rotate: none; scale: none; transform: translate(-50%, 0%); will-change: transform;">a</div>
+    <div class="box box-b gradient-purple" data-speed="clamp(0.8)" data-lag="0" style="translate: none; rotate: none; scale: none; transform: translate(-50%, 0%); will-change: transform;">b</div>
+    <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: 100; float: none; flex-shrink: 1; display: block; margin: 0px; inset: 1300px 620px 2600px 720px; position: absolute; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 100px; height: 400px; padding: 0px 0px 300px;"><img class="shape" data-speed="1.5" src="https://assets.codepen.io/16327/2D-keyframe-2.png" alt="" data-lag="0" style="translate: none; rotate: none; scale: none; transform: translate(-50%, 0%) translate(0px, 166.5px); will-change: transform; inset: 0px auto auto 0px; margin: 0px; max-width: 100px; width: 100px; max-height: 100px; height: 100px; padding: 0px;"></div>
+    <div class="line"></div>
+  </div>
+</div>
+  <script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+<script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+<script src="https://assets.codepen.io/16327/ScrollToPlugin.min.js"></script>
+<script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script id="rendered-js">
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+// create the smooth scroller FIRST!
+let smoother = ScrollSmoother.create({
+  smooth: 2,
+  effects: true,
+  normalizeScroll: true
+});
+
+// pin shape when it reaches the center of the viewport, for 300px
+ScrollTrigger.create({
+  trigger: ".shape",
+  pin: true,
+  start: "center center",
+  end: "+=300"
+});
+
+document.querySelector("button").addEventListener("click", (e) => {
+  // scroll to the spot where the shape is in the center.
+  // parameters: element, smooth, position
+  smoother.scrollTo(".shape", true, "center center");
+
+  // or you could animate the scrollTop:
+  // gsap.to(smoother, {
+  // 	scrollTop: smoother.offset(".shape", "center center"),
+  // 	duration: 1
+  // });
+});
+  </script>
+
+  
+
+
+

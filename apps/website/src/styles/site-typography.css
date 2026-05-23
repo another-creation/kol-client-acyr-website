@@ -133,10 +133,12 @@
   font-family: var(--ac-font-family-mono);
   font-size: 24px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--ac-accent-primary);
+  /* 64% baked into the colour alpha — element opacity is owned by the
+     useReveal entrance animation, so dimming via `opacity` would be overridden. */
+  color: color-mix(in srgb, var(--ac-surface-on-primary) 64%, transparent);
 }
 
 /* Hero kicker — small mono eyebrow above the hero title. */
@@ -154,11 +156,18 @@
  * Big Narrow display, responsive clamp from mobile to desktop. */
 .site-title-hero {
   font-family: var(--ac-font-family-sans-narrow);
-  font-size: clamp(56px, 8vw, 96px);
+  font-size: clamp(56px, 9vw, 128px);
   line-height: 1.05;
   font-weight: 500;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
   color: var(--ac-surface-on-primary);
+}
+
+/* Home hero keeps the larger display size (two-class specificity beats the
+   base role — both are unlayered). */
+.home-hero .site-title-hero {
+  font-size: clamp(56px, 10vw, 144px);
 }
 
 /* Secondary-page h1 (Privacy, Terms, Brand, Press, ShippingReturns,

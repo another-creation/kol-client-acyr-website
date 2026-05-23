@@ -29,10 +29,10 @@ export default function ClientHome() {
         className="relative w-full min-h-[70vh] sm:min-h-screen flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: 'url(/brand/photoshoot/33a4402.jpg)' }}
       >
-        <div className="text-center px-8 items-center">
+        <div className="home-hero text-center px-8 items-center">
           <PageHero
             eyebrow="Another Creation"
-            title={<span className="uppercase">Timeless Quality Design</span>}
+            title="TIMELESS QUALITY DESIGN"
             variant="marketing"
             eyebrowVariant="display"
             className="items-center gap-6"
@@ -53,9 +53,9 @@ export default function ClientHome() {
         }))}
       />
 
-      <Collection />
-
       <LookbookCarousel />
+
+      <Collection />
 
       <Testimonial
         kicker={`${BRAND.name} positioning · Kolkrabbi · 2026`}

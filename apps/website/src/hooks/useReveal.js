@@ -23,10 +23,10 @@ import { gsap, prefersReducedMotion } from '../lib/gsap'
  */
 export default function useReveal(ref, opts = {}) {
   const {
-    y = 24,
-    duration = 0.8,
+    y = 14,
+    duration = 0.45,
     delay = 0,
-    stagger = 0.08,
+    stagger = 0.05,
     ease = 'power2.out',
     threshold = 0.15,
   } = opts

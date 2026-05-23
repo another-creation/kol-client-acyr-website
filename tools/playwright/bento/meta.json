@@ -1,0 +1,41 @@
+{
+  "srcs": [
+    "https://demos.gsap.com/_next/static/chunks/4bd1b696-a96d918e52df15b8.js",
+    "https://demos.gsap.com/_next/static/chunks/684-e8f4d9c6766b8296.js",
+    "https://demos.gsap.com/_next/static/chunks/main-app-4a1ca236b10a88a2.js",
+    "https://demos.gsap.com/_next/static/chunks/c15bf2b0-1060ff894a04eed4.js",
+    "https://demos.gsap.com/_next/static/chunks/250-44a0f4ba8168d214.js",
+    "https://demos.gsap.com/_next/static/chunks/479-cbbd3fe12587dc89.js",
+    "https://demos.gsap.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "https://demos.gsap.com/_next/static/chunks/webpack-dc6ca24be482ca1d.js",
+    "https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
+  ],
+  "iframes": [
+    "https://codepen.io/GreenSock/debug/vYMzKZx"
+  ],
+  "jsResponses": [
+    "https://demos.gsap.com/_next/static/chunks/webpack-dc6ca24be482ca1d.js",
+    "https://demos.gsap.com/_next/static/chunks/main-app-4a1ca236b10a88a2.js",
+    "https://demos.gsap.com/_next/static/chunks/c15bf2b0-1060ff894a04eed4.js",
+    "https://demos.gsap.com/_next/static/chunks/479-cbbd3fe12587dc89.js",
+    "https://demos.gsap.com/_next/static/chunks/250-44a0f4ba8168d214.js",
+    "https://demos.gsap.com/_next/static/chunks/684-e8f4d9c6766b8296.js",
+    "https://demos.gsap.com/_next/static/chunks/4bd1b696-a96d918e52df15b8.js",
+    "https://demos.gsap.com/_next/static/chunks/707-d3e871de9b38119c.js",
+    "https://demos.gsap.com/_next/static/chunks/809-8b02c9b8f201668c.js",
+    "https://demos.gsap.com/_next/static/chunks/817-15b996e71d222785.js",
+    "https://demos.gsap.com/_next/static/chunks/app/layout-77c83492643ad0ed.js",
+    "https://demos.gsap.com/_next/static/chunks/740-905e717a572871ef.js",
+    "https://demos.gsap.com/_next/static/chunks/133-bdfd0bf2cdbb0fd6.js",
+    "https://demos.gsap.com/_next/static/chunks/app/demo/%5Buid%5D/page-696eef7f858a00a3.js",
+    "https://demos.gsap.com/_next/static/chunks/352-fb24ccc40c30265f.js",
+    "https://demos.gsap.com/_next/static/chunks/847-58ef34e0efcf5e10.js",
+    "https://demos.gsap.com/_next/static/chunks/330-ff39c0265a6cd6c5.js",
+    "https://demos.gsap.com/_next/static/chunks/app/page-e9a70c410d890037.js",
+    "https://demos.gsap.com/_next/static/chunks/app/explore/page-28fe99aeff2fc589.js",
+    "https://demos.gsap.com/_next/static/chunks/app/getting-started/page-ce90e3839c25e14a.js",
+    "https://demos.gsap.com/_next/static/chunks/702-2fc3cfd6a4bc13b5.js",
+    "https://demos.gsap.com/_next/static/chunks/896-4bc5ce1e0cc4cfdc.js"
+  ],
+  "scrollHeight": 2377
+}

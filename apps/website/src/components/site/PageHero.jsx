@@ -44,10 +44,9 @@ export default function PageHero({
   const containerRef = useRef(null)
   const titleRef = useRef(null)
 
-  // Eyebrow lands first (delay 0), subline last (delay = stagger × 1 = 1.1s).
-  useReveal(containerRef, { y: 16, duration: 0.7, delay: 0, stagger: 1.1, ease: 'power2.out' })
-  // Title char-reveal kicks off shortly after eyebrow, finishes before subline.
-  useSplitReveal(titleRef, { delay: 0.25, duration: 0.9, stagger: 0.03, x: 8 })
+  // Snappy entrance — eyebrow, title chars, subline all land quickly.
+  useReveal(containerRef, { y: 12, duration: 0.4, delay: 0, stagger: 0.08, ease: 'power2.out' })
+  useSplitReveal(titleRef, { delay: 0.08, duration: 0.5, stagger: 0.018, y: 12 })
 
   return (
     <div ref={containerRef} className={`flex flex-col ${gap} ${className}`.trim()}>

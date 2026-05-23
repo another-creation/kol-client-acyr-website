@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
+import { ScrollTrigger } from './lib/gsap'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -20,4 +21,10 @@ const fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve()
 Promise.race([
   fontsReady,
   new Promise((r) => setTimeout(r, 400)),
-]).then(() => requestAnimationFrame(reveal))
+]).then(() => {
+  requestAnimationFrame(reveal)
+  // Recalculate ScrollTrigger positions after fonts settle and the body
+  // un-cloaks — otherwise triggers registered during the cloak phase capture
+  // pre-paint layout and can miss-fire (or fire at the wrong scroll position).
+  requestAnimationFrame(() => ScrollTrigger.refresh())
+})

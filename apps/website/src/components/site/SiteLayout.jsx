@@ -74,7 +74,7 @@ function SiteShell() {
       <Nav
         variant="center"
         leftLinks={NAV_LEFT}
-        logo={<KolLogo variant="lockup-hori" height={28} aria-label={BRAND.name} />}
+        logo={<KolLogo variant="lockup-hori" height={36} aria-label={BRAND.name} />}
         logoTo="/"
         rightActions={
           <span className="flex items-center gap-3" style={{ color: 'var(--ac-surface-on-primary)' }}>

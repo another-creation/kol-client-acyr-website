@@ -13,6 +13,7 @@
     "@ac/brand-data": "workspace:*",
     "@ac/ds": "workspace:*",
     "@floating-ui/react": "^0.27.19",
+    "@gsap/react": "^2.1.2",
     "@paypal/react-paypal-js": "^9.2.0",
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.22.0",

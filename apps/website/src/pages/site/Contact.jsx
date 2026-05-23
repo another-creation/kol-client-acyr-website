@@ -22,7 +22,7 @@ export default function Contact() {
       <SiteSection className="px-8 pt-20">
         <PageHero
           eyebrow="Contact"
-          title={<>Studio &amp; enquiries.</>}
+          title="STUDIO & ENQUIRIES."
           subline="For appointments, made-to-order fittings, press, or general enquiries — write directly. We answer within two business days."
           sublineKind="lede"
         />

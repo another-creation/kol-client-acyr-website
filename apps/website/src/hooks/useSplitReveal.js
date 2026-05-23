@@ -15,7 +15,7 @@ import { gsap, prefersReducedMotion } from '../lib/gsap'
  *
  * @param {React.RefObject} ref — element whose `textContent` will be split
  * @param {object} opts
- * @param {number} opts.x         — translateX start, applied alternating ± per char (default 8px)
+ * @param {number} opts.y         — translateY start per char, rises to 0 (default 14px)
  * @param {number} opts.duration  — seconds per char (default 0.9)
  * @param {number} opts.stagger   — seconds between chars (default 0.03)
  * @param {number} opts.delay     — initial delay (default 0)
@@ -26,7 +26,7 @@ import { gsap, prefersReducedMotion } from '../lib/gsap'
  */
 export default function useSplitReveal(ref, opts = {}) {
   const {
-    x = 8,
+    y = 14,
     duration = 0.9,
     stagger = 0.03,
     delay = 0,
@@ -38,42 +38,45 @@ export default function useSplitReveal(ref, opts = {}) {
     const el = ref.current
     if (!el) return
     if (prefersReducedMotion()) return
-    if (el.dataset.splitDone === '1') return
 
-    const text = el.textContent ?? ''
-    if (!text) return
-
-    // Build per-character spans. Spaces become non-animated spacers so the
-    // line breaks behave naturally.
-    const frag = document.createDocumentFragment()
-    const chars = []
-    for (let i = 0; i < text.length; i++) {
-      const ch = text[i]
-      if (ch === ' ') {
-        frag.appendChild(document.createTextNode(' '))
-        continue
+    // Split once. If a prior effect run (StrictMode double-mount, or
+    // re-render) already split this element, reuse the existing spans rather
+    // than re-splitting. The animation setup below always re-runs regardless,
+    // so the spans get re-armed and observed on every effect cycle.
+    let chars
+    if (el.dataset.splitDone === '1') {
+      chars = Array.from(el.querySelectorAll('span'))
+    } else {
+      const text = el.textContent ?? ''
+      if (!text) return
+      const frag = document.createDocumentFragment()
+      chars = []
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i]
+        if (ch === ' ') {
+          frag.appendChild(document.createTextNode(' '))
+          continue
+        }
+        const span = document.createElement('span')
+        span.textContent = ch
+        span.style.display = 'inline-block'
+        span.style.willChange = 'transform, opacity'
+        frag.appendChild(span)
+        chars.push(span)
       }
-      const span = document.createElement('span')
-      span.textContent = ch
-      span.style.display = 'inline-block'
-      span.style.willChange = 'transform, opacity'
-      frag.appendChild(span)
-      chars.push(span)
+      el.textContent = ''
+      el.appendChild(frag)
+      el.dataset.splitDone = '1'
     }
-    el.textContent = ''
-    el.appendChild(frag)
-    el.dataset.splitDone = '1'
+    if (chars.length === 0) return
 
-    // Alternate ± x for a slight scatter feel (mirrors 375.studio).
-    gsap.set(chars, {
-      opacity: 0,
-      x: (i) => (i % 2 === 0 ? -x : x),
-    })
+    // Uniform upward rise + fade, staggered left-to-right.
+    gsap.set(chars, { opacity: 0, y })
 
     const run = () => {
       gsap.to(chars, {
         opacity: 1,
-        x: 0,
+        y: 0,
         duration,
         stagger,
         delay,
@@ -98,5 +101,5 @@ export default function useSplitReveal(ref, opts = {}) {
     }
 
     run()
-  }, [ref, x, duration, stagger, delay, ease, scroll])
+  }, [ref, y, duration, stagger, delay, ease, scroll])
 }

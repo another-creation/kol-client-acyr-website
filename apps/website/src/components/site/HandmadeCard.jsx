@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ACImages } from '@ac/brand-data/images'
-import { prefersReducedMotion } from '../../lib/gsap'
+import { gsap, useGSAP, prefersReducedMotion } from '../../lib/gsap'
 import Button from '../atoms/Button'
 
 // Rotating image deck. Last entry is the canonical hero image — order matters
@@ -18,6 +18,8 @@ const CROSSFADE_MS = 800
 export default function HandmadeCard() {
   const [idx, setIdx] = useState(0)
   const timerRef = useRef(null)
+  const sectionRef = useRef(null)
+  const bgRef = useRef(null)
 
   useEffect(() => {
     if (prefersReducedMotion()) return
@@ -27,22 +29,44 @@ export default function HandmadeCard() {
     return () => clearInterval(timerRef.current)
   }, [])
 
+  // Parallax — the image layer (oversized so its edges never show) drifts
+  // slower than the scroll as the section passes through the viewport.
+  useGSAP(() => {
+    if (prefersReducedMotion()) return
+    gsap.fromTo(
+      bgRef.current,
+      { yPercent: -8 },
+      {
+        yPercent: 8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      },
+    )
+  }, { scope: sectionRef })
+
   return (
-    <section className="relative h-[90vh] min-h-[560px] flex items-end p-16 overflow-hidden bg-surface-secondary">
-      {/* Image deck — crossfade between deck entries */}
-      {DECK.map((src, i) => (
-        <div
-          key={src}
-          className="absolute inset-0 bg-cover"
-          style={{
-            backgroundImage: `url(${src})`,
-            backgroundPosition: 'center 40%',
-            opacity: i === idx ? 1 : 0,
-            transition: `opacity ${CROSSFADE_MS}ms ease-in-out`,
-          }}
-          aria-hidden="true"
-        />
-      ))}
+    <section ref={sectionRef} className="relative h-screen min-h-[560px] flex items-end p-16 overflow-hidden bg-surface-secondary">
+      {/* Image deck — oversized parallax layer, crossfades between deck entries */}
+      <div ref={bgRef} className="absolute inset-x-0 -top-[15%] h-[130%] will-change-transform">
+        {DECK.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundPosition: 'center 40%',
+              opacity: i === idx ? 1 : 0,
+              transition: `opacity ${CROSSFADE_MS}ms ease-in-out`,
+            }}
+            aria-hidden="true"
+          />
+        ))}
+      </div>
 
       {/* Gradient overlay */}
       <div

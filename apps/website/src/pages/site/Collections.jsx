@@ -5,6 +5,7 @@ import { BRAND } from '@ac/brand-data/config'
 import Divider from '../../components/atoms/Divider'
 import PageHero from '../../components/site/PageHero'
 import SiteSection from '../../components/site/SiteSection'
+import HorizontalScrollText from '../../components/site/HorizontalScrollText'
 import { sortedCollections } from '../../lib/queries'
 import { urlFor } from '../../lib/sanity'
 
@@ -18,7 +19,7 @@ export default function Collections() {
 
   return (
     <main className="bg-surface-primary">
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <img
           src="/brand/photoshoot/33a4402.jpg"
           alt=""
@@ -30,7 +31,8 @@ export default function Collections() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
         />
-        <SiteSection as="div" className="relative px-5 py-24 text-center">
+        <HorizontalScrollText text="Collections — Seasons. One collection a year, occasionally two. Materials come first; shapes follow. Each season is built from a small set of cloths and shown once at home in Reykjavík before it goes anywhere else." />
+        <SiteSection as="div" className="relative px-5 text-center">
           <PageHero
             variant="marketing"
             eyebrow="Collections"

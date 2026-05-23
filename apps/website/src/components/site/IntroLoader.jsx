@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { KolLogo } from '@ac/brand-data/logos'
 
 /**
  * IntroLoader — session-once cold-visit loader.
@@ -18,15 +19,22 @@ import { useEffect, useState } from 'react'
 
 const SHOWN_KEY = 'kol.ac.intro.shown'
 const COUNT_DURATION_MS = 1400
-const EXIT_DURATION_MS  = 700
+const PANEL_SLIDE_MS = 600    // each panel's slide-up duration
+const PANEL_STAGGER_MS = 220  // delay before the magenta panel follows the black
+const EXIT_DURATION_MS = PANEL_SLIDE_MS + PANEL_STAGGER_MS // total before 'done'
 
-export default function IntroLoader({ variant = 'percentage' }) {
+// Bottom-left word flips through these as the % counts up (lands on the last).
+const LOADER_WORDS = ['Loading', 'Another', 'Creation', 'Reykjavik', 'X YR X', 'and', 'Welcome']
+
+export default function IntroLoader({ variant = 'percentage', forcePlay = false }) {
   const [phase, setPhase] = useState('checking') // checking | counting | exiting | done
   const [pct, setPct] = useState(0)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    if (sessionStorage.getItem(SHOWN_KEY)) {
+    // forcePlay (the /loader dev page) bypasses the session gate and never
+    // writes it, so the loader can be replayed freely.
+    if (!forcePlay && sessionStorage.getItem(SHOWN_KEY)) {
       setPhase('done')
       return
     }
@@ -43,14 +51,14 @@ export default function IntroLoader({ variant = 'percentage' }) {
       else {
         setPhase('exiting')
         setTimeout(() => {
-          sessionStorage.setItem(SHOWN_KEY, String(Date.now()))
+          if (!forcePlay) sessionStorage.setItem(SHOWN_KEY, String(Date.now()))
           setPhase('done')
         }, EXIT_DURATION_MS)
       }
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [])
+  }, [forcePlay])
 
   if (phase === 'done' || phase === 'checking') return null
 
@@ -60,46 +68,56 @@ export default function IntroLoader({ variant = 'percentage' }) {
   return <PercentageLoader pct={pct} exiting={phase === 'exiting'} />
 }
 
-/* ─── 375.studio style: bottom-corners, scale-up-as-it-counts ──────────── */
+/* ─── 375.studio style: centered logo, word-loop + "%", color-slide exit ──── */
+const WORD_FLIP_MS = 160
+
 function PercentageLoader({ pct, exiting }) {
-  // Scale 0.4 → 1 over the count duration, mirrors 375.studio
-  const scale = 0.4 + (pct / 100) * 0.6
+  const [wordIdx, setWordIdx] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setWordIdx((i) => (i + 1) % LOADER_WORDS.length), WORD_FLIP_MS)
+    return () => clearInterval(id)
+  }, [])
+  const word = LOADER_WORDS[wordIdx]
+
+  // Stacked panels both slide up on exit; magenta is staggered so the black
+  // loader lifts first to reveal it, then magenta lifts to reveal the page.
+  const slide = (delay) => ({
+    transform: exiting ? 'translateY(-100%)' : 'translateY(0)',
+    transition: `transform ${PANEL_SLIDE_MS}ms cubic-bezier(0.76, 0, 0.24, 1) ${delay}ms`,
+  })
+
   return (
-    <div
-      className="fixed inset-0 z-[100] bg-grey-900 text-grey-100 pointer-events-none"
-      style={{
-        opacity: exiting ? 0 : 1,
-        transition: `opacity ${EXIT_DURATION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
-      }}
-      aria-hidden="true"
-    >
-      <div className="absolute left-8 bottom-8 origin-bottom-left">
+    <>
+      {/* magenta wipe — sits behind the black loader, revealed then lifts away */}
+      <div
+        className="fixed inset-0 z-[101] bg-brand-magenta-200 pointer-events-none will-change-transform"
+        style={slide(PANEL_STAGGER_MS)}
+        aria-hidden="true"
+      />
+
+      {/* black loader: centered logo + word (bottom-left) + % (bottom-right) */}
+      <div
+        className="fixed inset-0 z-[102] bg-grey-900 text-grey-100 pointer-events-none will-change-transform"
+        style={slide(0)}
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 flex items-center justify-center">
+          <KolLogo variant="logomark" className="h-[34vh] w-auto" />
+        </div>
         <span
-          className="font-narrow font-light leading-none block"
-          style={{
-            fontSize: '8vw',
-            transform: `scale(${scale})`,
-            transformOrigin: 'left bottom',
-            transition: 'transform 80ms linear',
-          }}
+          className="absolute left-8 bottom-8 font-narrow font-light leading-none block"
+          style={{ fontSize: '8vw' }}
         >
-          Loading
+          {word}
         </span>
-      </div>
-      <div className="absolute right-8 bottom-8 origin-bottom-right">
         <span
-          className="font-narrow font-light leading-none block"
-          style={{
-            fontSize: '8vw',
-            transform: `scale(${scale})`,
-            transformOrigin: 'right bottom',
-            transition: 'transform 80ms linear',
-          }}
+          className="absolute right-8 bottom-8 font-narrow font-light leading-none block"
+          style={{ fontSize: '8vw' }}
         >
           {pct}%
         </span>
       </div>
-    </div>
+    </>
   )
 }
 

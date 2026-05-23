@@ -49,33 +49,35 @@ export default function About() {
         </SiteSection>
       </section>
 
-      <SiteSection className="px-8 pt-12 pb-12">
+      <SiteSection width="wide" className="px-8 pt-12 pb-12">
         <Divider />
 
-        <div className="ac-prose pt-8">
-          <h2>Designer's vision</h2>
-          <p>
-            Ýr is committed to breaking the cycle of overproduction and material waste in the fashion industry. With a deep understanding of the environmental impact of fast fashion, Ýr is driven by the belief that sustainable practices are not only necessary but also achievable without compromising on style or functionality. Another Creation is more than just a fashion brand; it's a movement toward conscious consumption and responsible production.
-          </p>
-          <p>
-            Drawing inspiration from nature's resilience and beauty, Ýr seeks to create garments that not only reflect cutting-edge design techniques but also prioritize sustainability at every step of the production process.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center pt-8">
+          <figure className="m-0">
+            <img
+              src={SECOND}
+              alt={`${BRAND_INFO.identity.founder} — ${BRAND_INFO.identity.role}`}
+              className="block w-full h-auto rounded-sm"
+              loading="lazy"
+            />
+            <figcaption className="site-meta-editorial mt-3">
+              {BRAND_INFO.identity.founder} · {BRAND_INFO.identity.role}
+            </figcaption>
+          </figure>
+
+          <div className="ac-prose">
+            <h2>Designer's vision</h2>
+            <p>
+              Ýr is committed to breaking the cycle of overproduction and material waste in the fashion industry. With a deep understanding of the environmental impact of fast fashion, Ýr is driven by the belief that sustainable practices are not only necessary but also achievable without compromising on style or functionality. Another Creation is more than just a fashion brand; it's a movement toward conscious consumption and responsible production.
+            </p>
+            <p>
+              Drawing inspiration from nature's resilience and beauty, Ýr seeks to create garments that not only reflect cutting-edge design techniques but also prioritize sustainability at every step of the production process.
+            </p>
+          </div>
         </div>
       </SiteSection>
 
       <SiteSection className="px-8">
-        <figure className="m-0 mb-12">
-          <img
-            src={SECOND}
-            alt={`${BRAND_INFO.identity.founder} — ${BRAND_INFO.identity.role}`}
-            className="block w-full h-auto rounded-sm"
-            loading="lazy"
-          />
-          <figcaption className="site-meta-editorial mt-3">
-            {BRAND_INFO.identity.founder} · {BRAND_INFO.identity.role}
-          </figcaption>
-        </figure>
-
         <div className="ac-prose">
           <h2>Ýr Þrastardóttir — creator of Another Creation</h2>
           <p>

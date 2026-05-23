@@ -21,6 +21,7 @@ import Press from './pages/site/Press'
 import ShippingReturns from './pages/site/ShippingReturns'
 import Checkout from './pages/site/Checkout'
 import OrderConfirmation from './pages/site/OrderConfirmation'
+import LoaderDev from './pages/site/LoaderDev'
 
 export default function App() {
   return (
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/checkout"               element={<Checkout />} />
           <Route path="/checkout/confirmation"  element={<OrderConfirmation />} />
         </Route>
+        <Route path="/loader" element={<LoaderDev />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

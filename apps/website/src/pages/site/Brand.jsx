@@ -3,12 +3,20 @@ import KolLogo from '@ac/brand-data/logos/KolLogo'
 import { BRAND } from '@ac/brand-data/config'
 import { BRAND_INFO } from '@ac/brand-data/info'
 import SecondaryPageShell from '../../components/site/SecondaryPageShell'
+import Table from '../../components/organisms/Table'
 
 const SWATCHES = [
   { name: 'Burgundy 200', hex: '#750E20', role: 'Brand primary' },
   { name: 'Burgundy 300', hex: '#5A0816', role: 'Brand secondary ink' },
   { name: 'Cream 100',    hex: '#FBF7EE', role: 'Surface' },
   { name: 'Cream 300',    hex: '#F2E5CB', role: 'Champagne' },
+]
+
+const LOGOS = [
+  { variant: 'logomark',    height: 44 },
+  { variant: 'wordmark',    height: 24 },
+  { variant: 'lockup-hori', height: 28 },
+  { variant: 'lockup-vert', height: 52 },
 ]
 
 export default function Brand() {
@@ -24,24 +32,27 @@ export default function Brand() {
 
       <h2>The mark</h2>
       <p>A wordmark and a signature. Used alone, or together as a lockup.</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8 not-prose">
-        <div className="aspect-square bg-fg-04 rounded flex items-center justify-center p-12">
-          <KolLogo variant="logomark" className="max-h-full max-w-full" />
-        </div>
-        <div className="aspect-square bg-fg-04 rounded flex items-center justify-center p-12">
-          <KolLogo variant="wordmark" className="max-h-full max-w-full" />
-        </div>
+      <div className="not-prose my-8">
+        <Table
+          columns={[
+            { accessor: 'preview', header: 'Preview', style: { minWidth: 220 }, render: (row) => <KolLogo variant={row.variant} height={row.height} /> },
+            { accessor: 'name', header: 'Name', render: (row) => row.variant.replace(/-/g, ' / ') },
+            { accessor: 'path', header: 'Path', className: 'ac-table-cell-meta', render: (row) => <code>svg/{row.variant}.svg</code> },
+          ]}
+          rows={LOGOS.map((l) => ({ id: l.variant, ...l }))}
+        />
       </div>
 
       <h2>Palette</h2>
       <p>Burgundy and cream — anchored. Greyscale carries structure; brand colour is applied with restraint.</p>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-8 not-prose">
+      <div className="grid gap-1 grid-cols-[repeat(auto-fit,minmax(100px,1fr))] my-8 not-prose">
         {SWATCHES.map((s) => (
-          <div key={s.name}>
-            <div className="aspect-square rounded" style={{ backgroundColor: s.hex }} />
-            <p className="site-meta-system text-emphasis mt-2">{s.name}</p>
-            <p className="site-meta-system">{s.hex}</p>
-            <p className="site-meta-system">{s.role}</p>
+          <div key={s.name} className="flex flex-col gap-1.5">
+            <div className="h-24 rounded-[4px] border border-fg-08" style={{ background: s.hex }} />
+            <div className="ac-helper-10 flex flex-row flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              <span className="text-meta">{s.name}</span>
+              <span className="text-strong font-semibold">{s.hex}</span>
+            </div>
           </div>
         ))}
       </div>

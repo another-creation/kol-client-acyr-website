@@ -14,7 +14,7 @@ import useReveal from '../../hooks/useReveal'
  */
 export default function FAQ({ kicker, title, items = [], layout = 'split' }) {
   const itemsRef = useRef(null)
-  useReveal(itemsRef, { y: 16, duration: 0.6, stagger: 0.08, ease: 'power2.out' })
+  useReveal(itemsRef, { y: 14, duration: 0.45, stagger: 0.05, ease: 'power2.out' })
 
   const Header = (kicker || title) ? (
     <div className="flex flex-col gap-4">

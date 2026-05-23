@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Icon from '../loaders/icons/Icon'
-import { gsap, prefersReducedMotion } from '../../lib/gsap'
+import { gsap, useGSAP, prefersReducedMotion } from '../../lib/gsap'
 
 const linkStyle = {
   color: 'var(--ac-surface-on-primary)',
@@ -97,15 +97,14 @@ export default function Nav({
   )
 
   const navRef = useRef(null)
-  useEffect(() => {
+  useGSAP(() => {
     if (prefersReducedMotion()) return
     if (!navRef.current) return
-    const tl = gsap.timeline()
-    tl.from(navRef.current, { y: -24, opacity: 0, duration: 0.6, ease: 'power2.out' })
-    tl.from(navRef.current.querySelectorAll('.ac-site-nav-link, .ac-site-nav-cluster > *'),
-      { opacity: 0, y: -8, duration: 0.5, stagger: 0.05, ease: 'power2.out' }, '-=0.3')
-    return () => tl.kill()
-  }, [])
+    // Fade the whole bar in (links inherit via opacity). Opacity only — the
+    // scroll-hide owns the transform, and there's no per-link `from` left to
+    // get stuck at opacity:0.
+    gsap.from(navRef.current, { opacity: 0, duration: 0.6, ease: 'power2.out' })
+  }, { scope: navRef })
 
   return (
     <>

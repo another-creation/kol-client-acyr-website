@@ -34,12 +34,19 @@ export default function Newsletter() {
   }
 
   const sectionRef = useRef(null)
-  useReveal(sectionRef, { y: 24, duration: 0.7, stagger: 0.1, ease: 'power2.out' })
+  useReveal(sectionRef, { y: 14, duration: 0.45, stagger: 0.06, ease: 'power2.out' })
 
   return (
-    <section ref={sectionRef} data-theme="light" className="bg-surface-primary flex flex-col items-center gap-6 px-8 py-20">
-      <p data-reveal className="site-eyebrow-section text-center">Newsletter</p>
-      <h2 data-reveal className="site-title-section text-center max-w-[640px]">
+    <section ref={sectionRef} data-theme="light" className="relative bg-surface-primary min-h-[60vh] flex flex-col items-center justify-center gap-6 px-8 py-20 overflow-hidden">
+      {/* marble texture over the light surface, 40% */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        style={{ backgroundImage: 'url(/brand/textures/ac-marble.jpg)', opacity: 0.15 }}
+      />
+
+      <p data-reveal className="relative site-eyebrow-section text-center">Newsletter</p>
+      <h2 data-reveal className="relative site-title-section text-center max-w-[640px]">
         {status === 'success'
           ? 'Thank you. Check your inbox to confirm.'
           : 'Early access on new releases, plus 10% off your first order.'}
@@ -48,7 +55,7 @@ export default function Newsletter() {
       {status !== 'success' && (
         <form
           onSubmit={onSubmit}
-          className="flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mt-4"
+          className="relative flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mt-4"
           noValidate
         >
           <Input
@@ -75,7 +82,7 @@ export default function Newsletter() {
       )}
 
       {status === 'error' && (
-        <p role="alert" className="site-meta-system text-center">
+        <p role="alert" className="relative site-meta-system text-center">
           {errMsg}
         </p>
       )}

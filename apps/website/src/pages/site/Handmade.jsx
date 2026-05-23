@@ -4,10 +4,11 @@ import { handmadeProducts, formatPrice, HANDMADE_FAQ } from '../../data/shop-dat
 import { ACImages } from '@ac/brand-data/images'
 import ProductCard from '../../components/site/ProductCard'
 import FAQ from '../../components/site/FAQ'
-import PageHero from '../../components/site/PageHero'
+import CatalogHero from '../../components/site/CatalogHero'
 import SectionOpener from '../../components/site/SectionOpener'
 import SiteSection from '../../components/site/SiteSection'
 import EnquiryForm from '../../components/site/EnquiryForm'
+import Newsletter from '../../components/site/Newsletter'
 
 const CATEGORIES = [
   { value: 'commission', label: 'Commission a piece' },
@@ -15,54 +16,39 @@ const CATEGORIES = [
   { value: 'general',    label: 'General enquiry' },
 ]
 
+// Curated set imagery — Handmade uses set-01..08 (Shop uses 09..20, no overlap).
+const SET = Array.from({ length: 8 }, (_, i) => `/brand/shop/set/set-${String(i + 1).padStart(2, '0')}.jpg`)
+
 export default function Handmade() {
   usePageTitle(`${BRAND.name} — Handmade`)
-  const products = handmadeProducts().slice(0, 6)
+  const products = handmadeProducts().slice(0, 8)
 
   return (
-    <main className="bg-surface-primary pb-24">
-      {/* Hero — editorial-pattern full-bleed mood image, matches Collections / Journal */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        <img
-          src={ACImages.handmade}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, color-mix(in srgb, var(--ac-surface-primary) 60%, transparent), color-mix(in srgb, var(--ac-surface-primary) 30%, transparent), var(--ac-surface-primary))' }}
-        />
-        <SiteSection as="div" className="relative px-5 py-24 text-center">
-          <PageHero
-            variant="marketing"
-            eyebrow="Made by hand by Ýr"
-            title="Custom Made."
-            subline="Bespoke pieces cut and constructed at the studio in Reykjavík. Four to eight weeks from brief to delivery. Begin with an email."
-            className="items-center"
-          />
-        </SiteSection>
-      </section>
+    <main className="bg-surface-primary">
+      {/* Hero */}
+      <CatalogHero
+        image={ACImages.handmade}
+        eyebrow="Made by hand by Ýr"
+        title="Custom Made."
+        subline="Bespoke pieces cut and constructed at the studio in Reykjavík. Four to eight weeks from brief to delivery. Begin with an email."
+      />
 
       {/* Pieces */}
-      <SiteSection width="full" className="px-8 py-32">
-        <SectionOpener eyebrow="Pieces" divider>
-          <ul className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-            {products.map((p) => (
-              <li key={p.slug}>
-                <ProductCard
-                  to={`/handmade/${p.slug}`}
-                  src={p.image}
-                  label={p.name}
-                  name={p.name}
-                  price={formatPrice(p.price, p.currency)}
-                  sizes={p.sizes}
-                />
-              </li>
-            ))}
-          </ul>
-        </SectionOpener>
+      <SiteSection width="full" className="px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[110vh]">
+          {products.map((p, i) => (
+            <div key={p.slug} className="h-full opacity-70 hover:opacity-100 transition-opacity duration-300">
+              <ProductCard
+                to={`/handmade/${p.slug}`}
+                src={SET[i % SET.length]}
+                name={p.name}
+                price={formatPrice(p.price, p.currency)}
+                overlay={false}
+                fill
+              />
+            </div>
+          ))}
+        </div>
       </SiteSection>
 
       {/* FAQ */}
@@ -93,6 +79,8 @@ export default function Handmade() {
           />
         </SectionOpener>
       </SiteSection>
+
+      <Newsletter />
     </main>
   )
 }

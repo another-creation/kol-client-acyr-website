@@ -1,68 +1,86 @@
-import { useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger, prefersReducedMotion } from '../../lib/gsap'
-import { ACImages } from '@ac/brand-data/images'
+import { useRef } from 'react'
+import { gsap, Flip, useGSAP, prefersReducedMotion } from '../../lib/gsap'
 
 /**
- * LookbookCarousel — scrubbed bento gallery.
+ * LookbookCarousel — scrubbed-bento gallery.
  *
- * Was an Embla carousel. Replaced with a bento grid (5 images, 4×2 with a
- * large 2×2 hero cell) where each tile scrubs in on scroll: scale-up from 0.7,
- * fade in from 0, translateY from a per-cell offset. Each cell has a slightly
- * different timing so they don't move in lockstep — feels like a deal-in.
+ * Port of GSAP's "scrubbed bento gallery": two CSS grid layouts (.lookbook-grid
+ * bento + .lookbook-grid--final blown up) and Flip morphs between them on a
+ * pinned scrub. Phase 1 — the bento scrolls to centre (start: 'center center').
+ * Phase 2 — pinned, the grid zooms (Flip with expoScale ease) so the centre
+ * item (nth-child 3) fills the viewport while the rest scale off-screen.
+ *
+ * Grid CSS lives in site.css (.lookbook-*). Order matters — index 2 (the 3rd
+ * item) is the centre hero that ends up full-bleed.
  */
 
-const TILES = [
-  { src: ACImages.hero,           col: 'col-span-2', row: 'row-span-2', from: { y: 80, x: -40 } },
-  { src: ACImages.editorial.left, col: 'col-span-1', row: 'row-span-1', from: { y: -60, x: 40 } },
-  { src: ACImages.portrait,       col: 'col-span-1', row: 'row-span-1', from: { y: -80, x: 80 } },
-  { src: ACImages.editorial.right,col: 'col-span-1', row: 'row-span-1', from: { y: 80, x: 40 } },
-  { src: ACImages.handmade,       col: 'col-span-1', row: 'row-span-1', from: { y: 100, x: 80 } },
+const ITEMS = [
+  '/brand/shop/set/set-15.jpg', // 1 — left, tall
+  '/brand/shop/set/set-02.jpg', // 2 — top centre
+  '/brand/shop/set/set-08.jpg', // 3 — CENTRE hero (fills the frame)
+  '/brand/shop/set/set-05.jpg', // 4 — right, tall
+  '/brand/shop/set/set-11.jpg', // 5 — mid-left
+  '/brand/shop/set/set-18.jpg', // 6 — right, bottom tall
+  '/brand/shop/set/set-06.jpg', // 7 — bottom left
+  '/brand/shop/set/set-13.jpg', // 8 — bottom centre
 ]
 
 export default function LookbookCarousel() {
-  const sectionRef = useRef(null)
-  const tilesRef = useRef([])
+  const wrapRef = useRef(null)
+  const gridRef = useRef(null)
 
-  useEffect(() => {
+  useGSAP(() => {
     if (prefersReducedMotion()) return
-    const ctx = gsap.context(() => {
-      tilesRef.current.forEach((tile, i) => {
-        if (!tile) return
-        const from = TILES[i].from
-        gsap.from(tile, {
-          x: from.x,
-          y: from.y,
-          opacity: 0,
-          scale: 0.85,
-          ease: 'power2.out',
+    const grid = gridRef.current
+    const wrap = wrapRef.current
+    if (!grid || !wrap) return
+
+    let flipCtx
+    const build = () => {
+      const items = grid.querySelectorAll('.lookbook-item')
+      flipCtx && flipCtx.revert()
+      grid.classList.remove('lookbook-grid--final')
+
+      flipCtx = gsap.context(() => {
+        // Capture the final (zoomed) layout, then revert to bento; Flip
+        // animates bento → final, scrubbed.
+        grid.classList.add('lookbook-grid--final')
+        const state = Flip.getState(items)
+        grid.classList.remove('lookbook-grid--final')
+
+        const flip = Flip.to(state, { simple: true, ease: 'expoScale(1, 5)' })
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            end: 'bottom 60%',
-            scrub: 1 + (i * 0.15), // staggered scrub speeds
+            trigger: grid,
+            start: 'center center',
+            end: '+=100%',
+            scrub: true,
+            pin: wrap,
           },
         })
+        tl.add(flip)
+        return () => gsap.set(items, { clearProps: 'all' })
       })
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
+    }
+
+    build()
+    window.addEventListener('resize', build)
+    return () => {
+      window.removeEventListener('resize', build)
+      flipCtx && flipCtx.revert()
+    }
+  }, { scope: wrapRef })
 
   return (
-    <section ref={sectionRef} className="relative w-screen ml-[calc(50%-50vw)] py-20 px-8 bg-surface-primary overflow-hidden">
-      <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[120vh] max-w-[1600px] mx-auto">
-        {TILES.map((tile, i) => (
-          <div
-            key={i}
-            ref={(el) => { tilesRef.current[i] = el }}
-            className={`${tile.col} ${tile.row} relative overflow-hidden bg-surface-secondary`}
-          >
-            <img
-              src={tile.src}
-              alt=""
-              className="w-full h-full object-cover block"
-            />
-          </div>
-        ))}
+    <section className="relative w-screen ml-[calc(50%-50vw)] bg-surface-primary">
+      <div ref={wrapRef} className="lookbook-wrap">
+        <div ref={gridRef} className="lookbook-grid">
+          {ITEMS.map((src, i) => (
+            <div key={i} className="lookbook-item">
+              <img src={src} alt="" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
