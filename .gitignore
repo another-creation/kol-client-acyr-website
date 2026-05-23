@@ -35,3 +35,10 @@ LLM_RULES.md
 
 # Vercel CLI local state
 .vercel/
+
+# Playwright recon artifacts (tools/playwright scripts only — outputs excluded)
+tools/playwright/frames/
+tools/playwright/frames-cards/
+tools/playwright/traces/
+tools/playwright/traces-cards/
+tools/playwright/logs/
