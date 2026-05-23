@@ -76,7 +76,7 @@ export default function CartDrawer() {
           <>
             <CartTotalsRow label="Subtotal" value={formatPrice(subtotal, currency)} />
             <p className="site-meta-system">Shipping + tax calculated at checkout.</p>
-            <Button variant="primary" size="lg" className="w-full" onClick={onCheckout}>
+            <Button variant="ghost" size="lg" className="w-full" onClick={onCheckout}>
               Checkout · {formatPrice(subtotal, currency)}
             </Button>
             <button

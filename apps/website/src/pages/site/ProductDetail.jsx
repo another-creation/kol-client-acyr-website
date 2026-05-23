@@ -271,7 +271,7 @@ export default function ProductDetail() {
 
             {isPod ? (
               <Button
-                variant="primary"
+                variant="ghost"
                 size="lg"
                 className="w-full"
                 onClick={() => {
@@ -292,7 +292,7 @@ export default function ProductDetail() {
               </Button>
             ) : (
               <a href={`mailto:yr@another-creation.com?subject=Enquiry: ${encodeURIComponent(product.name)}`} className="no-underline">
-                <Button variant="primary" size="lg" className="w-full">Enquire about this piece</Button>
+                <Button variant="ghost" size="lg" className="w-full">Enquire about this piece</Button>
               </a>
             )}
 

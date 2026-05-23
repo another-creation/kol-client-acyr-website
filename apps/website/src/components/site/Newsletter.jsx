@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
+import useReveal from '../../hooks/useReveal'
 
 export default function Newsletter() {
   const [email, setEmail]   = useState('')
@@ -32,10 +33,13 @@ export default function Newsletter() {
     }
   }
 
+  const sectionRef = useRef(null)
+  useReveal(sectionRef, { y: 24, duration: 0.7, stagger: 0.1, ease: 'power2.out' })
+
   return (
-    <section data-theme="light" className="bg-surface-primary flex flex-col items-center gap-6 px-8 py-20">
-      <p className="site-eyebrow-section text-center">Newsletter</p>
-      <h2 className="site-title-section text-center max-w-[640px]">
+    <section ref={sectionRef} data-theme="light" className="bg-surface-primary flex flex-col items-center gap-6 px-8 py-20">
+      <p data-reveal className="site-eyebrow-section text-center">Newsletter</p>
+      <h2 data-reveal className="site-title-section text-center max-w-[640px]">
         {status === 'success'
           ? 'Thank you. Check your inbox to confirm.'
           : 'Early access on new releases, plus 10% off your first order.'}
@@ -61,7 +65,7 @@ export default function Newsletter() {
           />
           <Button
             type="submit"
-            variant="secondary"
+            variant="primary"
             size="lg"
             disabled={status === 'sending'}
           >

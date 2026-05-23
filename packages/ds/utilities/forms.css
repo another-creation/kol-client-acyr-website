@@ -1,0 +1,80 @@
+/* ═════════════════════════════════════════════════════════════════
+   FORMS — repo-wide native chrome reset.
+
+   Strips UA defaults from <input>, <textarea>, <select> so the DS atoms
+   (Input.jsx, Textarea.jsx, Dropdown.jsx, etc.) re-add only the look
+   they want. Also suppresses Chrome's yellow autofill bg + UA search
+   field decorations.
+
+   Wrapped in @layer base so Tailwind utilities (which live in
+   @layer utilities) override cleanly. The cascade rule
+   (feedback_tailwind_v4_layer_cascade): unlayered CSS would beat
+   utilities — keep this LAYERED.
+
+   Atom-level overrides win via specificity (class > tag) regardless of
+   load order, but the @layer wrapper makes Tailwind utility overrides
+   (e.g. `border` on a `<input>`) work without `!important`.
+   ═════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  input,
+  textarea,
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: inherit;
+    font: inherit;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  /* Chrome autofill: long-duration transition trick masks the yellow bg;
+     text-fill-color keeps the value rendered in currentColor instead of
+     Chrome's autofill blue/grey. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: currentColor;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  ::placeholder {
+    color: var(--ac-fg-48);
+    opacity: 1;
+  }
+
+  /* UA search-field decorations: cancel × + magnifier slot. */
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Number-input native spinner stripped by default (atoms render their
+     own steppers). Use .show-number-spinners to opt back in. */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

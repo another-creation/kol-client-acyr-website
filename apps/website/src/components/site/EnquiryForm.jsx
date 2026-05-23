@@ -87,7 +87,7 @@ export default function EnquiryForm({
         required
         className="!p-4 [&>textarea]:!p-0"
       />
-      <div><Button type="submit" variant="primary" size="lg">Send</Button></div>
+      <div><Button type="submit" variant="ghost" size="lg">Send</Button></div>
     </form>
   )
 }

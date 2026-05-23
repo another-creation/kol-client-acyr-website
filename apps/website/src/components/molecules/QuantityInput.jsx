@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Icon from '../loaders/icons/Icon'
 
 const SIZE_MAP = {
   sm: { fontSize: 11, paddingY: 12, paddingX: 24, radius: 20, icon: 10 },
@@ -120,20 +121,7 @@ const QuantityInput = ({
             }}
             aria-label="Increase quantity"
           >
-            <svg
-              width={metrics.icon}
-              height={metrics.icon}
-              viewBox="0 0 12 12"
-              fill="none"
-            >
-              <path
-                d="m3 7 3-3 3 3"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icon name="chevron-up" size={metrics.icon} />
           </button>
           <button
             type="button"
@@ -150,20 +138,7 @@ const QuantityInput = ({
             }}
             aria-label="Decrease quantity"
           >
-            <svg
-              width={metrics.icon}
-              height={metrics.icon}
-              viewBox="0 0 12 12"
-              fill="none"
-            >
-              <path
-                d="m3 5 3 3 3-3"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Icon name="chevron-down" size={metrics.icon} />
           </button>
         </div>
       </div>

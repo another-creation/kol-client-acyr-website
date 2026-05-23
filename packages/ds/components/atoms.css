@@ -68,17 +68,14 @@
 }
 
 .ac-control--ghost {
-  /* Subtle resting bg so the input bounds are discoverable without
-   * hovering. Theme-independent darken via fg-absolute-04 (4% black);
-   * on dark theme this reads as a softly sunken input area, on light
-   * theme as a faintly tinted field. Hover/focus then reveals the
-   * border for affordance. */
-  background-color: var(--ac-fg-absolute-04);
-  color: var(--ac-fg-meta);
+  /* Mirrors .ac-btn-ghost: fg-04 rest, fg-08 hover. Theme-aware via fg-NN
+   * tokens. No border reveal — affordance comes from the bg lift. */
+  background-color: var(--ac-fg-04);
+  color: var(--ac-surface-on-primary);
 }
 .ac-control--ghost:hover,
 .ac-control--ghost:focus-within {
-  border-color: var(--ac-fg-12);
+  background-color: var(--ac-fg-08);
   color: var(--ac-surface-on-primary);
 }
 
@@ -129,8 +126,8 @@
  * Button — atoms/Button.jsx
  *
  * Variants:
- *   .ac-btn-primary    subtle bg-fg-04 fill, daily chrome (default)
- *   .ac-btn-secondary  heavy inverted ink, CTA-adjacent (font-weight 500)
+ *   .ac-btn-primary    always-dark button (grey-900 fill, grey-100 text)
+ *   .ac-btn-secondary  always-light button (grey-100 fill, grey-900 text)
  *   .ac-btn-accent     brand-yellow filled CTA (font-weight 500)
  *   .ac-btn-outline    bordered, transparent bg
  *
@@ -161,13 +158,14 @@
 }
 
 .ac-btn-primary {
-  background: var(--ac-surface-secondary);
-  color: var(--ac-surface-on-primary);
+  background: var(--grey-900);
+  color: var(--grey-100);
   border: 1px solid transparent;
+  font-weight: 500;
 }
 .ac-btn-primary:not(.ac-btn-animate):hover {
-  background-color: var(--ac-fg-08);
-  color: var(--ac-surface-on-primary);
+  background-color: var(--grey-500);
+  color: var(--grey-100);
 }
 
 .ac-btn-secondary {
@@ -177,7 +175,7 @@
   font-weight: 500;
 }
 .ac-btn-secondary:not(.ac-btn-animate):hover {
-  background-color: var(--grey-250);
+  background-color: var(--grey-300);
   color: var(--grey-900);
   border-color: transparent;
 }
@@ -205,8 +203,8 @@
 }
 
 .ac-btn-ghost {
-  background: transparent;
-  color: var(--ac-fg-48);
+  background-color: var(--ac-fg-04);
+  color: var(--ac-surface-on-primary);
   border: 1px solid transparent;
 }
 .ac-btn-ghost:not(.ac-btn-animate):hover {

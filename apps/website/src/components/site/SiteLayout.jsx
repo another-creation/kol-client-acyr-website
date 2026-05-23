@@ -8,6 +8,7 @@ import { CartProvider, useCart } from './CartContext'
 import CartDrawer from './CartDrawer'
 import WebsiteSearch from './WebsiteSearch'
 import SignupOverlay from './SignupOverlay'
+import IntroLoader from './IntroLoader'
 import { BRAND } from '@ac/brand-data/config'
 import { KolLogo } from '@ac/brand-data/logos'
 
@@ -85,10 +86,11 @@ function SiteShell() {
       <div className="flex-1">
         <Outlet />
       </div>
-      {!isCheckout && <Footer />}
+      {!isCheckout && <Footer variant="lead" />}
       {!isCheckout && <CartDrawer />}
       <WebsiteSearch open={searchOpen} setOpen={setSearchOpen} />
       {!isCheckout && <SignupOverlay />}
+      <IntroLoader variant="percentage" />
     </div>
   )
 }

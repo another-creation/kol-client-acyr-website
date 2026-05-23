@@ -15,6 +15,8 @@ const BROWSE = [
 
 const SOCIAL = [
   { label: 'Instagram', href: 'https://www.instagram.com/anothercreation_yr/' },
+  { label: 'TikTok',    href: 'https://www.tiktok.com/@anothercreation_yr' },
+  { label: 'X Twitter', href: 'https://x.com/anothercreation_yr' },
   { label: 'Facebook',  href: 'https://www.facebook.com/anothercreationyr/' },
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/creatoryr/' },
 ]
@@ -22,7 +24,7 @@ const SOCIAL = [
 const MORE = [
   { label: 'Brand',              to: '/brand' },
   { label: 'Press',              to: '/press' },
-  { label: 'Shipping & Returns', to: '/shipping-returns' },
+  { label: 'Shipping',           to: '/shipping-returns' },
   { label: 'Terms',              to: '/terms' },
   { label: 'Privacy',            to: '/privacy' },
 ]
@@ -41,68 +43,89 @@ function FooterLink({ label, to, href }) {
   return <span className="ac-site-footer-link">{label}</span>
 }
 
-export default function Footer() {
+function StudioCol() {
+  return (
+    <div className="ac-site-footer-col">
+      <p className="site-label-footer">Studio</p>
+      <ul className="ac-site-footer-list site-link-footer">
+        <li>{BRAND_INFO.studio.street}</li>
+        <li>{BRAND_INFO.studio.postcode}</li>
+        <li>Mon–Fri 13:00–18:00</li>
+        <li>Sat 13:00–16:00</li>
+        <li><FooterLink label="hello@another-creation.xyz" href="mailto:hello@another-creation.xyz" /></li>
+      </ul>
+    </div>
+  )
+}
+
+function LinkCol({ label, items }) {
+  return (
+    <div className="ac-site-footer-col">
+      <p className="site-label-footer">{label}</p>
+      <ul className="ac-site-footer-list site-link-footer">
+        {items.map((l) => (
+          <li key={l.label}><FooterLink {...l} /></li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+/**
+ * Footer — site-wide bottom chrome.
+ *
+ * Variants:
+ *   default — newsletter strip on top, 5-col grid (wordmark + 4 link cols), bottom legal.
+ *   lead    — wordmark + stacked newsletter as a hero lead block, 4-col grid below, bottom legal.
+ */
+export default function Footer({ variant = 'default' }) {
   const year = new Date().getFullYear()
+
+  const bottom = (
+    <div className="ac-site-footer-bottom">
+      <span className="site-meta-system">© {year} {BRAND_INFO.identity.name}</span>
+      <span className="site-meta-system">{BRAND_INFO.legal.entity} · kt {BRAND_INFO.legal.kt}</span>
+    </div>
+  )
+
+  if (variant === 'lead') {
+    return (
+      <footer className="ac-site-footer bg-surface-tertiary">
+        <div className="ac-site-footer-grid">
+          <div className="ac-site-footer-col ac-site-footer-col--lead">
+            <div className="ac-site-footer-mark" aria-hidden="true">
+              <KolLogo variant="wordmark" />
+            </div>
+            <FooterNewsletter layout="stack" />
+          </div>
+          <StudioCol />
+          <LinkCol label="Browse"  items={BROWSE} />
+          <LinkCol label="Connect" items={SOCIAL} />
+          <LinkCol label="More"    items={MORE} />
+        </div>
+        <Divider className="mx-8" />
+        {bottom}
+      </footer>
+    )
+  }
 
   return (
     <footer className="ac-site-footer bg-surface-tertiary">
       <FooterNewsletter />
       <Divider className="mx-8" />
       <div className="ac-site-footer-grid">
-
         <div className="ac-site-footer-col">
           <div className="ac-site-footer-mark" aria-hidden="true">
             <KolLogo variant="wordmark" />
           </div>
         </div>
-
-        <div className="ac-site-footer-col">
-          <p className="site-label-footer">Studio</p>
-          <ul className="ac-site-footer-list site-link-footer">
-            <li>{BRAND_INFO.studio.street}</li>
-            <li>{BRAND_INFO.studio.postcode}</li>
-            <li>Mon–Fri 13:00–18:00</li>
-            <li>Sat 13:00–16:00</li>
-            <li><FooterLink label={BRAND_INFO.contact.email} href={`mailto:${BRAND_INFO.contact.email}`} /></li>
-            <li>{BRAND_INFO.contact.phone}</li>
-          </ul>
-        </div>
-
-        <div className="ac-site-footer-col">
-          <p className="site-label-footer">Browse</p>
-          <ul className="ac-site-footer-list site-link-footer">
-            {BROWSE.map((l) => (
-              <li key={l.label}><FooterLink {...l} /></li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="ac-site-footer-col">
-          <p className="site-label-footer">Connect</p>
-          <ul className="ac-site-footer-list site-link-footer">
-            {SOCIAL.map((l) => (
-              <li key={l.label}><FooterLink {...l} /></li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="ac-site-footer-col">
-          <p className="site-label-footer">More</p>
-          <ul className="ac-site-footer-list site-link-footer">
-            {MORE.map((l) => (
-              <li key={l.label}><FooterLink {...l} /></li>
-            ))}
-          </ul>
-        </div>
-
+        <StudioCol />
+        <LinkCol label="Browse"  items={BROWSE} />
+        <LinkCol label="Connect" items={SOCIAL} />
+        <LinkCol label="More"    items={MORE} />
       </div>
-
       <Divider className="mx-8" />
-
-      <div className="ac-site-footer-bottom">
-        <span className="site-meta-system">© {year} {BRAND_INFO.identity.name}</span>
-        <span className="site-meta-system">{BRAND_INFO.legal.entity} · kt {BRAND_INFO.legal.kt}</span>
-      </div>
+      {bottom}
     </footer>
   )
 }

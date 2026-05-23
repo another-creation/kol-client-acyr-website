@@ -149,7 +149,7 @@ const ContentFilters = ({
               style={{
                 height: 28,
                 width: searchOpen ? 200 : 28,
-                background: searchOpen ? 'var(--ac-opacity-hex-04, rgba(255,255,255,0.04))' : 'transparent',
+                background: searchOpen ? 'var(--ac-fg-04)' : 'transparent',
                 transition: 'width 600ms cubic-bezier(0.16, 1, 0.3, 1), background 400ms cubic-bezier(0.16, 1, 0.3, 1)',
                 overflow: 'hidden',
               }}
@@ -177,7 +177,9 @@ const ContentFilters = ({
                   onChange={(e) => setSearchText(e.target.value)}
                   onClick={(e) => e.stopPropagation()}
                   placeholder=""
-                  className="bg-transparent outline-none ac-helper-12 flex-1 text-fg-80 caret-current px-4"
+                  autoComplete="off"
+                  className="bg-transparent appearance-none border-0 outline-none focus:outline-none focus-visible:outline-none ac-helper-12 flex-1 text-fg-80 caret-current px-4"
+                  style={{ outline: 'none', boxShadow: 'none', WebkitTextFillColor: 'currentColor' }}
                   onBlur={() => { if (!searchText) setSearchOpen(false) }}
                   onKeyDown={(e) => { if (e.key === 'Escape') { setSearchOpen(false); setSearchText('') } }}
                 />

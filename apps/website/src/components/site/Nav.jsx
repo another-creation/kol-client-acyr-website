@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Icon from '../loaders/icons/Icon'
+import { gsap, prefersReducedMotion } from '../../lib/gsap'
 
 const linkStyle = {
   color: 'var(--ac-surface-on-primary)',
@@ -95,9 +96,21 @@ export default function Nav({
     </button>
   )
 
+  const navRef = useRef(null)
+  useEffect(() => {
+    if (prefersReducedMotion()) return
+    if (!navRef.current) return
+    const tl = gsap.timeline()
+    tl.from(navRef.current, { y: -24, opacity: 0, duration: 0.6, ease: 'power2.out' })
+    tl.from(navRef.current.querySelectorAll('.ac-site-nav-link, .ac-site-nav-cluster > *'),
+      { opacity: 0, y: -8, duration: 0.5, stagger: 0.05, ease: 'power2.out' }, '-=0.3')
+    return () => tl.kill()
+  }, [])
+
   return (
     <>
       <nav
+        ref={navRef}
         className={`ac-site-nav bg-surface-tertiary${variant === 'center' ? ' is-center' : ''}${hidden ? ' is-hidden' : ''}`}
       >
         {variant === 'center' ? (

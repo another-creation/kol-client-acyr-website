@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
 
-export default function FooterNewsletter() {
+export default function FooterNewsletter({ layout = 'strip' }) {
   const [email, setEmail]   = useState('')
   const [status, setStatus] = useState('idle') // idle | sending | success | error
   const [errMsg, setErrMsg] = useState('')
@@ -32,12 +32,16 @@ export default function FooterNewsletter() {
     }
   }
 
+  const isStack = layout === 'stack'
+
   return (
-    <div className="ac-site-footer-newsletter px-8 py-10">
-      <div className="flex flex-wrap items-center justify-between gap-6">
-        <div className="flex flex-col gap-1.5 max-w-[420px]">
+    <div className={`ac-site-footer-newsletter ${isStack ? 'ac-site-footer-newsletter--stack' : 'px-8 py-10'}`}>
+      <div className={isStack
+        ? 'flex flex-col gap-6 max-w-[360px]'
+        : 'flex flex-wrap items-center justify-between gap-6'}>
+        <div className={`flex flex-col gap-3 ${isStack ? '' : 'max-w-[420px]'}`}>
           <p className="site-eyebrow-section">Newsletter</p>
-          <p className="site-body-footer">
+          <p className="site-body-footer uppercase">
             {status === 'success'
               ? 'Thank you. Please check your inbox to confirm your subscription.'
               : 'Early access to new releases and atelier notes.'}
@@ -47,7 +51,7 @@ export default function FooterNewsletter() {
         {status !== 'success' && (
           <form
             onSubmit={onSubmit}
-            className="ac-site-footer-newsletter-row flex gap-3 flex-1 min-w-[260px] max-w-[440px]"
+            className={`ac-site-footer-newsletter-row flex gap-3 ${isStack ? 'w-full' : 'flex-1 min-w-[260px] max-w-[440px]'}`}
             noValidate
           >
             <Input
@@ -59,7 +63,7 @@ export default function FooterNewsletter() {
               disabled={status === 'sending'}
               aria-invalid={status === 'error' ? 'true' : undefined}
               size="md"
-              variant="outline"
+              variant="ghost"
               className="flex-1"
             />
             <Button

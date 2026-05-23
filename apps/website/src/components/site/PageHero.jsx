@@ -1,9 +1,18 @@
+import { useRef } from 'react'
+import useSplitReveal from '../../hooks/useSplitReveal'
+import useReveal from '../../hooks/useReveal'
+
 /**
  * PageHero — top-of-page opening: eyebrow + title + (optional) subline.
  *
  * Used on every page's main hero (marketing pages, secondary pages, detail
  * pages). Mid-section openers DON'T use this — they have their own
  * .site-eyebrow-section + .site-title-section roles.
+ *
+ * Entry animation (Phase 1 of animation roadmap):
+ *   - eyebrow + subline: fade-up via useReveal, staggered so eyebrow lands
+ *     first and subline last
+ *   - title: per-character reveal via useSplitReveal, starts after eyebrow
  *
  * Props:
  *   eyebrow         — small text above the title (optional)
@@ -32,11 +41,19 @@ export default function PageHero({
   const sublineClass = resolvedSublineKind === 'lede' ? 'site-subline-hero' : 'site-tagline'
   const gap = resolvedSublineKind === 'lede' ? 'gap-4' : 'gap-2'
 
+  const containerRef = useRef(null)
+  const titleRef = useRef(null)
+
+  // Eyebrow lands first (delay 0), subline last (delay = stagger × 1 = 1.1s).
+  useReveal(containerRef, { y: 16, duration: 0.7, delay: 0, stagger: 1.1, ease: 'power2.out' })
+  // Title char-reveal kicks off shortly after eyebrow, finishes before subline.
+  useSplitReveal(titleRef, { delay: 0.25, duration: 0.9, stagger: 0.03, x: 8 })
+
   return (
-    <div className={`flex flex-col ${gap} ${className}`.trim()}>
-      {eyebrow && <p className={eyebrowClass}>{eyebrow}</p>}
-      {title && <h1 className={titleClass}>{title}</h1>}
-      {subline && <p className={sublineClass}>{subline}</p>}
+    <div ref={containerRef} className={`flex flex-col ${gap} ${className}`.trim()}>
+      {eyebrow && <p data-reveal className={eyebrowClass}>{eyebrow}</p>}
+      {title && <h1 ref={titleRef} className={titleClass}>{title}</h1>}
+      {subline && <p data-reveal className={sublineClass}>{subline}</p>}
     </div>
   )
 }

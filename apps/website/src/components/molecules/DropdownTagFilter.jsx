@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import Icon from '../loaders/icons/Icon'
 
 const SIZE_MAP = {
   sm: { fontSize: 11, paddingY: 12, paddingX: 24, radius: 20, icon: 10 },
@@ -136,25 +137,12 @@ const DropdownTagFilter = ({
           data-state={isOpen ? 'open' : 'closed'}
         >
           <span className="opacity-100">{label}</span>
-          <svg
+          <Icon
+            name="chevron-down"
+            size={metrics.icon}
             className="ml-auto transition-transform duration-300"
-            style={{
-              transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-              width: `${metrics.icon}px`,
-              height: `${metrics.icon}px`
-            }}
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="m3 5 3 3 3-3"
-              stroke="currentColor"
-              strokeWidth="1.25"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+            style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+          />
         </button>
       </div>
 

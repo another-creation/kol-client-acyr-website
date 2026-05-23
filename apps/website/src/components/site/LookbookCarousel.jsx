@@ -1,89 +1,69 @@
-import { useCallback, useEffect, useState } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect, useRef } from 'react'
+import { gsap, ScrollTrigger, prefersReducedMotion } from '../../lib/gsap'
 import { ACImages } from '@ac/brand-data/images'
-import CarouselArrow from '../molecules/CarouselArrow'
 
-const SLIDES = [
-  ACImages.hero,
-  ACImages.editorial.left,
-  ACImages.portrait,
-  ACImages.editorial.right,
-  ACImages.handmade,
+/**
+ * LookbookCarousel — scrubbed bento gallery.
+ *
+ * Was an Embla carousel. Replaced with a bento grid (5 images, 4×2 with a
+ * large 2×2 hero cell) where each tile scrubs in on scroll: scale-up from 0.7,
+ * fade in from 0, translateY from a per-cell offset. Each cell has a slightly
+ * different timing so they don't move in lockstep — feels like a deal-in.
+ */
+
+const TILES = [
+  { src: ACImages.hero,           col: 'col-span-2', row: 'row-span-2', from: { y: 80, x: -40 } },
+  { src: ACImages.editorial.left, col: 'col-span-1', row: 'row-span-1', from: { y: -60, x: 40 } },
+  { src: ACImages.portrait,       col: 'col-span-1', row: 'row-span-1', from: { y: -80, x: 80 } },
+  { src: ACImages.editorial.right,col: 'col-span-1', row: 'row-span-1', from: { y: 80, x: 40 } },
+  { src: ACImages.handmade,       col: 'col-span-1', row: 'row-span-1', from: { y: 100, x: 80 } },
 ]
 
 export default function LookbookCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    dragFree: true,
-    duration: 30,
-    containScroll: false,
-  })
-
-  const [canPrev, setCanPrev] = useState(true)
-  const [canNext, setCanNext] = useState(true)
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+  const sectionRef = useRef(null)
+  const tilesRef = useRef([])
 
   useEffect(() => {
-    if (!emblaApi) return
-    const onSelect = () => {
-      setCanPrev(emblaApi.canScrollPrev())
-      setCanNext(emblaApi.canScrollNext())
-    }
-    onSelect()
-    emblaApi.on('select', onSelect)
-    emblaApi.on('reInit', onSelect)
-    return () => {
-      emblaApi.off('select', onSelect)
-      emblaApi.off('reInit', onSelect)
-    }
-  }, [emblaApi])
-
-  useEffect(() => {
-    const onKey = e => {
-      if (e.key === 'ArrowLeft') scrollPrev()
-      else if (e.key === 'ArrowRight') scrollNext()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [scrollPrev, scrollNext])
-
-  const arrowBase = 'absolute top-1/2 -translate-y-1/2 z-[2] opacity-0 group-hover:opacity-100'
+    if (prefersReducedMotion()) return
+    const ctx = gsap.context(() => {
+      tilesRef.current.forEach((tile, i) => {
+        if (!tile) return
+        const from = TILES[i].from
+        gsap.from(tile, {
+          x: from.x,
+          y: from.y,
+          opacity: 0,
+          scale: 0.85,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            end: 'bottom 60%',
+            scrub: 1 + (i * 0.15), // staggered scrub speeds
+          },
+        })
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section className="group relative w-screen ml-[calc(50%-50vw)] overflow-hidden pt-20 pb-10" style={{ height: '80vh' }}>
-      <div ref={emblaRef} className="overflow-hidden h-full cursor-grab active:cursor-grabbing">
-        <div className="flex h-full touch-pan-y">
-          {SLIDES.map((src, i) => (
-            <div
-              key={i}
-              className="relative min-w-0 h-full select-none flex-[0_0_90vw] sm:flex-[0_0_70vw]"
-            >
-              <img
-                src={src}
-                alt=""
-                draggable={false}
-                className="w-full h-full object-cover block pointer-events-none"
-              />
-            </div>
-          ))}
-        </div>
+    <section ref={sectionRef} className="relative w-screen ml-[calc(50%-50vw)] py-20 px-8 bg-surface-primary overflow-hidden">
+      <div className="grid grid-cols-4 grid-rows-2 gap-4 h-[120vh] max-w-[1600px] mx-auto">
+        {TILES.map((tile, i) => (
+          <div
+            key={i}
+            ref={(el) => { tilesRef.current[i] = el }}
+            className={`${tile.col} ${tile.row} relative overflow-hidden bg-surface-secondary`}
+          >
+            <img
+              src={tile.src}
+              alt=""
+              className="w-full h-full object-cover block"
+            />
+          </div>
+        ))}
       </div>
-
-      <CarouselArrow
-        direction="left"
-        onClick={scrollPrev}
-        disabled={!canPrev}
-        className={`${arrowBase} left-6`}
-      />
-      <CarouselArrow
-        direction="right"
-        onClick={scrollNext}
-        disabled={!canNext}
-        className={`${arrowBase} right-6`}
-      />
     </section>
   )
 }

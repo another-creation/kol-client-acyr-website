@@ -1,4 +1,6 @@
+import { useRef } from 'react'
 import Icon from '../loaders/icons/Icon'
+import useReveal from '../../hooks/useReveal'
 
 /**
  * FAQ — collapsible Q/A list using native <details name> for exclusive open.
@@ -11,6 +13,9 @@ import Icon from '../loaders/icons/Icon'
  *     FAQ sections (Handmade).
  */
 export default function FAQ({ kicker, title, items = [], layout = 'split' }) {
+  const itemsRef = useRef(null)
+  useReveal(itemsRef, { y: 16, duration: 0.6, stagger: 0.08, ease: 'power2.out' })
+
   const Header = (kicker || title) ? (
     <div className="flex flex-col gap-4">
       {kicker && <span className="site-eyebrow-section">{kicker}</span>}
@@ -19,18 +24,19 @@ export default function FAQ({ kicker, title, items = [], layout = 'split' }) {
   ) : null
 
   const Items = (
-    <div className="flex flex-col">
+    <div ref={itemsRef} className="flex flex-col">
       {items.map((item, i) => (
         <details
           key={i}
           name="faq"
+          data-reveal
           className="group border-t border-fg-08 first:border-t-0"
         >
           <summary className="flex items-center justify-between gap-4 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden site-title-row">
             <span>{item.q}</span>
             <span
               aria-hidden="true"
-              className="ac-btn ac-btn-primary w-7 h-7 shrink-0 rounded-full! transition-transform duration-200 group-open:rotate-45"
+              className="ac-btn ac-btn-ghost w-7 h-7 shrink-0 rounded-full! transition-transform duration-200 group-open:rotate-45"
             >
               <Icon name="plus" size={12} />
             </span>

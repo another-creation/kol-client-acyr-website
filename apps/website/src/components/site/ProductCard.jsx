@@ -23,7 +23,7 @@ export default function ProductCard({ src, label, name, price, sizes = [], color
           >
             <p className="site-name-card mb-1">{name}</p>
             <p className="site-meta-card mb-4">{price}</p>
-            <Button variant="primary" size="md" className="w-full">
+            <Button variant="ghost" size="md" className="w-full">
               Add to Bag
             </Button>
           </div>

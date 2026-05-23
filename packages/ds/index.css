@@ -28,6 +28,7 @@
 @import "./tokens/brand-color.css";
 @import "./tokens/brand-typography.css";
 @import "./utilities/utilities.css";
+@import "./utilities/forms.css";
 @import "./utilities/typography-helpers.css";
 @import "./components/atoms.css";
 @import "./components/molecules.css";

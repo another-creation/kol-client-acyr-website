@@ -544,8 +544,18 @@
 
 .ac-site-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1.2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1.2fr 1fr 1fr 1fr;
   padding: 64px 32px 48px;
+  gap: 48px;
+}
+
+.ac-site-footer-newsletter--stack {
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.ac-site-footer-col--lead {
+  justify-content: space-between;
   gap: 48px;
 }
 

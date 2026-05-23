@@ -65,7 +65,7 @@ export default function SignupOverlay() {
         type="button"
         onClick={open}
         aria-label="Unlock 15% off"
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 bg-surface-inverse text-auto py-2 px-2 [writing-mode:vertical-rl] rotate-180 site-link-nav text-[16px] hover:bg-grey-800 transition-colors"
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-40 flex items-center gap-2 bg-surface-inverse text-auto py-2 px-2 rounded-l-[2px] [writing-mode:vertical-rl] rotate-180 site-link-nav text-[16px] hover:bg-grey-800 transition-colors"
       >
         <span
           role="button"
