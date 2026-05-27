@@ -60,16 +60,15 @@ export default function Collection() {
         <span className="site-meta-editorial">SS 2026</span>
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[110vh]">
+      <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {featured.map((p, i) => (
-          <div key={p.slug} className="h-full opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <div key={p.slug} className="opacity-70 hover:opacity-100 transition-opacity duration-300">
             <ProductCard
               to={p.kind === 'pod' ? `/shop/${p.slug}` : `/handmade/${p.slug}`}
               src={SET[i] ?? p.image}
               name={p.name}
               price={formatPrice(p.price, p.currency)}
               overlay={false}
-              fill
             />
           </div>
         ))}

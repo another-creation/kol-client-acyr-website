@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { KolLogo } from '@ac/brand-data/logos'
+import { useEffect, useRef, useState } from 'react'
+import { gsap, SplitText, useGSAP, prefersReducedMotion } from '../../lib/gsap'
 
 /**
  * IntroLoader — session-once cold-visit loader.
@@ -18,13 +18,10 @@ import { KolLogo } from '@ac/brand-data/logos'
  */
 
 const SHOWN_KEY = 'kol.ac.intro.shown'
-const COUNT_DURATION_MS = 1400
+const COUNT_DURATION_MS = 1867
 const PANEL_SLIDE_MS = 600    // each panel's slide-up duration
-const PANEL_STAGGER_MS = 220  // delay before the magenta panel follows the black
-const EXIT_DURATION_MS = PANEL_SLIDE_MS + PANEL_STAGGER_MS // total before 'done'
-
-// Bottom-left word flips through these as the % counts up (lands on the last).
-const LOADER_WORDS = ['Loading', 'Another', 'Creation', 'Reykjavik', 'X YR X', 'and', 'Welcome']
+const PANEL_STAGGER_MS = 220  // delay between each panel in the train
+const EXIT_DURATION_MS = PANEL_SLIDE_MS + PANEL_STAGGER_MS * 2 // last panel clears
 
 export default function IntroLoader({ variant = 'percentage', forcePlay = false }) {
   const [phase, setPhase] = useState('checking') // checking | counting | exiting | done
@@ -68,16 +65,27 @@ export default function IntroLoader({ variant = 'percentage', forcePlay = false 
   return <PercentageLoader pct={pct} exiting={phase === 'exiting'} />
 }
 
-/* ─── 375.studio style: centered logo, word-loop + "%", color-slide exit ──── */
-const WORD_FLIP_MS = 160
-
+/* ─── 375.studio style: "Loading" word (bottom-left) + % (bottom-right), color-slide exit ── */
 function PercentageLoader({ pct, exiting }) {
-  const [wordIdx, setWordIdx] = useState(0)
-  useEffect(() => {
-    const id = setInterval(() => setWordIdx((i) => (i + 1) % LOADER_WORDS.length), WORD_FLIP_MS)
-    return () => clearInterval(id)
-  }, [])
-  const word = LOADER_WORDS[wordIdx]
+  const wordRef = useRef(null)
+
+  // Masked per-character rise: each letter sits in an overflow-hidden clip
+  // (SplitText mask:'chars') and slides up from below the baseline, staggered.
+  useGSAP(
+    () => {
+      if (!wordRef.current || prefersReducedMotion()) return
+      const split = SplitText.create(wordRef.current, { type: 'chars', mask: 'chars' })
+      gsap.from(split.chars, {
+        yPercent: 100,
+        duration: 0.7,
+        ease: 'power3.out',
+        stagger: 0.05,
+        delay: 0.15,
+      })
+      return () => split.revert()
+    },
+    { scope: wordRef },
+  )
 
   // Stacked panels both slide up on exit; magenta is staggered so the black
   // loader lifts first to reveal it, then magenta lifts to reveal the page.
@@ -88,31 +96,36 @@ function PercentageLoader({ pct, exiting }) {
 
   return (
     <>
-      {/* magenta wipe — sits behind the black loader, revealed then lifts away */}
+      {/* burgundy-300 — deepest layer, lifts last to reveal the page */}
       <div
-        className="fixed inset-0 z-[101] bg-brand-magenta-200 pointer-events-none will-change-transform"
+        className="fixed inset-0 z-[100] bg-brand-burgundy-300 pointer-events-none will-change-transform"
+        style={slide(PANEL_STAGGER_MS * 2)}
+        aria-hidden="true"
+      />
+
+      {/* cream-500 wipe — revealed when the black loader lifts */}
+      <div
+        className="fixed inset-0 z-[101] bg-cream-500 pointer-events-none will-change-transform"
         style={slide(PANEL_STAGGER_MS)}
         aria-hidden="true"
       />
 
-      {/* black loader: centered logo + word (bottom-left) + % (bottom-right) */}
+      {/* black loader: "Loading" (bottom-left) + % (bottom-right) */}
       <div
         className="fixed inset-0 z-[102] bg-grey-900 text-grey-100 pointer-events-none will-change-transform"
         style={slide(0)}
         aria-hidden="true"
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <KolLogo variant="logomark" className="h-[34vh] w-auto" />
-        </div>
         <span
-          className="absolute left-8 bottom-8 font-narrow font-light leading-none block"
-          style={{ fontSize: '8vw' }}
+          ref={wordRef}
+          className="absolute left-12 bottom-12 font-thin leading-[1.3] block"
+          style={{ fontFamily: "'Right Grotesk Wide'", fontSize: '5vw', transform: 'translateY(0.2em)' }}
         >
-          {word}
+          Loading
         </span>
         <span
-          className="absolute right-8 bottom-8 font-narrow font-light leading-none block"
-          style={{ fontSize: '8vw' }}
+          className="absolute right-12 bottom-12 font-thin leading-none block"
+          style={{ fontFamily: "'Right Grotesk Wide'", fontSize: '5vw', transform: 'translateY(0.2em)' }}
         >
           {pct}%
         </span>

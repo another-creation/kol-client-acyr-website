@@ -58,9 +58,8 @@ export default function ClientHome() {
       <Collection />
 
       <Testimonial
-        kicker={`${BRAND.name} positioning · Kolkrabbi · 2026`}
-        quote="Strong, trustworthy, elegant — yet flexible enough to counter the rigid nature of sovereign institutions."
-        cite="Brand positioning, Kolkrabbi"
+        quote="For its debut collection, head designer Ýr Þrastardóttir drew on Art Deco and romance — and what sets Another Creation apart is that each piece transforms into a new look with add-ons, to mix and match into your own."
+        cite="Reykjavík Fashion Festival"
       />
 
       <DesignerVision />

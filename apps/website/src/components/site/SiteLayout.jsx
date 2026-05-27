@@ -90,7 +90,7 @@ function SiteShell() {
       {!isCheckout && <CartDrawer />}
       <WebsiteSearch open={searchOpen} setOpen={setSearchOpen} />
       {!isCheckout && <SignupOverlay />}
-      <IntroLoader variant="percentage" />
+      <IntroLoader variant="percentage" forcePlay />
     </div>
   )
 }

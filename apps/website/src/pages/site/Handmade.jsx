@@ -35,16 +35,15 @@ export default function Handmade() {
 
       {/* Pieces */}
       <SiteSection width="full" className="px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[110vh]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {products.map((p, i) => (
-            <div key={p.slug} className="h-full opacity-70 hover:opacity-100 transition-opacity duration-300">
+            <div key={p.slug} className="opacity-70 hover:opacity-100 transition-opacity duration-300">
               <ProductCard
                 to={`/handmade/${p.slug}`}
                 src={SET[i % SET.length]}
                 name={p.name}
                 price={formatPrice(p.price, p.currency)}
                 overlay={false}
-                fill
               />
             </div>
           ))}
