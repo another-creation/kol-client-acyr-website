@@ -24,9 +24,7 @@ dist-ssr
 *.sw?
 
 # Agent context & local-only docs (init-scaffold / init-repo)
-LLM_RULES.md
-/docs/
-.claude/
+
 /_tmp/
 # Environment files (paypal, printful, etc — never commit)
 .env
