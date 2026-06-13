@@ -195,13 +195,15 @@ const hm  = (o) => ({ kind: 'handmade', currency: 'EUR', ...o })
 import printfulProducts from './printful-products.json' with { type: 'json' }
 
 const PRINTFUL_OVERRIDES = {
-  'all-over-print-gym-bag': {
-    type:    'bag',
-    excerpt: 'Recycled all-over-print gym bag — one main compartment, front pocket.',
+  'all-over-print-unisex-wide-leg-pants': {
+    type:        'pants',
+    excerpt:     SPEC.pants.blurb,
+    description: SPEC.pants,
   },
-  'snapback-hat': {
-    type:    'hat',
-    excerpt: 'Six-panel snapback with structured front, flat brim, adjustable strap.',
+  'women-s-cropped-windbreaker': {
+    type:        'jacket',
+    excerpt:     SPEC.windbreaker.blurb,
+    description: SPEC.windbreaker,
   },
 }
 

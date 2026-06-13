@@ -1,15 +1,16 @@
 [
   {
     "source": "printful",
-    "printfulProductId": 433912707,
-    "slug": "unisex-t-shirt",
-    "name": "Unisex t-shirt",
-    "price": 13,
-    "priceMax": 20.5,
-    "fromPrice": 13,
+    "printfulProductId": 434752267,
+    "slug": "all-over-print-unisex-wide-leg-pants",
+    "name": "All-over print unisex wide-leg pants",
+    "price": 37,
+    "priceMax": 45,
+    "fromPrice": 37,
     "currency": "EUR",
-    "image": "/brand/shop/pod/unisex-t-shirt/heather-clay/1.png",
+    "image": "/brand/shop/pod/all-over-print-unisex-wide-leg-pants/white/1.png",
     "sizes": [
+      "2XS",
       "XS",
       "S",
       "M",
@@ -18,469 +19,201 @@
       "2XL",
       "3XL",
       "4XL",
-      "5XL"
-    ],
-    "colors": [
-      {
-        "name": "Heather Clay",
-        "slug": "heather-clay",
-        "images": [
-          "/brand/shop/pod/unisex-t-shirt/heather-clay/1.png"
-        ]
-      },
-      {
-        "name": "Black Heather",
-        "slug": "black-heather",
-        "images": [
-          "/brand/shop/pod/unisex-t-shirt/black-heather/1.png"
-        ]
-      },
-      {
-        "name": "Red",
-        "slug": "red",
-        "images": [
-          "/brand/shop/pod/unisex-t-shirt/red/1.png"
-        ]
-      },
-      {
-        "name": "Kelly",
-        "slug": "kelly",
-        "images": [
-          "/brand/shop/pod/unisex-t-shirt/kelly/1.png"
-        ]
-      },
-      {
-        "name": "Light Blue",
-        "slug": "light-blue",
-        "images": [
-          "/brand/shop/pod/unisex-t-shirt/light-blue/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5316146676,
-        "catalogVariantId": 22031,
-        "size": "XS",
-        "color": "Heather Clay",
-        "retailPrice": 15,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_XS"
-      },
-      {
-        "syncVariantId": 5316146677,
-        "catalogVariantId": 22032,
-        "size": "S",
-        "color": "Heather Clay",
-        "retailPrice": 15,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_S"
-      },
-      {
-        "syncVariantId": 5316146678,
-        "catalogVariantId": 22033,
-        "size": "M",
-        "color": "Heather Clay",
-        "retailPrice": 15,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_M"
-      },
-      {
-        "syncVariantId": 5316146679,
-        "catalogVariantId": 22034,
-        "size": "L",
-        "color": "Heather Clay",
-        "retailPrice": 15,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_L"
-      },
-      {
-        "syncVariantId": 5316146680,
-        "catalogVariantId": 22035,
-        "size": "XL",
-        "color": "Heather Clay",
-        "retailPrice": 15,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_XL"
-      },
-      {
-        "syncVariantId": 5316146681,
-        "catalogVariantId": 22036,
-        "size": "2XL",
-        "color": "Heather Clay",
-        "retailPrice": 17,
-        "currency": "EUR",
-        "sku": "6A0BFC47A35F5_2XL"
-      },
-      {
-        "syncVariantId": 5316150411,
-        "catalogVariantId": 9575,
-        "size": "XS",
-        "color": "Black Heather",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-XS"
-      },
-      {
-        "syncVariantId": 5316150412,
-        "catalogVariantId": 8923,
-        "size": "S",
-        "color": "Black Heather",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-S"
-      },
-      {
-        "syncVariantId": 5316150413,
-        "catalogVariantId": 8924,
-        "size": "M",
-        "color": "Black Heather",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-M"
-      },
-      {
-        "syncVariantId": 5316150414,
-        "catalogVariantId": 8925,
-        "size": "L",
-        "color": "Black Heather",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-L"
-      },
-      {
-        "syncVariantId": 5316150416,
-        "catalogVariantId": 8926,
-        "size": "XL",
-        "color": "Black Heather",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-XL"
-      },
-      {
-        "syncVariantId": 5316150417,
-        "catalogVariantId": 8927,
-        "size": "2XL",
-        "color": "Black Heather",
-        "retailPrice": 14.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-2XL"
-      },
-      {
-        "syncVariantId": 5316150419,
-        "catalogVariantId": 8928,
-        "size": "3XL",
-        "color": "Black Heather",
-        "retailPrice": 16.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-3XL"
-      },
-      {
-        "syncVariantId": 5316150420,
-        "catalogVariantId": 8929,
-        "size": "4XL",
-        "color": "Black Heather",
-        "retailPrice": 18.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-4XL"
-      },
-      {
-        "syncVariantId": 5316150421,
-        "catalogVariantId": 12878,
-        "size": "5XL",
-        "color": "Black Heather",
-        "retailPrice": 20.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Black-Heather-5XL"
-      },
-      {
-        "syncVariantId": 5316150422,
-        "catalogVariantId": 9552,
-        "size": "XS",
-        "color": "Red",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-XS"
-      },
-      {
-        "syncVariantId": 5316150423,
-        "catalogVariantId": 4141,
-        "size": "S",
-        "color": "Red",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-S"
-      },
-      {
-        "syncVariantId": 5316150424,
-        "catalogVariantId": 4142,
-        "size": "M",
-        "color": "Red",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-M"
-      },
-      {
-        "syncVariantId": 5316150425,
-        "catalogVariantId": 4143,
-        "size": "L",
-        "color": "Red",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-L"
-      },
-      {
-        "syncVariantId": 5316150426,
-        "catalogVariantId": 4144,
-        "size": "XL",
-        "color": "Red",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-XL"
-      },
-      {
-        "syncVariantId": 5316150427,
-        "catalogVariantId": 4145,
-        "size": "2XL",
-        "color": "Red",
-        "retailPrice": 14.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-2XL"
-      },
-      {
-        "syncVariantId": 5316150428,
-        "catalogVariantId": 5304,
-        "size": "3XL",
-        "color": "Red",
-        "retailPrice": 16.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-3XL"
-      },
-      {
-        "syncVariantId": 5316150429,
-        "catalogVariantId": 5319,
-        "size": "4XL",
-        "color": "Red",
-        "retailPrice": 18.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-4XL"
-      },
-      {
-        "syncVariantId": 5316150430,
-        "catalogVariantId": 12877,
-        "size": "5XL",
-        "color": "Red",
-        "retailPrice": 20.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Red-5XL"
-      },
-      {
-        "syncVariantId": 5316150431,
-        "catalogVariantId": 9541,
-        "size": "XS",
-        "color": "Kelly",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-XS"
-      },
-      {
-        "syncVariantId": 5316150432,
-        "catalogVariantId": 4086,
-        "size": "S",
-        "color": "Kelly",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-S"
-      },
-      {
-        "syncVariantId": 5316150433,
-        "catalogVariantId": 4087,
-        "size": "M",
-        "color": "Kelly",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-M"
-      },
-      {
-        "syncVariantId": 5316150434,
-        "catalogVariantId": 4088,
-        "size": "L",
-        "color": "Kelly",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-L"
-      },
-      {
-        "syncVariantId": 5316150435,
-        "catalogVariantId": 4089,
-        "size": "XL",
-        "color": "Kelly",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-XL"
-      },
-      {
-        "syncVariantId": 5316150436,
-        "catalogVariantId": 4090,
-        "size": "2XL",
-        "color": "Kelly",
-        "retailPrice": 14.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-2XL"
-      },
-      {
-        "syncVariantId": 5316150437,
-        "catalogVariantId": 5300,
-        "size": "3XL",
-        "color": "Kelly",
-        "retailPrice": 16.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-3XL"
-      },
-      {
-        "syncVariantId": 5316150438,
-        "catalogVariantId": 5315,
-        "size": "4XL",
-        "color": "Kelly",
-        "retailPrice": 18.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Kelly-4XL"
-      },
-      {
-        "syncVariantId": 5316150440,
-        "catalogVariantId": 9543,
-        "size": "XS",
-        "color": "Light Blue",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-XS"
-      },
-      {
-        "syncVariantId": 5316150441,
-        "catalogVariantId": 4096,
-        "size": "S",
-        "color": "Light Blue",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-S"
-      },
-      {
-        "syncVariantId": 5316150442,
-        "catalogVariantId": 4097,
-        "size": "M",
-        "color": "Light Blue",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-M"
-      },
-      {
-        "syncVariantId": 5316150443,
-        "catalogVariantId": 4098,
-        "size": "L",
-        "color": "Light Blue",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-L"
-      },
-      {
-        "syncVariantId": 5316150445,
-        "catalogVariantId": 4099,
-        "size": "XL",
-        "color": "Light Blue",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-XL"
-      },
-      {
-        "syncVariantId": 5316150446,
-        "catalogVariantId": 4100,
-        "size": "2XL",
-        "color": "Light Blue",
-        "retailPrice": 14.5,
-        "currency": "EUR",
-        "sku": "6A0BFDB56BCE2_Light-Blue-2XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 432978243,
-    "slug": "snapback-hat",
-    "name": "Snapback Hat",
-    "price": 13,
-    "priceMax": 22.5,
-    "fromPrice": 13,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/snapback-hat/dark-navy/1.png",
-    "sizes": [
-      "One size"
-    ],
-    "colors": [
-      {
-        "name": "Dark Navy",
-        "slug": "dark-navy",
-        "images": [
-          "/brand/shop/pod/snapback-hat/dark-navy/1.png"
-        ]
-      },
-      {
-        "name": "White",
-        "slug": "white",
-        "images": []
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5310604233,
-        "catalogVariantId": 4798,
-        "size": "One size",
-        "color": "Dark Navy",
-        "retailPrice": 13,
-        "currency": "EUR",
-        "sku": "6A077A0CD2930_Dark-Navy"
-      },
-      {
-        "syncVariantId": 5310604234,
-        "catalogVariantId": 22453,
-        "size": "One size",
-        "color": "White",
-        "retailPrice": 22.5,
-        "currency": "EUR",
-        "sku": "6A077A0CD2930_White"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 432793032,
-    "slug": "all-over-print-gym-bag",
-    "name": "All-over print gym bag",
-    "price": 66,
-    "priceMax": null,
-    "fromPrice": null,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/all-over-print-gym-bag/white/1.png",
-    "sizes": [
-      "One size"
+      "5XL",
+      "6XL"
     ],
     "colors": [
       {
         "name": "White",
         "slug": "white",
         "images": [
-          "/brand/shop/pod/all-over-print-gym-bag/white/1.png"
+          "/brand/shop/pod/all-over-print-unisex-wide-leg-pants/white/1.png"
         ]
       }
     ],
     "variants": [
       {
-        "syncVariantId": 5308929318,
-        "catalogVariantId": 15155,
-        "size": "One size",
+        "syncVariantId": 5324296235,
+        "catalogVariantId": 15513,
+        "size": "2XS",
         "color": "White",
-        "retailPrice": 66,
+        "retailPrice": 37,
         "currency": "EUR",
-        "sku": "6A07380A55BFB"
+        "sku": "6A1251D200331_2XS"
+      },
+      {
+        "syncVariantId": 5324296237,
+        "catalogVariantId": 15514,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 37,
+        "currency": "EUR",
+        "sku": "6A1251D200331_XS"
+      },
+      {
+        "syncVariantId": 5324296239,
+        "catalogVariantId": 15515,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 37,
+        "currency": "EUR",
+        "sku": "6A1251D200331_S"
+      },
+      {
+        "syncVariantId": 5324296241,
+        "catalogVariantId": 15516,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 37,
+        "currency": "EUR",
+        "sku": "6A1251D200331_M"
+      },
+      {
+        "syncVariantId": 5324296243,
+        "catalogVariantId": 15517,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 37,
+        "currency": "EUR",
+        "sku": "6A1251D200331_L"
+      },
+      {
+        "syncVariantId": 5324296245,
+        "catalogVariantId": 15518,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 37,
+        "currency": "EUR",
+        "sku": "6A1251D200331_XL"
+      },
+      {
+        "syncVariantId": 5324296246,
+        "catalogVariantId": 15519,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 38.5,
+        "currency": "EUR",
+        "sku": "6A1251D200331_2XL"
+      },
+      {
+        "syncVariantId": 5324296248,
+        "catalogVariantId": 15520,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 40,
+        "currency": "EUR",
+        "sku": "6A1251D200331_3XL"
+      },
+      {
+        "syncVariantId": 5324296250,
+        "catalogVariantId": 15521,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 42,
+        "currency": "EUR",
+        "sku": "6A1251D200331_4XL"
+      },
+      {
+        "syncVariantId": 5324296252,
+        "catalogVariantId": 15522,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 43.5,
+        "currency": "EUR",
+        "sku": "6A1251D200331_5XL"
+      },
+      {
+        "syncVariantId": 5324296253,
+        "catalogVariantId": 15523,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 45,
+        "currency": "EUR",
+        "sku": "6A1251D200331_6XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 432580003,
+    "slug": "women-s-cropped-windbreaker",
+    "name": "Women’s cropped windbreaker",
+    "price": 37.5,
+    "priceMax": 39,
+    "fromPrice": 37.5,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/women-s-cropped-windbreaker/black/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/women-s-cropped-windbreaker/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5307634343,
+        "catalogVariantId": 15794,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 37.5,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_XS"
+      },
+      {
+        "syncVariantId": 5307634344,
+        "catalogVariantId": 15795,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 37.5,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_S"
+      },
+      {
+        "syncVariantId": 5307634345,
+        "catalogVariantId": 15796,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 37.5,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_M"
+      },
+      {
+        "syncVariantId": 5307634347,
+        "catalogVariantId": 15797,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 37.5,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_L"
+      },
+      {
+        "syncVariantId": 5307634350,
+        "catalogVariantId": 15798,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 37.5,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_XL"
+      },
+      {
+        "syncVariantId": 5307634353,
+        "catalogVariantId": 15799,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 39,
+        "currency": "EUR",
+        "sku": "6A060CBDAF7A7_2XL"
       }
     ]
   }
