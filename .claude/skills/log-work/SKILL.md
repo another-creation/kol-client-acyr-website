@@ -17,7 +17,7 @@ Summary from user: $ARGUMENTS
 
 ## Steps
 
-1. Read the current `docs/llm-context/AGENT-CONTEXT.md` to understand prior state.
+1. Read the current `.kol/llm-context/AGENT-CONTEXT.md` to understand prior state.
 
 2. **Ask the user via `AskUserQuestion`:** "Do you also need a session-bridge handoff?" with two options:
    - **Yes — work is mid-arc.** Carries in-flight state to the next session.
@@ -25,7 +25,7 @@ Summary from user: $ARGUMENTS
 
    The session log is always written. The answer only controls whether a handoff is also written.
 
-3. Create a new session log at `docs/llm-context/session-log/!`date +%Y-%m-%d`-$ARGUMENTS.md` (slugify the description). Format:
+3. Create a new session log at `.kol/llm-context/session-log/!`date +%Y-%m-%d`-$ARGUMENTS.md` (slugify the description). Format:
 
 ```
 # Session: [Brief Description]
@@ -55,7 +55,7 @@ Summary from user: $ARGUMENTS
 2. [Follow-up work]
 ```
 
-4. (If user picked **Yes** in step 2) Create a session-bridge handoff at `docs/llm-context/session-bridge/handoff-!`date +%Y-%m-%d-%H%M`-$ARGUMENTS.md`. Both files share the timestamp date, but the handoff includes `HHMM` so the startup protocol's "newer wins" rule can compare timestamps unambiguously. Format:
+4. (If user picked **Yes** in step 2) Create a session-bridge handoff at `.kol/llm-context/session-bridge/handoff-!`date +%Y-%m-%d-%H%M`-$ARGUMENTS.md`. Both files share the timestamp date, but the handoff includes `HHMM` so the startup protocol's "newer wins" rule can compare timestamps unambiguously. Format:
 
 ```
 # Handoff — YYYY-MM-DD HH:MM
@@ -78,12 +78,12 @@ Summary from user: $ARGUMENTS
 - [Observations, half-formed ideas, anything that doesn't earn a place in the long-lived doc but matters now]
 ```
 
-5. Update `docs/llm-context/AGENT-CONTEXT.md` with any changes to long-lived state (status, what works, key files, contracts, etc).
+5. Update `.kol/llm-context/AGENT-CONTEXT.md` with any changes to long-lived state (status, what works, key files, contracts, etc).
 
 6. Say "Session log created at [path]. [Handoff created at [path] | Handoff skipped — work concluded.] AGENT-CONTEXT.md updated."
 
 ## Notes
 
 - The session log is past-tense and archival. The handoff is forward-looking and bridges to the next session.
-- See `docs/llm-context/session-bridge/README.md` for the full protocol covering filename rules, the read-rule for the next session, and lifecycle.
+- See `.kol/llm-context/session-bridge/README.md` for the full protocol covering filename rules, the read-rule for the next session, and lifecycle.
 - The user can manually edit or overwrite the handoff after `/log-work` produces it. Old handoffs accumulate as natural history; never auto-delete.

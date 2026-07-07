@@ -13,10 +13,10 @@ _template:
 
 **WHEN THE USER SAYS "read `LLM_RULES.md`" YOU MUST:**
 
-1. **READ** `/docs/llm-context/ARCHITECTURE.md` — load-bearing decisions and constraints
-2. **READ** `/docs/llm-context/AGENT-CONTEXT.md` — current project state
-3. **READ** the latest session log from `/docs/llm-context/session-log/` (sort by date, most recent first)
-4. **CHECK** `/docs/llm-context/session-bridge/` for `handoff-*.md` files. If the newest handoff has a timestamp newer than the newest session log, **also READ that handoff** — it carries in-flight state the session log doesn't. Otherwise skip. See `/docs/llm-context/session-bridge/README.md` for the full protocol.
+1. **READ** `/.kol/llm-context/ARCHITECTURE.md` — load-bearing decisions and constraints
+2. **READ** `/.kol/llm-context/AGENT-CONTEXT.md` — current project state
+3. **READ** the latest session log from `/.kol/llm-context/session-log/` (sort by date, most recent first)
+4. **CHECK** `/.kol/llm-context/session-bridge/` for `handoff-*.md` files. If the newest handoff has a timestamp newer than the newest session log, **also READ that handoff** — it carries in-flight state the session log doesn't. Otherwise skip. See `/.kol/llm-context/session-bridge/README.md` for the full protocol.
 5. **STOP** and say "Context loaded. What would you like me to work on?"
 6. **WAIT** for the user to specify their task
 
@@ -37,9 +37,9 @@ Welcome to **kol-acyr-website** — Acyr brand site — Printful POD shop on the
 ## Quick Start
 
 1. **Read this file** to understand the project structure
-2. **Read** `/docs/llm-context/ARCHITECTURE.md` for load-bearing decisions
-3. **Read** `/docs/llm-context/AGENT-CONTEXT.md` for current project state
-4. **Check** `/docs/llm-context/session-log/` for the most recent session log
+2. **Read** `/.kol/llm-context/ARCHITECTURE.md` for load-bearing decisions
+3. **Read** `/.kol/llm-context/AGENT-CONTEXT.md` for current project state
+4. **Check** `/.kol/llm-context/session-log/` for the most recent session log
 5. **Follow** the conventions and guidelines below
 
 ## Project Overview
@@ -81,7 +81,7 @@ This project uses **session logs** to maintain context across agents and session
 
 ### Reading Context
 
-**Always read the latest session log** in `/docs/llm-context/session-log/` before starting work. Session logs are named:
+**Always read the latest session log** in `/.kol/llm-context/session-log/` before starting work. Session logs are named:
 - `YYYY-MM-DD-brief-description.md`
 
 Sort by date to find the most recent.
@@ -89,7 +89,7 @@ Sort by date to find the most recent.
 ### Writing Context
 
 When you complete significant work:
-1. Create a new session log in `/docs/llm-context/session-log/`
+1. Create a new session log in `/.kol/llm-context/session-log/`
 2. Use the format: `YYYY-MM-DD-brief-description.md`
 3. Include: session metadata, changes made, current state, next steps
 4. Update `AGENT-CONTEXT.md` if the project's current state changed

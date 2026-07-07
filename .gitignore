@@ -24,6 +24,10 @@ dist-ssr
 *.sw?
 
 # Agent context & local-only docs (init-scaffold / init-repo)
+/.kol/
+# Obsidian vault config is a symlink into ~/.dotfiles (machine-local) + per-vault UI state
+docs/.obsidian
+docs/.obsidian/workspace*.json
 
 /_tmp/
 # Environment files (paypal, printful, etc — never commit)
