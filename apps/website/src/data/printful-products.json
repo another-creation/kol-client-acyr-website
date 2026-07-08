@@ -1,6 +1,660 @@
 [
   {
     "source": "printful",
+    "printfulProductId": 445254961,
+    "slug": "oversized-cotton-sweatshirt",
+    "name": "Oversized cotton sweatshirt",
+    "price": 68.21,
+    "priceMax": 75.66,
+    "fromPrice": 68.21,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/oversized-cotton-sweatshirt/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/oversized-cotton-sweatshirt/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5385155809,
+        "catalogVariantId": 51480,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_2XS"
+      },
+      {
+        "syncVariantId": 5385155810,
+        "catalogVariantId": 51481,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_XS"
+      },
+      {
+        "syncVariantId": 5385155811,
+        "catalogVariantId": 51482,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_S"
+      },
+      {
+        "syncVariantId": 5385155812,
+        "catalogVariantId": 51483,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_M"
+      },
+      {
+        "syncVariantId": 5385155813,
+        "catalogVariantId": 51484,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_L"
+      },
+      {
+        "syncVariantId": 5385155814,
+        "catalogVariantId": 51485,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 68.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_XL"
+      },
+      {
+        "syncVariantId": 5385155815,
+        "catalogVariantId": 51486,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 69.66,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_2XL"
+      },
+      {
+        "syncVariantId": 5385155816,
+        "catalogVariantId": 51487,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 71.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_3XL"
+      },
+      {
+        "syncVariantId": 5385155817,
+        "catalogVariantId": 51488,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 72.66,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_4XL"
+      },
+      {
+        "syncVariantId": 5385155818,
+        "catalogVariantId": 51489,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 74.21,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_5XL"
+      },
+      {
+        "syncVariantId": 5385155819,
+        "catalogVariantId": 51490,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 75.66,
+        "currency": "EUR",
+        "sku": "6A4D97F222DD4_6XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 442160834,
+    "slug": "men-s-shorts-test-1",
+    "name": "Men's Shorts test-1",
+    "price": 169,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/men-s-shorts-test-1/black/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/men-s-shorts-test-1/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5369177143,
+        "catalogVariantId": 46352,
+        "size": "2XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_2XS"
+      },
+      {
+        "syncVariantId": 5369177144,
+        "catalogVariantId": 46354,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_XS"
+      },
+      {
+        "syncVariantId": 5369177145,
+        "catalogVariantId": 46356,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_S"
+      },
+      {
+        "syncVariantId": 5369177146,
+        "catalogVariantId": 46358,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_M"
+      },
+      {
+        "syncVariantId": 5369177147,
+        "catalogVariantId": 46360,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_L"
+      },
+      {
+        "syncVariantId": 5369177148,
+        "catalogVariantId": 46362,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_XL"
+      },
+      {
+        "syncVariantId": 5369177149,
+        "catalogVariantId": 46364,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_2XL"
+      },
+      {
+        "syncVariantId": 5369177150,
+        "catalogVariantId": 46366,
+        "size": "3XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_3XL"
+      },
+      {
+        "syncVariantId": 5369177151,
+        "catalogVariantId": 46368,
+        "size": "4XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_4XL"
+      },
+      {
+        "syncVariantId": 5369177152,
+        "catalogVariantId": 46370,
+        "size": "5XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_5XL"
+      },
+      {
+        "syncVariantId": 5369177153,
+        "catalogVariantId": 46372,
+        "size": "6XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C926B4AB9B_6XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 442160385,
+    "slug": "men-s-shorts-test-2",
+    "name": "Men's Shorts test-2",
+    "price": 169,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/men-s-shorts-test-2/black/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/men-s-shorts-test-2/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5369174294,
+        "catalogVariantId": 46352,
+        "size": "2XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_2XS"
+      },
+      {
+        "syncVariantId": 5369174296,
+        "catalogVariantId": 46354,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_XS"
+      },
+      {
+        "syncVariantId": 5369174298,
+        "catalogVariantId": 46356,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_S"
+      },
+      {
+        "syncVariantId": 5369174299,
+        "catalogVariantId": 46358,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_M"
+      },
+      {
+        "syncVariantId": 5369174301,
+        "catalogVariantId": 46360,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_L"
+      },
+      {
+        "syncVariantId": 5369174302,
+        "catalogVariantId": 46362,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_XL"
+      },
+      {
+        "syncVariantId": 5369174304,
+        "catalogVariantId": 46364,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_2XL"
+      },
+      {
+        "syncVariantId": 5369174305,
+        "catalogVariantId": 46366,
+        "size": "3XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_3XL"
+      },
+      {
+        "syncVariantId": 5369174307,
+        "catalogVariantId": 46368,
+        "size": "4XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_4XL"
+      },
+      {
+        "syncVariantId": 5369174308,
+        "catalogVariantId": 46370,
+        "size": "5XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_5XL"
+      },
+      {
+        "syncVariantId": 5369174310,
+        "catalogVariantId": 46372,
+        "size": "6XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": "6A3C91A4799A8_6XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 442153994,
+    "slug": "women-s-cropped-windbreaker-test-1",
+    "name": "Women’s cropped windbreaker test-1",
+    "price": 107,
+    "priceMax": 112,
+    "fromPrice": 107,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-1/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/women-s-cropped-windbreaker-test-1/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5369148308,
+        "catalogVariantId": 15800,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_XS"
+      },
+      {
+        "syncVariantId": 5369148309,
+        "catalogVariantId": 15801,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_S"
+      },
+      {
+        "syncVariantId": 5369148310,
+        "catalogVariantId": 15802,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_M"
+      },
+      {
+        "syncVariantId": 5369148311,
+        "catalogVariantId": 15803,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_L"
+      },
+      {
+        "syncVariantId": 5369148312,
+        "catalogVariantId": 15804,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_XL"
+      },
+      {
+        "syncVariantId": 5369148313,
+        "catalogVariantId": 15805,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 112,
+        "currency": "EUR",
+        "sku": "6A3C87EC9A1D6_2XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 442153889,
+    "slug": "women-s-cropped-windbreaker-test-2",
+    "name": "Women’s cropped windbreaker test-2",
+    "price": 107,
+    "priceMax": 112,
+    "fromPrice": 107,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-2/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/women-s-cropped-windbreaker-test-2/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5369147981,
+        "catalogVariantId": 15800,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_XS"
+      },
+      {
+        "syncVariantId": 5369147982,
+        "catalogVariantId": 15801,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_S"
+      },
+      {
+        "syncVariantId": 5369147983,
+        "catalogVariantId": 15802,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_M"
+      },
+      {
+        "syncVariantId": 5369147984,
+        "catalogVariantId": 15803,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_L"
+      },
+      {
+        "syncVariantId": 5369147985,
+        "catalogVariantId": 15804,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 107,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_XL"
+      },
+      {
+        "syncVariantId": 5369147986,
+        "catalogVariantId": 15805,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 112,
+        "currency": "EUR",
+        "sku": "6A3C87C3EDA4D_2XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 442153720,
+    "slug": "women-s-cropped-windbreaker-test-3",
+    "name": "Women’s cropped windbreaker test-3",
+    "price": 229,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-3/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/women-s-cropped-windbreaker-test-3/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5369146753,
+        "catalogVariantId": 15800,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_XS"
+      },
+      {
+        "syncVariantId": 5369146754,
+        "catalogVariantId": 15801,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_S"
+      },
+      {
+        "syncVariantId": 5369146755,
+        "catalogVariantId": 15802,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_M"
+      },
+      {
+        "syncVariantId": 5369146756,
+        "catalogVariantId": 15803,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_L"
+      },
+      {
+        "syncVariantId": 5369146757,
+        "catalogVariantId": 15804,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_XL"
+      },
+      {
+        "syncVariantId": 5369146758,
+        "catalogVariantId": 15805,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 229,
+        "currency": "EUR",
+        "sku": "6A3C8786312CB_2XL"
+      }
+    ]
+  },
+  {
+    "source": "printful",
     "printfulProductId": 434752267,
     "slug": "all-over-print-unisex-wide-leg-pants",
     "name": "All-over print unisex wide-leg pants",
@@ -136,13 +790,13 @@
   {
     "source": "printful",
     "printfulProductId": 432580003,
-    "slug": "women-s-cropped-windbreaker",
-    "name": "Women’s cropped windbreaker",
+    "slug": "women-s-cropped-windbreaker-test-4",
+    "name": "Women’s cropped windbreaker test-4",
     "price": 37.5,
     "priceMax": 39,
     "fromPrice": 37.5,
     "currency": "EUR",
-    "image": "/brand/shop/pod/women-s-cropped-windbreaker/black/1.png",
+    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-4/black/1.png",
     "sizes": [
       "XS",
       "S",
@@ -156,7 +810,7 @@
         "name": "Black",
         "slug": "black",
         "images": [
-          "/brand/shop/pod/women-s-cropped-windbreaker/black/1.png"
+          "/brand/shop/pod/women-s-cropped-windbreaker-test-4/black/1.png"
         ]
       }
     ],
