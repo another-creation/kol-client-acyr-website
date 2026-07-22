@@ -26,6 +26,7 @@ pnpm dev-server          # all three in parallel
 pnpm build               # build website (then renames dist/index.html → dist/app.html — see metadata proxy)
 pnpm lint                # eslint the website
 pnpm sync-printful       # regenerate apps/website/src/data/printful-products.json (needs .env.local)
+pnpm publish-media       # web-optimize + upload curated product images (Media ledger → R2), regenerate product-media.json (needs .env.local + rclone/magick)
 pnpm migrate-sanity      # one-off migration of blog/collections into Sanity
 ./scripts/test-meta.sh <route> [target]   # crawler simulation — checks meta tags from the metadata proxy
 ```

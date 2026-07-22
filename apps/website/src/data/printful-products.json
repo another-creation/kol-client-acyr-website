@@ -1,584 +1,14 @@
 [
   {
     "source": "printful",
-    "printfulProductId": 445254961,
-    "slug": "oversized-cotton-sweatshirt",
-    "name": "Oversized cotton sweatshirt",
-    "price": 68.21,
-    "priceMax": 75.66,
-    "fromPrice": 68.21,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/oversized-cotton-sweatshirt/white/1.png",
-    "sizes": [
-      "2XS",
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL"
-    ],
-    "colors": [
-      {
-        "name": "White",
-        "slug": "white",
-        "images": [
-          "/brand/shop/pod/oversized-cotton-sweatshirt/white/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5385155809,
-        "catalogVariantId": 51480,
-        "size": "2XS",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_2XS"
-      },
-      {
-        "syncVariantId": 5385155810,
-        "catalogVariantId": 51481,
-        "size": "XS",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_XS"
-      },
-      {
-        "syncVariantId": 5385155811,
-        "catalogVariantId": 51482,
-        "size": "S",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_S"
-      },
-      {
-        "syncVariantId": 5385155812,
-        "catalogVariantId": 51483,
-        "size": "M",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_M"
-      },
-      {
-        "syncVariantId": 5385155813,
-        "catalogVariantId": 51484,
-        "size": "L",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_L"
-      },
-      {
-        "syncVariantId": 5385155814,
-        "catalogVariantId": 51485,
-        "size": "XL",
-        "color": "White",
-        "retailPrice": 68.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_XL"
-      },
-      {
-        "syncVariantId": 5385155815,
-        "catalogVariantId": 51486,
-        "size": "2XL",
-        "color": "White",
-        "retailPrice": 69.66,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_2XL"
-      },
-      {
-        "syncVariantId": 5385155816,
-        "catalogVariantId": 51487,
-        "size": "3XL",
-        "color": "White",
-        "retailPrice": 71.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_3XL"
-      },
-      {
-        "syncVariantId": 5385155817,
-        "catalogVariantId": 51488,
-        "size": "4XL",
-        "color": "White",
-        "retailPrice": 72.66,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_4XL"
-      },
-      {
-        "syncVariantId": 5385155818,
-        "catalogVariantId": 51489,
-        "size": "5XL",
-        "color": "White",
-        "retailPrice": 74.21,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_5XL"
-      },
-      {
-        "syncVariantId": 5385155819,
-        "catalogVariantId": 51490,
-        "size": "6XL",
-        "color": "White",
-        "retailPrice": 75.66,
-        "currency": "EUR",
-        "sku": "6A4D97F222DD4_6XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 442160834,
-    "slug": "men-s-shorts-test-1",
-    "name": "Men's Shorts test-1",
-    "price": 169,
-    "priceMax": null,
-    "fromPrice": null,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/men-s-shorts-test-1/black/1.png",
-    "sizes": [
-      "2XS",
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL"
-    ],
-    "colors": [
-      {
-        "name": "Black",
-        "slug": "black",
-        "images": [
-          "/brand/shop/pod/men-s-shorts-test-1/black/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5369177143,
-        "catalogVariantId": 46352,
-        "size": "2XS",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_2XS"
-      },
-      {
-        "syncVariantId": 5369177144,
-        "catalogVariantId": 46354,
-        "size": "XS",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_XS"
-      },
-      {
-        "syncVariantId": 5369177145,
-        "catalogVariantId": 46356,
-        "size": "S",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_S"
-      },
-      {
-        "syncVariantId": 5369177146,
-        "catalogVariantId": 46358,
-        "size": "M",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_M"
-      },
-      {
-        "syncVariantId": 5369177147,
-        "catalogVariantId": 46360,
-        "size": "L",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_L"
-      },
-      {
-        "syncVariantId": 5369177148,
-        "catalogVariantId": 46362,
-        "size": "XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_XL"
-      },
-      {
-        "syncVariantId": 5369177149,
-        "catalogVariantId": 46364,
-        "size": "2XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_2XL"
-      },
-      {
-        "syncVariantId": 5369177150,
-        "catalogVariantId": 46366,
-        "size": "3XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_3XL"
-      },
-      {
-        "syncVariantId": 5369177151,
-        "catalogVariantId": 46368,
-        "size": "4XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_4XL"
-      },
-      {
-        "syncVariantId": 5369177152,
-        "catalogVariantId": 46370,
-        "size": "5XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_5XL"
-      },
-      {
-        "syncVariantId": 5369177153,
-        "catalogVariantId": 46372,
-        "size": "6XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C926B4AB9B_6XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 442160385,
-    "slug": "men-s-shorts-test-2",
-    "name": "Men's Shorts test-2",
-    "price": 169,
-    "priceMax": null,
-    "fromPrice": null,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/men-s-shorts-test-2/black/1.png",
-    "sizes": [
-      "2XS",
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL",
-      "5XL",
-      "6XL"
-    ],
-    "colors": [
-      {
-        "name": "Black",
-        "slug": "black",
-        "images": [
-          "/brand/shop/pod/men-s-shorts-test-2/black/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5369174294,
-        "catalogVariantId": 46352,
-        "size": "2XS",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_2XS"
-      },
-      {
-        "syncVariantId": 5369174296,
-        "catalogVariantId": 46354,
-        "size": "XS",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_XS"
-      },
-      {
-        "syncVariantId": 5369174298,
-        "catalogVariantId": 46356,
-        "size": "S",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_S"
-      },
-      {
-        "syncVariantId": 5369174299,
-        "catalogVariantId": 46358,
-        "size": "M",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_M"
-      },
-      {
-        "syncVariantId": 5369174301,
-        "catalogVariantId": 46360,
-        "size": "L",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_L"
-      },
-      {
-        "syncVariantId": 5369174302,
-        "catalogVariantId": 46362,
-        "size": "XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_XL"
-      },
-      {
-        "syncVariantId": 5369174304,
-        "catalogVariantId": 46364,
-        "size": "2XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_2XL"
-      },
-      {
-        "syncVariantId": 5369174305,
-        "catalogVariantId": 46366,
-        "size": "3XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_3XL"
-      },
-      {
-        "syncVariantId": 5369174307,
-        "catalogVariantId": 46368,
-        "size": "4XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_4XL"
-      },
-      {
-        "syncVariantId": 5369174308,
-        "catalogVariantId": 46370,
-        "size": "5XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_5XL"
-      },
-      {
-        "syncVariantId": 5369174310,
-        "catalogVariantId": 46372,
-        "size": "6XL",
-        "color": "Black",
-        "retailPrice": 169,
-        "currency": "EUR",
-        "sku": "6A3C91A4799A8_6XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 442153994,
-    "slug": "women-s-cropped-windbreaker-test-1",
-    "name": "Women’s cropped windbreaker test-1",
-    "price": 107,
-    "priceMax": 112,
-    "fromPrice": 107,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-1/white/1.png",
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ],
-    "colors": [
-      {
-        "name": "White",
-        "slug": "white",
-        "images": [
-          "/brand/shop/pod/women-s-cropped-windbreaker-test-1/white/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5369148308,
-        "catalogVariantId": 15800,
-        "size": "XS",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_XS"
-      },
-      {
-        "syncVariantId": 5369148309,
-        "catalogVariantId": 15801,
-        "size": "S",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_S"
-      },
-      {
-        "syncVariantId": 5369148310,
-        "catalogVariantId": 15802,
-        "size": "M",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_M"
-      },
-      {
-        "syncVariantId": 5369148311,
-        "catalogVariantId": 15803,
-        "size": "L",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_L"
-      },
-      {
-        "syncVariantId": 5369148312,
-        "catalogVariantId": 15804,
-        "size": "XL",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_XL"
-      },
-      {
-        "syncVariantId": 5369148313,
-        "catalogVariantId": 15805,
-        "size": "2XL",
-        "color": "White",
-        "retailPrice": 112,
-        "currency": "EUR",
-        "sku": "6A3C87EC9A1D6_2XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 442153889,
-    "slug": "women-s-cropped-windbreaker-test-2",
-    "name": "Women’s cropped windbreaker test-2",
-    "price": 107,
-    "priceMax": 112,
-    "fromPrice": 107,
-    "currency": "EUR",
-    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-2/white/1.png",
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ],
-    "colors": [
-      {
-        "name": "White",
-        "slug": "white",
-        "images": [
-          "/brand/shop/pod/women-s-cropped-windbreaker-test-2/white/1.png"
-        ]
-      }
-    ],
-    "variants": [
-      {
-        "syncVariantId": 5369147981,
-        "catalogVariantId": 15800,
-        "size": "XS",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_XS"
-      },
-      {
-        "syncVariantId": 5369147982,
-        "catalogVariantId": 15801,
-        "size": "S",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_S"
-      },
-      {
-        "syncVariantId": 5369147983,
-        "catalogVariantId": 15802,
-        "size": "M",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_M"
-      },
-      {
-        "syncVariantId": 5369147984,
-        "catalogVariantId": 15803,
-        "size": "L",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_L"
-      },
-      {
-        "syncVariantId": 5369147985,
-        "catalogVariantId": 15804,
-        "size": "XL",
-        "color": "White",
-        "retailPrice": 107,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_XL"
-      },
-      {
-        "syncVariantId": 5369147986,
-        "catalogVariantId": 15805,
-        "size": "2XL",
-        "color": "White",
-        "retailPrice": 112,
-        "currency": "EUR",
-        "sku": "6A3C87C3EDA4D_2XL"
-      }
-    ]
-  },
-  {
-    "source": "printful",
-    "printfulProductId": 442153720,
-    "slug": "women-s-cropped-windbreaker-test-3",
-    "name": "Women’s cropped windbreaker test-3",
+    "printfulProductId": 445808920,
+    "slug": "women-s-cropped-windbreaker",
+    "name": "Women’s cropped windbreaker",
     "price": 229,
     "priceMax": null,
     "fromPrice": null,
     "currency": "EUR",
-    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-3/white/1.png",
+    "image": null,
     "sizes": [
       "XS",
       "S",
@@ -591,78 +21,160 @@
       {
         "name": "White",
         "slug": "white",
-        "images": [
-          "/brand/shop/pod/women-s-cropped-windbreaker-test-3/white/1.png"
-        ]
+        "images": []
       }
     ],
     "variants": [
       {
-        "syncVariantId": 5369146753,
+        "syncVariantId": 5390326321,
         "catalogVariantId": 15800,
         "size": "XS",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_XS"
+        "sku": null
       },
       {
-        "syncVariantId": 5369146754,
+        "syncVariantId": 5390326323,
         "catalogVariantId": 15801,
         "size": "S",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_S"
+        "sku": null
       },
       {
-        "syncVariantId": 5369146755,
+        "syncVariantId": 5390326324,
         "catalogVariantId": 15802,
         "size": "M",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_M"
+        "sku": null
       },
       {
-        "syncVariantId": 5369146756,
+        "syncVariantId": 5390326325,
         "catalogVariantId": 15803,
         "size": "L",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_L"
+        "sku": null
       },
       {
-        "syncVariantId": 5369146757,
+        "syncVariantId": 5390326327,
         "catalogVariantId": 15804,
         "size": "XL",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5369146758,
+        "syncVariantId": 5390326328,
         "catalogVariantId": 15805,
         "size": "2XL",
         "color": "White",
         "retailPrice": 229,
         "currency": "EUR",
-        "sku": "6A3C8786312CB_2XL"
+        "sku": null
       }
     ]
   },
   {
     "source": "printful",
-    "printfulProductId": 434752267,
-    "slug": "all-over-print-unisex-wide-leg-pants",
-    "name": "All-over print unisex wide-leg pants",
-    "price": 37,
-    "priceMax": 45,
-    "fromPrice": 37,
+    "printfulProductId": 445808914,
+    "slug": "unique-women-s-earth-print-windbreaker",
+    "name": "Unique Women’s Earth print windbreaker",
+    "price": 219,
+    "priceMax": null,
+    "fromPrice": null,
     "currency": "EUR",
-    "image": "/brand/shop/pod/all-over-print-unisex-wide-leg-pants/white/1.png",
+    "image": "/brand/shop/pod/unique-women-s-earth-print-windbreaker/black/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/unique-women-s-earth-print-windbreaker/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390326298,
+        "catalogVariantId": 15794,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326299,
+        "catalogVariantId": 15795,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326300,
+        "catalogVariantId": 15796,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326301,
+        "catalogVariantId": 15797,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326302,
+        "catalogVariantId": 15798,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326303,
+        "catalogVariantId": 15799,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808910,
+    "slug": "unique-women-s-earth-print-wide-leg-pants",
+    "name": "Unique Women’s Earth print wide-leg pants",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/unique-women-s-earth-print-wide-leg-pants/white/1.png",
     "sizes": [
       "2XS",
       "XS",
@@ -681,122 +193,484 @@
         "name": "White",
         "slug": "white",
         "images": [
-          "/brand/shop/pod/all-over-print-unisex-wide-leg-pants/white/1.png"
+          "/brand/shop/pod/unique-women-s-earth-print-wide-leg-pants/white/1.png"
         ]
       }
     ],
     "variants": [
       {
-        "syncVariantId": 5324296235,
+        "syncVariantId": 5390326204,
         "catalogVariantId": 15513,
         "size": "2XS",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_2XS"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296237,
+        "syncVariantId": 5390326208,
         "catalogVariantId": 15514,
         "size": "XS",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_XS"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296239,
+        "syncVariantId": 5390326209,
         "catalogVariantId": 15515,
         "size": "S",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_S"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296241,
+        "syncVariantId": 5390326210,
         "catalogVariantId": 15516,
         "size": "M",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_M"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296243,
+        "syncVariantId": 5390326211,
         "catalogVariantId": 15517,
         "size": "L",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_L"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296245,
+        "syncVariantId": 5390326237,
         "catalogVariantId": 15518,
         "size": "XL",
         "color": "White",
-        "retailPrice": 37,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296246,
+        "syncVariantId": 5390326253,
         "catalogVariantId": 15519,
         "size": "2XL",
         "color": "White",
-        "retailPrice": 38.5,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_2XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296248,
+        "syncVariantId": 5390326254,
         "catalogVariantId": 15520,
         "size": "3XL",
         "color": "White",
-        "retailPrice": 40,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_3XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296250,
+        "syncVariantId": 5390326255,
         "catalogVariantId": 15521,
         "size": "4XL",
         "color": "White",
-        "retailPrice": 42,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_4XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296252,
+        "syncVariantId": 5390326256,
         "catalogVariantId": 15522,
         "size": "5XL",
         "color": "White",
-        "retailPrice": 43.5,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_5XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5324296253,
+        "syncVariantId": 5390326257,
         "catalogVariantId": 15523,
         "size": "6XL",
         "color": "White",
-        "retailPrice": 45,
+        "retailPrice": 159,
         "currency": "EUR",
-        "sku": "6A1251D200331_6XL"
+        "sku": null
       }
     ]
   },
   {
     "source": "printful",
-    "printfulProductId": 432580003,
-    "slug": "women-s-cropped-windbreaker-test-4",
-    "name": "Women’s cropped windbreaker test-4",
-    "price": 37.5,
-    "priceMax": 39,
-    "fromPrice": 37.5,
+    "printfulProductId": 445808899,
+    "slug": "unique-earth-print-swimsuit",
+    "name": "Unique Earth print Swimsuit",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
     "currency": "EUR",
-    "image": "/brand/shop/pod/women-s-cropped-windbreaker-test-4/black/1.png",
+    "image": "/brand/shop/pod/unique-earth-print-swimsuit/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/unique-earth-print-swimsuit/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390326081,
+        "catalogVariantId": 9014,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326082,
+        "catalogVariantId": 9015,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326083,
+        "catalogVariantId": 9016,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326084,
+        "catalogVariantId": 9017,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326085,
+        "catalogVariantId": 9018,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326086,
+        "catalogVariantId": 9019,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326094,
+        "catalogVariantId": 9020,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808893,
+    "slug": "metal-print-wide-leg-pants",
+    "name": "Metal print wide-leg pants",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/metal-print-wide-leg-pants/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/metal-print-wide-leg-pants/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390326052,
+        "catalogVariantId": 15513,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326053,
+        "catalogVariantId": 15514,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326054,
+        "catalogVariantId": 15515,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326055,
+        "catalogVariantId": 15516,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326056,
+        "catalogVariantId": 15517,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326057,
+        "catalogVariantId": 15518,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326058,
+        "catalogVariantId": 15519,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326059,
+        "catalogVariantId": 15520,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326060,
+        "catalogVariantId": 15521,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326061,
+        "catalogVariantId": 15522,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390326062,
+        "catalogVariantId": 15523,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808886,
+    "slug": "men-s-board-shorts",
+    "name": "Men's Board Shorts",
+    "price": 169,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/men-s-board-shorts/black/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/men-s-board-shorts/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325734,
+        "catalogVariantId": 46352,
+        "size": "2XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325738,
+        "catalogVariantId": 46354,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325749,
+        "catalogVariantId": 46356,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325759,
+        "catalogVariantId": 46358,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325760,
+        "catalogVariantId": 46360,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325761,
+        "catalogVariantId": 46362,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325762,
+        "catalogVariantId": 46364,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325763,
+        "catalogVariantId": 46366,
+        "size": "3XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325764,
+        "catalogVariantId": 46368,
+        "size": "4XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325765,
+        "catalogVariantId": 46370,
+        "size": "5XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325766,
+        "catalogVariantId": 46372,
+        "size": "6XL",
+        "color": "Black",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808879,
+    "slug": "earthy-windbreaker",
+    "name": "Earthy windbreaker",
+    "price": 219,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/earthy-windbreaker/black/1.png",
     "sizes": [
       "XS",
       "S",
@@ -810,64 +684,1602 @@
         "name": "Black",
         "slug": "black",
         "images": [
-          "/brand/shop/pod/women-s-cropped-windbreaker-test-4/black/1.png"
+          "/brand/shop/pod/earthy-windbreaker/black/1.png"
         ]
       }
     ],
     "variants": [
       {
-        "syncVariantId": 5307634343,
+        "syncVariantId": 5390325555,
         "catalogVariantId": 15794,
         "size": "XS",
         "color": "Black",
-        "retailPrice": 37.5,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_XS"
+        "sku": null
       },
       {
-        "syncVariantId": 5307634344,
+        "syncVariantId": 5390325557,
         "catalogVariantId": 15795,
         "size": "S",
         "color": "Black",
-        "retailPrice": 37.5,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_S"
+        "sku": null
       },
       {
-        "syncVariantId": 5307634345,
+        "syncVariantId": 5390325570,
         "catalogVariantId": 15796,
         "size": "M",
         "color": "Black",
-        "retailPrice": 37.5,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_M"
+        "sku": null
       },
       {
-        "syncVariantId": 5307634347,
+        "syncVariantId": 5390325578,
         "catalogVariantId": 15797,
         "size": "L",
         "color": "Black",
-        "retailPrice": 37.5,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_L"
+        "sku": null
       },
       {
-        "syncVariantId": 5307634350,
+        "syncVariantId": 5390325579,
         "catalogVariantId": 15798,
         "size": "XL",
         "color": "Black",
-        "retailPrice": 37.5,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_XL"
+        "sku": null
       },
       {
-        "syncVariantId": 5307634353,
+        "syncVariantId": 5390325580,
         "catalogVariantId": 15799,
         "size": "2XL",
         "color": "Black",
-        "retailPrice": 39,
+        "retailPrice": 219,
         "currency": "EUR",
-        "sku": "6A060CBDAF7A7_2XL"
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808875,
+    "slug": "earth-print-wide-leg-pants",
+    "name": "Earth Print wide-leg pants",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/earth-print-wide-leg-pants/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/earth-print-wide-leg-pants/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325422,
+        "catalogVariantId": 15513,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325423,
+        "catalogVariantId": 15514,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325424,
+        "catalogVariantId": 15515,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325425,
+        "catalogVariantId": 15516,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325426,
+        "catalogVariantId": 15517,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325427,
+        "catalogVariantId": 15518,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325428,
+        "catalogVariantId": 15519,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325429,
+        "catalogVariantId": 15520,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325430,
+        "catalogVariantId": 15521,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325431,
+        "catalogVariantId": 15522,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325432,
+        "catalogVariantId": 15523,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808866,
+    "slug": "earth-print-recycled-string-bikini-top",
+    "name": "Earth print recycled string bikini top",
+    "price": 119,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/earth-print-recycled-string-bikini-top/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/earth-print-recycled-string-bikini-top/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325225,
+        "catalogVariantId": 16564,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325226,
+        "catalogVariantId": 16565,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325227,
+        "catalogVariantId": 16566,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325228,
+        "catalogVariantId": 16567,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325229,
+        "catalogVariantId": 16568,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325230,
+        "catalogVariantId": 16569,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325231,
+        "catalogVariantId": 16570,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325249,
+        "catalogVariantId": 16571,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325273,
+        "catalogVariantId": 16572,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325274,
+        "catalogVariantId": 16573,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325275,
+        "catalogVariantId": 16574,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 119,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808863,
+    "slug": "earth-print-recycled-string-bikini-bottom",
+    "name": "Earth print recycled string bikini bottom",
+    "price": 109,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/earth-print-recycled-string-bikini-bottom/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/earth-print-recycled-string-bikini-bottom/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325206,
+        "catalogVariantId": 16575,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325207,
+        "catalogVariantId": 16576,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325208,
+        "catalogVariantId": 16577,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325209,
+        "catalogVariantId": 16578,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325210,
+        "catalogVariantId": 16579,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325211,
+        "catalogVariantId": 16580,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325212,
+        "catalogVariantId": 16581,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325213,
+        "catalogVariantId": 16582,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325214,
+        "catalogVariantId": 16583,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325215,
+        "catalogVariantId": 16584,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325216,
+        "catalogVariantId": 16585,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 109,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808857,
+    "slug": "earth-print-leggings-with-pockets",
+    "name": "Earth print leggings with pockets",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": null,
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": []
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325095,
+        "catalogVariantId": 14147,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325096,
+        "catalogVariantId": 14148,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325137,
+        "catalogVariantId": 14149,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325138,
+        "catalogVariantId": 14150,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325139,
+        "catalogVariantId": 14151,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325140,
+        "catalogVariantId": 14152,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325141,
+        "catalogVariantId": 14153,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325142,
+        "catalogVariantId": 14154,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325143,
+        "catalogVariantId": 14155,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325144,
+        "catalogVariantId": 14156,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325147,
+        "catalogVariantId": 14157,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808852,
+    "slug": "art-deco-printed-high-waist-bikini",
+    "name": "Art Deco printed high-waist bikini",
+    "price": 149,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-high-waist-bikini/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-high-waist-bikini/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390325002,
+        "catalogVariantId": 12028,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325003,
+        "catalogVariantId": 12029,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325004,
+        "catalogVariantId": 12030,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325005,
+        "catalogVariantId": 12031,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325006,
+        "catalogVariantId": 12032,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325007,
+        "catalogVariantId": 12033,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390325008,
+        "catalogVariantId": 12034,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 149,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808711,
+    "slug": "metal-print-windbreaker",
+    "name": "Metal print windbreaker",
+    "price": 219,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/metal-print-windbreaker/black/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/metal-print-windbreaker/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390323725,
+        "catalogVariantId": 15794,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323729,
+        "catalogVariantId": 15795,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323746,
+        "catalogVariantId": 15796,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323761,
+        "catalogVariantId": 15797,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323777,
+        "catalogVariantId": 15798,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323781,
+        "catalogVariantId": 15799,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808625,
+    "slug": "metal-printed-crop-top",
+    "name": "Metal printed crop top",
+    "price": 139,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/metal-printed-crop-top/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/metal-printed-crop-top/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390323099,
+        "catalogVariantId": 16047,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323107,
+        "catalogVariantId": 16048,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323116,
+        "catalogVariantId": 16049,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323123,
+        "catalogVariantId": 16050,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323143,
+        "catalogVariantId": 16051,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323180,
+        "catalogVariantId": 16052,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323218,
+        "catalogVariantId": 16053,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323255,
+        "catalogVariantId": 16054,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323278,
+        "catalogVariantId": 16055,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323300,
+        "catalogVariantId": 16056,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390323339,
+        "catalogVariantId": 16057,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808607,
+    "slug": "another-creation-minimalist-backpack",
+    "name": "Another Creation Minimalist Backpack",
+    "price": 239,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/another-creation-minimalist-backpack/white/1.png",
+    "sizes": [
+      "One size"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/another-creation-minimalist-backpack/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322964,
+        "catalogVariantId": 10876,
+        "size": "One size",
+        "color": "White",
+        "retailPrice": 239,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808552,
+    "slug": "metal-printed-swimsuit",
+    "name": "Metal printed swimsuit",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/metal-printed-swimsuit/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/metal-printed-swimsuit/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322822,
+        "catalogVariantId": 9014,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322827,
+        "catalogVariantId": 9015,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322832,
+        "catalogVariantId": 9016,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322836,
+        "catalogVariantId": 9017,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322842,
+        "catalogVariantId": 9018,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322849,
+        "catalogVariantId": 9019,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322851,
+        "catalogVariantId": 9020,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808505,
+    "slug": "art-deco-printed-yoga-leggings",
+    "name": "Art Deco printed yoga leggings",
+    "price": 139,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-yoga-leggings/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-yoga-leggings/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322738,
+        "catalogVariantId": 8353,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322739,
+        "catalogVariantId": 8354,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322740,
+        "catalogVariantId": 8355,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322741,
+        "catalogVariantId": 8356,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322742,
+        "catalogVariantId": 8357,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808465,
+    "slug": "art-deco-printed-unisex-sweatshirt",
+    "name": "Art Deco printed unisex sweatshirt",
+    "price": 169,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-unisex-sweatshirt/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-unisex-sweatshirt/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322599,
+        "catalogVariantId": 9730,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322610,
+        "catalogVariantId": 9731,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322621,
+        "catalogVariantId": 9732,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322636,
+        "catalogVariantId": 9733,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322644,
+        "catalogVariantId": 9734,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322654,
+        "catalogVariantId": 9735,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322663,
+        "catalogVariantId": 9736,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 169,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808401,
+    "slug": "art-deco-printed-swimsuit",
+    "name": "Art Deco printed swimsuit",
+    "price": 159,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-swimsuit/white/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-swimsuit/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322406,
+        "catalogVariantId": 9014,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322407,
+        "catalogVariantId": 9015,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322408,
+        "catalogVariantId": 9016,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322409,
+        "catalogVariantId": 9017,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322410,
+        "catalogVariantId": 9018,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322411,
+        "catalogVariantId": 9019,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322412,
+        "catalogVariantId": 9020,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 159,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808352,
+    "slug": "art-deco-printed-crop-top",
+    "name": "Art Deco printed crop top",
+    "price": 139,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-crop-top/white/1.png",
+    "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL",
+      "5XL",
+      "6XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "slug": "white",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-crop-top/white/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390322095,
+        "catalogVariantId": 16047,
+        "size": "2XS",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322107,
+        "catalogVariantId": 16048,
+        "size": "XS",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322112,
+        "catalogVariantId": 16049,
+        "size": "S",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322119,
+        "catalogVariantId": 16050,
+        "size": "M",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322123,
+        "catalogVariantId": 16051,
+        "size": "L",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322127,
+        "catalogVariantId": 16052,
+        "size": "XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322131,
+        "catalogVariantId": 16053,
+        "size": "2XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322142,
+        "catalogVariantId": 16054,
+        "size": "3XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322147,
+        "catalogVariantId": 16055,
+        "size": "4XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322154,
+        "catalogVariantId": 16056,
+        "size": "5XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390322163,
+        "catalogVariantId": 16057,
+        "size": "6XL",
+        "color": "White",
+        "retailPrice": 139,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808294,
+    "slug": "art-deco-printed-sports-bra",
+    "name": "Art Deco printed sports bra",
+    "price": 118,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-sports-bra/black/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-sports-bra/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390321797,
+        "catalogVariantId": 10862,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321805,
+        "catalogVariantId": 10860,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321807,
+        "catalogVariantId": 10859,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321808,
+        "catalogVariantId": 10858,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321809,
+        "catalogVariantId": 10861,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321810,
+        "catalogVariantId": 10857,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 118,
+        "currency": "EUR",
+        "sku": null
+      }
+    ]
+  },
+  {
+    "source": "printful",
+    "printfulProductId": 445808260,
+    "slug": "art-deco-printed-windbreaker",
+    "name": "Art Deco printed windbreaker",
+    "price": 219,
+    "priceMax": null,
+    "fromPrice": null,
+    "currency": "EUR",
+    "image": "/brand/shop/pod/art-deco-printed-windbreaker/black/1.png",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "slug": "black",
+        "images": [
+          "/brand/shop/pod/art-deco-printed-windbreaker/black/1.png"
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "syncVariantId": 5390321689,
+        "catalogVariantId": 15794,
+        "size": "XS",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321700,
+        "catalogVariantId": 15795,
+        "size": "S",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321707,
+        "catalogVariantId": 15796,
+        "size": "M",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321714,
+        "catalogVariantId": 15797,
+        "size": "L",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321721,
+        "catalogVariantId": 15798,
+        "size": "XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
+      },
+      {
+        "syncVariantId": 5390321730,
+        "catalogVariantId": 15799,
+        "size": "2XL",
+        "color": "Black",
+        "retailPrice": 219,
+        "currency": "EUR",
+        "sku": null
       }
     ]
   }

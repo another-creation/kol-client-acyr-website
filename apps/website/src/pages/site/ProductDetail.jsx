@@ -8,6 +8,7 @@ import Icon from '../../components/loaders/icons/Icon'
 import { findProduct, formatPrice } from '../../data/shop-data'
 import { useCart } from '../../components/site/CartContext'
 import BackLink from '../../components/site/BackLink'
+import CarouselArrow from '../../components/molecules/CarouselArrow'
 import PageHero from '../../components/site/PageHero'
 import SiteSection from '../../components/site/SiteSection'
 
@@ -162,9 +163,17 @@ export default function ProductDetail() {
   })()
 
   const colorObj       = colors.find((c) => c.name === color)
-  const galleryImages  = (colorObj?.images?.length ? colorObj.images : [product.image]).filter(Boolean)
-  const showThumbs     = galleryImages.length > 1
-  const activeImage    = galleryImages[Math.min(imageIdx, galleryImages.length - 1)] ?? null
+  // CDN gallery (product-media.json) is the source of truth; fall back to
+  // per-color Printful mockups, then the single card image.
+  const galleryImages  = (
+    product.media?.length ? product.media
+    : colorObj?.images?.length ? colorObj.images
+    : [product.image]
+  ).filter(Boolean)
+  const hasGallery     = galleryImages.length > 1
+  const safeIdx        = ((imageIdx % galleryImages.length) + galleryImages.length) % galleryImages.length
+  const activeImage    = galleryImages[safeIdx] ?? null
+  const stepImage      = (d) => setImageIdx((i) => i + d)
 
   return (
     <main className="bg-surface-primary">
@@ -179,29 +188,44 @@ export default function ProductDetail() {
             />
           ) : null}
 
-          {showThumbs && (
-            <div className="absolute left-4 bottom-4 flex flex-col gap-2 max-h-[calc(100%-2rem)] overflow-y-auto">
-              {galleryImages.map((src, i) => {
-                const active = i === imageIdx
-                return (
-                  <button
-                    type="button"
-                    key={src}
-                    onClick={() => setImageIdx(i)}
-                    aria-label="View image"
-                    className="block w-14 h-14 rounded-[4px] overflow-hidden bg-surface-primary"
-                    style={{
-                      border: `1px solid ${active ? 'var(--ac-surface-on-primary)' : 'var(--ac-fg-12)'}`,
-                      padding: 0,
-                      cursor: 'pointer',
-                      transition: 'border-color 150ms ease',
-                    }}
-                  >
-                    <img src={src} alt="" className="w-full h-full object-cover" />
-                  </button>
-                )
-              })}
-            </div>
+          {hasGallery && (
+            <>
+              <CarouselArrow
+                direction="left"
+                onClick={() => stepImage(-1)}
+                className="absolute left-4 top-1/2 -translate-y-1/2"
+              />
+              <CarouselArrow
+                direction="right"
+                onClick={() => stepImage(1)}
+                className="absolute right-4 top-1/2 -translate-y-1/2"
+              />
+              <div className="absolute right-4 bottom-4 site-meta-status bg-surface-primary/70 px-2 py-1 rounded-full">
+                {safeIdx + 1} / {galleryImages.length}
+              </div>
+              <div className="absolute left-4 bottom-4 flex flex-col gap-2 max-h-[calc(100%-2rem)] overflow-y-auto">
+                {galleryImages.map((src, i) => {
+                  const active = i === safeIdx
+                  return (
+                    <button
+                      type="button"
+                      key={src}
+                      onClick={() => setImageIdx(i)}
+                      aria-label="View image"
+                      className="block w-14 h-14 rounded-[4px] overflow-hidden bg-surface-primary"
+                      style={{
+                        border: `1px solid ${active ? 'var(--ac-surface-on-primary)' : 'var(--ac-fg-12)'}`,
+                        padding: 0,
+                        cursor: 'pointer',
+                        transition: 'border-color 150ms ease',
+                      }}
+                    >
+                      <img src={src} alt="" className="w-full h-full object-cover" />
+                    </button>
+                  )
+                })}
+              </div>
+            </>
           )}
         </div>
 

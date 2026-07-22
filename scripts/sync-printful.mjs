@@ -59,7 +59,9 @@ async function downloadImage(url, dest) {
 async function main() {
   await mkdir(IMG_DIR, { recursive: true })
 
-  const list = await pf('/sync/products')
+  // limit=100: /sync/products defaults to a 20-item page. ponytail: single page
+  // covers the catalog; add offset paging if it ever exceeds 100 products.
+  const list = await pf('/sync/products?limit=100')
   console.log(`Printful → ${list.length} sync product(s)`)
 
   const products = []

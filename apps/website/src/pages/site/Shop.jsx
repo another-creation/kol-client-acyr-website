@@ -7,9 +7,6 @@ import CatalogHero from '../../components/site/CatalogHero'
 import SiteSection from '../../components/site/SiteSection'
 import Newsletter from '../../components/site/Newsletter'
 
-// Curated set imagery — Shop uses set-09..20 (Handmade uses 01..08, no overlap).
-const SET = Array.from({ length: 12 }, (_, i) => `/brand/shop/set/set-${String(i + 9).padStart(2, '0')}.jpg`)
-
 export default function Shop() {
   usePageTitle(`${BRAND.name} — Shop`)
   const products = podProducts()
@@ -25,11 +22,11 @@ export default function Shop() {
 
       <SiteSection width="full" className="px-8 pb-32">
         <ul className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-          {products.map((p, i) => (
+          {products.map((p) => (
             <li key={p.slug}>
               <ProductCard
                 to={`/shop/${p.slug}`}
-                src={SET[i % SET.length]}
+                src={p.image}
                 label={p.name}
                 name={p.name}
                 price={formatPrice(p.price, p.currency)}
