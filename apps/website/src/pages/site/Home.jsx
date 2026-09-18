@@ -1,14 +1,10 @@
 import usePageTitle from '../../components/hooks/usePageTitle'
 import { BRAND } from '@ac/brand-data/config'
-import Marquee from '../../components/site/Marquee'
 import Testimonial from '../../components/site/Testimonial'
 import FAQ from '../../components/site/FAQ'
-import { CLIENTS } from '../../data/clients'
 import Collection from '../../components/site/Collection'
-import LookbookCarousel from '../../components/site/LookbookCarousel'
+import CollectionCarousel from '../../components/site/CollectionCarousel'
 import DesignerVision from '../../components/site/DesignerVision'
-import SupportCTA from '../../components/site/SupportCTA'
-import HandmadeCard from '../../components/site/HandmadeCard'
 import Newsletter from '../../components/site/Newsletter'
 import PageHero from '../../components/site/PageHero'
 
@@ -26,49 +22,39 @@ export default function ClientHome() {
   return (
     <main>
       <section
-        className="relative w-full min-h-[70vh] sm:min-h-screen flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: 'url(/brand/photoshoot/33a4402.jpg)' }}
+        className="relative w-full min-h-[70vh] sm:min-h-[calc(100svh-var(--ac-topnav-h))] flex items-center justify-center bg-cover bg-top"
+        style={{ backgroundImage: 'url(/brand/shop/set/set-01.jpg)' }}
       >
         <div className="home-hero text-center px-8 items-center">
           <PageHero
-            eyebrow="Another Creation"
             title="TIMELESS QUALITY DESIGN"
             variant="marketing"
-            eyebrowVariant="display"
-            className="items-center gap-6"
+            /* 1.6× .site-title-hero's clamp(56px, 9vw, 128px). Scoped here, not on
+               the role — 5 other pages share it. ! because the role is unlayered. */
+            className="items-center gap-6 [&_h1]:text-[clamp(90px,14.4vw,205px)]!"
           />
         </div>
       </section>
 
-      <Marquee
-        items={CLIENTS.map((c) => ({
-          name: c.name,
-          logo: (
-            <c.Logo
-              height={64}
-              aria-label={c.name}
-              className="opacity-[0.48] hover:opacity-100 transition-opacity duration-700"
-            />
-          ),
-        }))}
+      {/* image-only panel — no copy, no actions */}
+      <section
+        className="w-full h-screen md:h-[300vh] bg-cover bg-center"
+        style={{ backgroundImage: 'url(/brand/shop/set/set-02.jpg)' }}
+        aria-hidden="true"
       />
-
-      <LookbookCarousel />
 
       <Collection />
 
-      <Testimonial
-        quote="For its debut collection, head designer Ýr Þrastardóttir drew on Art Deco and romance — and what sets Another Creation apart is that each piece transforms into a new look with add-ons, to mix and match into your own."
-        cite="Reykjavík Fashion Festival"
-      />
-
       <DesignerVision />
 
-      <SupportCTA />
-
-      <HandmadeCard />
+      <Testimonial
+        quote="Every piece begins with a single question: what does a woman truly need? Not trend, not noise — but a garment that becomes part of her story. Crafted by hand from the finest materials, each design is made to age beautifully and last a lifetime."
+        cite="Ýr Þrastardóttir"
+      />
 
       <Newsletter />
+
+      <CollectionCarousel />
 
       <FAQ
         kicker="Frequently asked"

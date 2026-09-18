@@ -127,7 +127,7 @@ export default function CollectionDetail() {
           <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {looks.map((look) => (
               <li key={look.number} className="flex flex-col">
-                <div className="aspect-[3/4] rounded overflow-hidden bg-surface-secondary mb-3">
+                <div className="aspect-[3/4] rounded overflow-hidden bg-surface-secondary">
                   {look.image && (
                     <img
                       src={urlFor(look.image).width(800).height(1066).url()}
@@ -136,16 +136,6 @@ export default function CollectionDetail() {
                     />
                   )}
                 </div>
-                <p className="site-meta-editorial" style={{ marginBottom: '4px' }}>
-                  Look {String(look.number).padStart(2, '0')}
-                  {look.family && <> · {look.family}</>}
-                </p>
-                {(look.name || look.fabric) && (
-                  <div className="ac-prose">
-                    {look.name && <p style={{ margin: '0 0 4px' }}><strong>{look.name}</strong></p>}
-                    {look.fabric && <p style={{ margin: 0, fontSize: '14px', lineHeight: '20px' }}>{look.fabric}</p>}
-                  </div>
-                )}
               </li>
             ))}
           </ul>

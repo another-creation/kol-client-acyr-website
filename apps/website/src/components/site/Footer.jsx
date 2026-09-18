@@ -6,9 +6,7 @@ import FooterNewsletter from './FooterNewsletter'
 
 const BROWSE = [
   { label: 'Shop',         to: '/shop' },
-  { label: 'Handmade',     to: '/handmade' },
   { label: 'Collections',  to: '/collections' },
-  { label: 'Journal',      to: '/journal' },
   { label: 'About',        to: '/about' },
   { label: 'Contact',      to: '/contact' },
 ]

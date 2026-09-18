@@ -1,13 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import CmdKSearch from './CmdKSearch'
 import { PRODUCTS } from '../../data/shop-data'
-import { sortedArticles, sortedCollections } from '../../lib/queries'
+import { sortedCollections } from '../../lib/queries'
 
 const STATIC_ROUTES = [
   { to: '/shop',             label: 'Shop',               section: 'Pages' },
-  { to: '/handmade',         label: 'Handmade',           section: 'Pages' },
   { to: '/collections',      label: 'Collections',        section: 'Pages' },
-  { to: '/journal',          label: 'Journal',            section: 'Pages' },
   { to: '/about',            label: 'About',              section: 'Pages' },
   { to: '/contact',          label: 'Contact',            section: 'Pages' },
   { to: '/brand',            label: 'Brand',              section: 'Pages' },
@@ -17,10 +15,11 @@ const STATIC_ROUTES = [
   { to: '/privacy',          label: 'Privacy',            section: 'Pages' },
 ]
 
-const PRODUCT_ENTRIES = PRODUCTS.map((p) => ({
-  to:       p.kind === 'pod' ? `/shop/${p.slug}` : `/handmade/${p.slug}`,
+// Handmade is disabled — only POD products have a live route to link to.
+const PRODUCT_ENTRIES = PRODUCTS.filter((p) => p.kind === 'pod').map((p) => ({
+  to:       `/shop/${p.slug}`,
   label:    p.name,
-  section:  p.kind === 'pod' ? 'Shop' : 'Handmade',
+  section:  'Shop',
   haystack: [p.name, p.excerpt, p.print, p.type].filter(Boolean).join(' ').toLowerCase(),
 }))
 
@@ -29,15 +28,10 @@ export default function WebsiteSearch({ open, setOpen }) {
 
   useEffect(() => {
     if (!open || cms !== null) return
-    Promise.all([sortedArticles(), sortedCollections()])
-      .then(([articles, collections]) => {
+    // Journal is disabled — articles are no longer indexed.
+    sortedCollections()
+      .then((collections) => {
         setCms([
-          ...articles.map((a) => ({
-            to:       `/journal/${a.slug}`,
-            label:    a.title,
-            section:  'Journal',
-            haystack: [a.title, a.excerpt, a.tag, a.author?.name].filter(Boolean).join(' ').toLowerCase(),
-          })),
           ...collections.map((c) => ({
             to:       `/collections/${c.slug}`,
             label:    c.title,
@@ -59,7 +53,7 @@ export default function WebsiteSearch({ open, setOpen }) {
       open={open}
       setOpen={setOpen}
       entries={entries}
-      placeholder="Search products, journal, collections…"
+      placeholder="Search products, collections…"
     />
   )
 }

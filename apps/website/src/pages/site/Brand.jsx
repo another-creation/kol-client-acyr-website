@@ -4,6 +4,14 @@ import { BRAND } from '@ac/brand-data/config'
 import { BRAND_INFO } from '@ac/brand-data/info'
 import SecondaryPageShell from '../../components/site/SecondaryPageShell'
 import Table from '../../components/organisms/Table'
+import Icon from '../../components/loaders/icons/Icon'
+
+/* ?url (not ?react) — we want the emitted file's URL to hand to <a download>,
+ * not the SVG inlined as a component the way KolLogo consumes them. */
+import logomarkUrl   from '@ac/brand-data/logos/svg/logomark.svg?url'
+import wordmarkUrl   from '@ac/brand-data/logos/svg/wordmark.svg?url'
+import lockupHoriUrl from '@ac/brand-data/logos/svg/lockup-hori.svg?url'
+import lockupVertUrl from '@ac/brand-data/logos/svg/lockup-vert.svg?url'
 
 const SWATCHES = [
   { name: 'Burgundy 200', hex: '#750E20', role: 'Brand primary' },
@@ -13,10 +21,10 @@ const SWATCHES = [
 ]
 
 const LOGOS = [
-  { variant: 'logomark',    height: 44 },
-  { variant: 'wordmark',    height: 24 },
-  { variant: 'lockup-hori', height: 28 },
-  { variant: 'lockup-vert', height: 52 },
+  { variant: 'logomark',    height: 44, url: logomarkUrl },
+  { variant: 'wordmark',    height: 24, url: wordmarkUrl },
+  { variant: 'lockup-hori', height: 28, url: lockupHoriUrl },
+  { variant: 'lockup-vert', height: 52, url: lockupVertUrl },
 ]
 
 export default function Brand() {
@@ -35,9 +43,34 @@ export default function Brand() {
       <div className="not-prose my-8">
         <Table
           columns={[
-            { accessor: 'preview', header: 'Preview', style: { minWidth: 220 }, render: (row) => <KolLogo variant={row.variant} height={row.height} /> },
+            {
+              accessor: 'preview',
+              header: 'Preview',
+              style: { minWidth: 220 },
+              /* text-emphasis on a child element — the marks are currentColor SVGs and
+               * .ac-table-cell-text dims the <td> to --ac-fg-64. */
+              render: (row) => (
+                <span className="text-emphasis inline-flex">
+                  <KolLogo variant={row.variant} height={row.height} />
+                </span>
+              ),
+            },
             { accessor: 'name', header: 'Name', render: (row) => row.variant.replace(/-/g, ' / ') },
             { accessor: 'path', header: 'Path', className: 'ac-table-cell-meta', render: (row) => <code>svg/{row.variant}.svg</code> },
+            {
+              accessor: 'download',
+              header: 'SVG',
+              render: (row) => (
+                <a
+                  href={row.url}
+                  download={`${row.variant}.svg`}
+                  aria-label={`Download ${row.variant.replace(/-/g, ' ')} SVG`}
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-[4px] text-emphasis hover:bg-fg-08 transition-colors"
+                >
+                  <Icon name="download" size={16} />
+                </a>
+              ),
+            },
           ]}
           rows={LOGOS.map((l) => ({ id: l.variant, ...l }))}
         />

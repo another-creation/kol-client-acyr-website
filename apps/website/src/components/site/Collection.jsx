@@ -1,76 +1,44 @@
-import { useRef } from 'react'
-import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion } from '../../lib/gsap'
-import ProductCard from './ProductCard'
-import { PRODUCTS, formatPrice } from '../../data/shop-data'
+import { Link, useNavigate } from 'react-router-dom'
+import Button from '../atoms/Button'
 
 /**
- * Collection — featured products in a 2×4 grid, revealed on scroll-into-view.
+ * Collection — full-bleed door to the shop.
  *
- * An explicit, ordered pick of real products (3 handmade + 5 POD); imagery is
- * each product's CDN hero.
+ * Mirror of DesignerVision: same grid, same type roles, same height, sides
+ * flipped (image right / text left on desktop; image on top on mobile). The
+ * pair reads as a diptych as you scroll.
+ *
+ * Not a product grid — one card, one route to /shop.
  */
 
-const FEATURED_SLUGS = [
-  'modular-leather-jacket',
-  'vigdis-coat',
-  'nepal-cashmere-coat',
-  'art-deco-printed-high-waist-bikini',
-  'earth-print-leggings-with-pockets',
-  'metal-printed-crop-top',
-  'metal-print-windbreaker',
-  'art-deco-printed-yoga-leggings',
-]
+const COVER = '/brand/shop/set/set-08.jpg'
 
 export default function Collection() {
-  const sectionRef = useRef(null)
-  const gridRef = useRef(null)
-  const featured = FEATURED_SLUGS.map((s) => PRODUCTS.find((p) => p.slug === s)).filter(Boolean)
-
-  useGSAP(() => {
-    if (prefersReducedMotion()) return
-    const cards = gridRef.current?.children
-    if (!cards || cards.length === 0) return
-
-    // Timed reveal (NOT scrub) — cards rise in over a fixed duration when the
-    // section enters view. Opacity is NOT animated here (CSS owns it: cards
-    // rest at 70%, hover 100%) — animating it would leave an inline opacity
-    // that overrides the hover.
-    gsap.set(cards, { y: 40, scale: 0.96 })
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top 75%',
-      once: true,
-      onEnter: () => {
-        gsap.to(cards, {
-          y: 0,
-          scale: 1,
-          duration: 0.9,
-          stagger: 0.1,
-          ease: 'power2.out',
-        })
-      },
-    })
-  }, { scope: sectionRef })
-
+  const navigate = useNavigate()
   return (
-    <section ref={sectionRef} className="bg-surface-primary px-8 py-12">
-      <div className="flex items-baseline justify-between mb-10">
-        <h2 className="site-meta-editorial text-emphasis">Collection</h2>
-        <span className="site-meta-editorial">SS 2026</span>
+    <section className="bg-surface-primary grid grid-cols-1 md:grid-cols-10 md:h-screen">
+      <div className="bg-surface-secondary overflow-hidden relative h-[55vh] md:h-full md:col-start-5 md:col-span-6">
+        <Link to="/shop" aria-label="Shop the collection" className="block w-full h-full">
+          <img
+            src={COVER}
+            alt=""
+            className="w-full h-full object-cover block"
+          />
+        </Link>
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {featured.map((p) => (
-          <div key={p.slug} className="opacity-70 hover:opacity-100 transition-opacity duration-300">
-            <ProductCard
-              to={p.kind === 'pod' ? `/shop/${p.slug}` : `/handmade/${p.slug}`}
-              src={p.image}
-              name={p.name}
-              price={formatPrice(p.price, p.currency)}
-              overlay={false}
-            />
-          </div>
-        ))}
+      <div className="flex flex-col justify-center px-16 py-20 gap-6 md:col-start-2 md:col-span-2 md:row-start-1 md:px-0">
+        <p className="site-eyebrow-section">Collection</p>
+        <h2 className="site-title-section uppercase" style={{ marginBottom: 16 }}>SS 2026</h2>
+        {/* placeholder copy — awaiting Ýr's pass */}
+        <p className="site-subline-hero">
+          Print pieces from the current season, produced per order and shipped
+          worldwide. The same prints that run through the atelier work, cut for
+          everyday wear.
+        </p>
+        <div className="mt-2">
+          <Button size="lg" variant="secondary" onClick={() => navigate('/shop')}>Shop Collection</Button>
+        </div>
       </div>
     </section>
   )

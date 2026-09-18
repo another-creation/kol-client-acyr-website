@@ -277,6 +277,8 @@
   --ac-font-family-sans:         'Right Grotesk', sans-serif;
   --ac-font-family-sans-narrow:  'Right Grotesk Narrow', 'Right Grotesk', sans-serif;
   --ac-font-family-sans-compact: 'Right Grotesk Compact', 'Right Grotesk', sans-serif;
+  /* Tight ships Medium (500) + Dark only — no Light/Regular face is loaded. */
+  --ac-font-family-sans-tight:   'Right Grotesk Tight', 'Right Grotesk', sans-serif;
 
   /* Type size tokens — numbered scale, 01 = largest, ascending = smaller.
    * Mobile-first; @media overrides below scale display + heading-01 up on

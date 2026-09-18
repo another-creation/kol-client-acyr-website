@@ -68,7 +68,6 @@ export default function CartDrawer() {
             <p className="site-meta-system">Your bag is empty.</p>
             <div className="flex gap-4 site-meta-system">
               <Link to="/shop" onClick={closeCart} className="text-emphasis underline underline-offset-4 hover:no-underline">Shop</Link>
-              <Link to="/handmade" onClick={closeCart} className="text-emphasis underline underline-offset-4 hover:no-underline">Handmade</Link>
             </div>
           </div>
         }

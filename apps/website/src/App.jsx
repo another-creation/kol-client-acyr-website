@@ -4,13 +4,9 @@ import NotFound from './pages/NotFound'
 
 import SiteLayout from './components/site/SiteLayout'
 import Home from './pages/site/Home'
-import Journal from './pages/site/Journal'
-import JournalArticle from './pages/site/JournalArticle'
-import JournalAuthor from './pages/site/JournalAuthor'
 import Collections from './pages/site/Collections'
 import CollectionDetail from './pages/site/CollectionDetail'
 import Shop from './pages/site/Shop'
-import Handmade from './pages/site/Handmade'
 import ProductDetail from './pages/site/ProductDetail'
 import Contact from './pages/site/Contact'
 import About from './pages/site/About'
@@ -31,15 +27,10 @@ export default function App() {
           <Route path="/"                       element={<Home />} />
           <Route path="/about"                  element={<About />} />
           <Route path="/contact"                element={<Contact />} />
-          <Route path="/journal"                element={<Journal />} />
-          <Route path="/journal/author/:slug"   element={<JournalAuthor />} />
-          <Route path="/journal/:slug"          element={<JournalArticle />} />
           <Route path="/collections"            element={<Collections />} />
           <Route path="/collections/:slug"      element={<CollectionDetail />} />
           <Route path="/shop"                   element={<Shop />} />
           <Route path="/shop/:slug"             element={<ProductDetail />} />
-          <Route path="/handmade"               element={<Handmade />} />
-          <Route path="/handmade/:slug"         element={<ProductDetail />} />
           <Route path="/privacy"                element={<Privacy />} />
           <Route path="/terms"                  element={<Terms />} />
           <Route path="/brand"                  element={<Brand />} />

@@ -194,7 +194,7 @@ export default function ProductDetail() {
     <main className="bg-surface-primary">
       <section className="grid lg:grid-cols-[3fr_2fr] items-start min-h-[calc(100dvh-var(--ac-topnav-h,0px))]">
         {/* IMAGE */}
-        <div className="bg-surface-secondary mt-16 lg:mt-0 aspect-square lg:aspect-auto lg:h-[calc(100dvh-var(--ac-topnav-h,0px))] lg:sticky lg:top-[var(--ac-topnav-h,0px)] overflow-hidden relative">
+        <div className="bg-surface-secondary aspect-square lg:aspect-auto lg:h-[calc(100dvh-var(--ac-topnav-h,0px))] lg:sticky lg:top-[var(--ac-topnav-h,0px)] overflow-hidden relative">
           {activeImage ? (
             <img
               src={activeImage}

@@ -68,7 +68,7 @@ export default function Newsletter() {
             aria-invalid={status === 'error' ? 'true' : undefined}
             size="lg"
             variant="filled"
-            className="flex-1"
+            className="flex-1 border-[var(--ac-fg-12)]!"
           />
           <Button
             type="submit"

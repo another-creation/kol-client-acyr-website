@@ -11,6 +11,14 @@
    scrollbar appears. */
 :root { scrollbar-gutter: stable; }
 
+/* Real height of the fixed site header. The DS declares --ac-topnav-h: 0px as
+   its default (the styleguide has a sidenav, no topnav), so the website has to
+   state its own — otherwise every calc(100dvh - var(--ac-topnav-h)) subtracts
+   nothing and content lays out underneath the fixed bar. Single source of
+   truth: .ac-site-nav's height, the drawer's top padding, and ProductDetail's
+   offsets all read this. */
+:root { --ac-topnav-h: 64px; }
+
 /* Suppress UA focus ring on mouse-focus globally. Keyboard :focus-visible gets
    a barely-there 1px fg-16 stroke — present for the rare keyboard user, but
    visually quiet enough not to disrupt the editorial register. */
@@ -463,19 +471,20 @@
   right: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: auto 1fr;
+  /* logo | actions | hamburger — one layout at every width. */
+  grid-template-columns: 1fr auto auto;
+  column-gap: 20px;
   align-items: center;
   padding: 0 32px;
-  height: 64px;
+  height: var(--ac-topnav-h);
   transform: translateY(0);
   transition: transform 250ms ease;
 }
 
-.ac-site-nav.is-center { grid-template-columns: 1fr auto 1fr; }
 .ac-site-nav.is-hidden { transform: translateY(-100%); }
 
 .ac-site-nav-hamburger {
-  display: none;
+  display: inline-flex;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -512,7 +521,7 @@
   border-left: 1px solid var(--ac-fg-08);
   transform: translateX(100%);
   transition: transform 220ms ease;
-  display: none;
+  display: block;
 }
 .ac-site-nav-drawer.is-open { transform: translateX(0); }
 
@@ -520,16 +529,14 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 64px 28px 28px;
+  /* Clear the fixed nav, then breathe — matches the 28px horizontal rhythm. */
+  padding: calc(var(--ac-topnav-h) + 28px) 28px 28px;
   height: 100%;
   overflow-y: auto;
 }
 
 @media (max-width: 767px) {
-  .ac-site-nav { grid-template-columns: 1fr auto !important; padding: 0 16px; }
-  .ac-site-nav .ac-site-nav-cluster { display: none; }
-  .ac-site-nav-hamburger { display: inline-flex; }
-  .ac-site-nav-drawer { display: block; }
+  .ac-site-nav { padding: 0 16px; }
 }
 
 /* ═════════════════════════════════════════════════════════════════

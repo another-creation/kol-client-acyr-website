@@ -5,18 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Pre-paint theme — reads persisted choice before external CSS evaluates,
-         so no dark→light flip on reload if user previously chose light. -->
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('ac-theme');
-          if (t === 'light' || t === 'dark') {
-            document.documentElement.dataset.theme = t;
-          }
-        } catch (e) { /* storage blocked */ }
-      })();
-    </script>
+    <!-- Light mode is disabled — the site is dark-only, so data-theme is hardcoded
+         on <html> above and no persisted preference is read. Section-scoped
+         data-theme="light" (e.g. the Newsletter card) still works. -->
 
     <!-- Anti-flash: paint surface bg + on-primary text immediately, before the
          Tailwind/DS bundle resolves. Values match tokens/color.css. Body is

@@ -26,13 +26,17 @@ function NavLink({ label, to, onClick }) {
   )
 }
 
+/* Single layout at every breakpoint: logo left, actions + hamburger right.
+ * leftLinks/rightLinks no longer render in the bar — they populate the drawer,
+ * which is now the only navigation surface. */
 export default function Nav({
-  variant = 'center',
   leftLinks = [],
   logo = null,
   logoTo = '/',
   rightLinks = [],
   rightActions = null,
+  /* Optional drawer-specific actions; falls back to rightActions when unset. */
+  drawerActions = null,
   onNavigate,
 }) {
   const [hidden, setHidden] = useState(false)
@@ -60,14 +64,6 @@ export default function Nav({
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const leftCluster = (
-    <div className="ac-site-nav-cluster flex items-center gap-6">
-      {leftLinks.map(l => (
-        <NavLink key={l.label} label={l.label} to={l.to} onClick={() => onNavigate?.(l.label.toLowerCase())} />
-      ))}
-    </div>
-  )
 
   const logoNode = logo && (
     <Link to={logoTo} style={{ ...linkStyle, userSelect: 'none', display: 'inline-flex', alignItems: 'center' }}>
@@ -110,22 +106,11 @@ export default function Nav({
     <>
       <nav
         ref={navRef}
-        className={`ac-site-nav bg-surface-tertiary${variant === 'center' ? ' is-center' : ''}${hidden ? ' is-hidden' : ''}`}
+        className={`ac-site-nav bg-surface-tertiary${hidden ? ' is-hidden' : ''}`}
       >
-        {variant === 'center' ? (
-          <>
-            {leftCluster}
-            {logoNode}
-            {rightCluster}
-            {hamburger}
-          </>
-        ) : (
-          <>
-            {logoNode}
-            {rightCluster}
-            {hamburger}
-          </>
-        )}
+        {logoNode}
+        {rightCluster}
+        {hamburger}
       </nav>
 
       <div
@@ -142,9 +127,9 @@ export default function Nav({
           {rightLinks.map(l => (
             <NavLink key={l.label} label={l.label} to={l.to} onClick={() => setMobileOpen(false)} />
           ))}
-          {rightActions && (
+          {(drawerActions ?? rightActions) && (
             <div className="ac-site-nav-drawer-actions" style={{ display: 'flex', gap: '20px', marginTop: '16px' }}>
-              {rightActions}
+              {drawerActions ?? rightActions}
             </div>
           )}
         </div>

@@ -24,7 +24,7 @@
  * imagemagick (magick) on PATH.
  */
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, statSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, statSync, rmSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { resolve, join } from 'node:path'
@@ -85,7 +85,10 @@ function publishFolder(dir, bucketPrefix) {
 
   // Stage a clean copy so img-web-batch's ./web_optimized/ lands in temp, not
   // the ledger. Stage dir is unique per bucketPrefix (POD ids vs handmade slugs).
+  // Wipe it first so a re-curated image can never reuse a prior run's optimized
+  // output (which would upload a stale image under the same key).
   const stage = join(STAGE_ROOT, bucketPrefix.replace(/\//g, '__'))
+  rmSync(stage, { recursive: true, force: true })
   mkdirSync(stage, { recursive: true })
   // img-web-batch handles jpg/jpeg/png/tiff/heic; pre-convert anything else
   // (e.g. webp) to png in staging so its basename still maps to <slug>.jpg.
